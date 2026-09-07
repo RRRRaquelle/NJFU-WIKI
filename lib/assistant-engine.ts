@@ -1,4 +1,7 @@
 import knowledgeData from '@/app/data/knowledge.json';
+import { missingRequiredFields, updateProfile, type StudentProfile } from '@/lib/profile-parser';
+
+export type { StudentProfile } from '@/lib/profile-parser';
 
 export type Corpus = 'policy' | 'resources';
 
@@ -15,15 +18,6 @@ export type KnowledgeChunk = {
 };
 
 export type SearchHit = KnowledgeChunk & { score: number };
-
-export type StudentProfile = {
-  grade?: string;
-  goal?: string;
-  foundation?: string;
-  weeklyHours?: number;
-  team?: string;
-  algorithmWeak?: boolean;
-};
 
 export type ActionStep = {
   label: string;
@@ -126,50 +120,6 @@ export function searchKnowledge(query: string, corpus: Corpus, limit = 5): Searc
     .slice(0, limit);
 }
 
-function inferFoundation(text: string, current?: string) {
-  const routes: Array<[RegExp, string]> = [
-    [/网络|计网|packet\s*tracer|组网|思科/i, '计算机网络'],
-    [/安全|ctf|iscc|渗透|密码/i, '信息安全'],
-    [/算法|蓝桥|acm|icpc|ccpc|数据结构/i, '算法与程序设计'],
-    [/数学|建模|统计|数据分析/i, '数学建模'],
-    [/人工智能|\bai\b|深度学习|机器学习/i, '人工智能'],
-    [/网站|app|前端|后端|软件|小程序/i, '软件与产品开发'],
-  ];
-  return routes.find(([pattern]) => pattern.test(text))?.[1] ?? current;
-}
-
-export function updateProfile(current: StudentProfile, text: string): StudentProfile {
-  const gradeMatch = text.match(/大([一二三四1-4])/);
-  const gradeMap: Record<string, string> = {
-    '一': '大一', '1': '大一', '二': '大二', '2': '大二', '三': '大三', '3': '大三', '四': '大四', '4': '大四',
-  };
-  const hours = text.match(/(\d{1,2})\s*(?:小时|h|hours?)/i);
-  const teamMatch = text.match(/(?:有|和|组了)?\s*([一二三四五两\d]+)\s*(?:个|名)?(?:队友|同学|人组队)/);
-  const teamMap: Record<string, string> = { '一': '1', '二': '2', '两': '2', '三': '3', '四': '4', '五': '5' };
-
-  let goal = current.goal;
-  if (/保研|推免/.test(text)) goal = '保研 / 推免竞争力';
-  else if (/综测|素质拓展|加分/.test(text)) goal = '提高综测';
-  else if (/就业|实习|求职/.test(text)) goal = '就业与实习';
-  else if (/学会|能力|入门|提升/.test(text)) goal = '能力提升';
-
-  return {
-    ...current,
-    grade: gradeMatch ? gradeMap[gradeMatch[1]] : current.grade,
-    goal,
-    foundation: inferFoundation(text, current.foundation),
-    weeklyHours: hours ? Number(hours[1]) : current.weeklyHours,
-    team: teamMatch
-      ? `${teamMap[teamMatch[1]] ?? teamMatch[1]}名可协作同学`
-      : /没有队友|一个人|单人/.test(text)
-        ? '暂时单人'
-        : current.team,
-    algorithmWeak: /算法.{0,6}(弱|不好|一般|不行)|不擅长.{0,4}算法/.test(text)
-      ? true
-      : current.algorithmWeak,
-  };
-}
-
 function preferredResourcesForNetwork(): SearchHit[] {
   const preferences = [
     '《网络工程与组网实习》-题目和要求',
@@ -208,16 +158,18 @@ export function answerUser(input: string, currentProfile: StudentProfile): Assis
 
   if (isDirectLookup) return lookupReply(input, profile);
 
-  const missing: string[] = [];
-  if (!profile.grade) missing.push('年级');
-  if (!profile.goal) missing.push('目标');
-  if (!profile.foundation) missing.push('最有基础的课程或项目');
-  if (!profile.weeklyHours) missing.push('每周可投入时间');
+  const missing = missingRequiredFields(profile);
 
   if (missing.length > 0) {
     return {
       kind: 'clarify',
-      text: `我先不急着报比赛名单。为了避免只按“分值高”乱推，还需要你补充：${missing.join('、')}。有没有队友也可以一起说。`,
+      text: `我已记下：${[
+        profile.grade,
+        profile.goal,
+        profile.foundation,
+        profile.weeklyHoursLabel,
+        profile.team,
+      ].filter(Boolean).join('、') || '暂无可确认信息'}。为了避免只按“分值高”乱推，还需要你补充：${missing.join('、')}。`,
       quickReplies: [
         '我大二，想保研；计网有基础，做过 Packet Tracer；算法一般；有两个同学，每周能投入 8 小时。',
       ],
@@ -242,9 +194,10 @@ export function answerUser(input: string, currentProfile: StudentProfile): Assis
     ].filter((hit, index, items): hit is SearchHit => Boolean(hit) && items.findIndex((item) => item?.id === hit.id) === index).slice(0, 4);
     const resourceHits = preferredResourcesForNetwork();
     const hours = profile.weeklyHours ?? 8;
+    const timeLabel = profile.weeklyHoursLabel ?? `每周约 ${hours} 小时`;
     return {
       kind: 'recommendation',
-      text: `结合你的${profile.grade}、${profile.foundation}基础、每周 ${hours} 小时和${profile.team ?? '组队情况'}，首选应该是 C4 中的网络技术挑战方向。这个选择不是因为它“理论分值最高”，而是你能把现有课程基础快速变成可提交的网络方案、仿真环境、测试结果和技术报告。`,
+      text: `结合你的${profile.grade}、${profile.foundation}基础、${timeLabel}和${profile.team ?? '组队情况'}，首选应该是 C4 中的网络技术挑战方向。这个选择不是因为它“理论分值最高”，而是你能把现有课程基础快速变成可提交的网络方案、仿真环境、测试结果和技术报告。`,
       profile,
       recommendation: {
         title: '首选：C4 · 网络技术挑战',
@@ -276,7 +229,7 @@ export function answerUser(input: string, currentProfile: StudentProfile): Assis
       title: `建议先验证：${title}`,
       fit: '先用现有基础做一个最小作品，比只根据奖项分值选赛更容易获得可提交的成果。',
       tradeoff: '当届赛项、奖项等级和学院认定规则必须再向官方或辅导员核验。',
-      preparation: `先用 2 周、每周 ${profile.weeklyHours} 小时完成一次低成本验证。`,
+      preparation: `先用 2 周，按“${profile.weeklyHoursLabel ?? `每周约 ${profile.weeklyHours} 小时`}”完成一次低成本验证。`,
       skills: [profile.foundation ?? '专业基础', '项目分工', '技术文档', '展示与复盘'],
       steps: [
         { label: '今天', title: '阅读赛事条目', detail: '确认适合对象、交付物和时间投入。' },

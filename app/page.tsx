@@ -393,7 +393,7 @@ export default function Home() {
             <ProfileItem label="年级" value={profile.grade} icon={Flag} />
             <ProfileItem label="主要目标" value={profile.goal} icon={Target} />
             <ProfileItem label="现有基础" value={profile.foundation} icon={BookOpenText} />
-            <ProfileItem label="时间预算" value={profile.weeklyHours ? `每周 ${profile.weeklyHours} 小时` : undefined} icon={Route} />
+            <ProfileItem label="时间预算" value={profile.weeklyHoursLabel} icon={Route} />
             <ProfileItem label="组队情况" value={profile.team} icon={Users} />
           </div>
           <div className="corpus-summary">

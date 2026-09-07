@@ -10,6 +10,7 @@
     "build": "vinext build",
     "start": "wrangler dev --config dist/server/wrangler.json",
     "build:knowledge": "node scripts/build-knowledge-index.mjs",
+    "eval:badcases": "node --experimental-strip-types scripts/run-badcase-evals.mjs",
     "lint": "oxlint app lib scripts",
     "format": "oxfmt"
   },
