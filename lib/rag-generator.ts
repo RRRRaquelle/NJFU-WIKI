@@ -33,6 +33,86 @@ function endpointFor(apiBaseUrl: string) {
   return normalized.endsWith('/chat/completions') ? normalized : `${normalized}/chat/completions`;
 }
 
+function isGeminiEndpoint(apiBaseUrl: string) {
+  return apiBaseUrl.includes('generativelanguage.googleapis.com');
+}
+
+async function responseError(response: Response) {
+  let detail = '';
+  try {
+    const payload = await response.json() as { error?: { message?: string } };
+    detail = payload.error?.message?.trim().slice(0, 300) ?? '';
+  } catch {
+    // Some providers return an empty or non-JSON error body.
+  }
+  return new Error(`大模型接口返回 ${response.status}${detail ? `：${detail}` : ''}`);
+}
+
+async function requestGeneratedText(
+  config: LlmConfig,
+  systemPrompt: string,
+  userPayload: unknown,
+  signal: AbortSignal,
+) {
+  if (isGeminiEndpoint(config.apiBaseUrl)) {
+    const nativeBase = config.apiBaseUrl.replace(/\/+$/, '').replace(/\/openai$/, '');
+    const response = await fetch(`${nativeBase}/models/${encodeURIComponent(config.model)}:generateContent`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'x-goog-api-key': config.apiKey,
+      },
+      body: JSON.stringify({
+        systemInstruction: { parts: [{ text: systemPrompt }] },
+        contents: [{ role: 'user', parts: [{ text: JSON.stringify(userPayload) }] }],
+        generationConfig: {
+          maxOutputTokens: 1600,
+          responseMimeType: 'application/json',
+        },
+      }),
+      signal,
+    });
+
+    if (!response.ok) throw await responseError(response);
+    const payload = await response.json() as {
+      candidates?: Array<{ content?: { parts?: Array<{ text?: string }> } }>;
+    };
+    const raw = payload.candidates?.[0]?.content?.parts
+      ?.map((part) => part.text ?? '')
+      .join('')
+      .trim();
+    if (!raw) throw new Error('Gemini 没有返回可用文本');
+    return raw;
+  }
+
+  const response = await fetch(endpointFor(config.apiBaseUrl), {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+      authorization: `Bearer ${config.apiKey}`,
+    },
+    body: JSON.stringify({
+      model: config.model,
+      temperature: 0.15,
+      max_tokens: 1600,
+      stream: false,
+      messages: [
+        { role: 'system', content: systemPrompt },
+        { role: 'user', content: JSON.stringify(userPayload) },
+      ],
+    }),
+    signal,
+  });
+
+  if (!response.ok) throw await responseError(response);
+  const payload = await response.json() as {
+    choices?: Array<{ message?: { content?: string } }>;
+  };
+  const raw = payload.choices?.[0]?.message?.content;
+  if (!raw) throw new Error('大模型接口没有返回内容');
+  return raw;
+}
+
 function evidence(hits: SearchHit[], prefix: 'P' | 'R') {
   return hits.map((hit, index) => ({
     ref: `${prefix}${index + 1}`,
@@ -131,31 +211,7 @@ JSON 格式：
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 45_000);
   try {
-    const response = await fetch(endpointFor(config.apiBaseUrl), {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-        authorization: `Bearer ${config.apiKey}`,
-      },
-      body: JSON.stringify({
-        model: config.model,
-        temperature: 0.15,
-        max_tokens: 1600,
-        stream: false,
-        messages: [
-          { role: 'system', content: systemPrompt },
-          { role: 'user', content: JSON.stringify(userPayload) },
-        ],
-      }),
-      signal: controller.signal,
-    });
-
-    if (!response.ok) throw new Error(`大模型接口返回 ${response.status}`);
-    const payload = await response.json() as {
-      choices?: Array<{ message?: { content?: string } }>;
-    };
-    const raw = payload.choices?.[0]?.message?.content;
-    if (!raw) throw new Error('大模型接口没有返回内容');
+    const raw = await requestGeneratedText(config, systemPrompt, userPayload, controller.signal);
     return mergeGenerated(base, extractJson(raw), config.model);
   } finally {
     clearTimeout(timer);

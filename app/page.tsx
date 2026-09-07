@@ -253,6 +253,9 @@ export default function Home() {
   const stateRef = useRef({ profile, latestReply, messageCount: messages.length });
 
   const completion = useMemo(() => profileCompletion(profile), [profile]);
+  const generationFailed = latestReply?.generation?.mode === 'baseline'
+    && Boolean(latestReply.generation.note)
+    && latestReply.generation.note !== '尚未配置大模型接口';
 
   useEffect(() => {
     conversationEnd.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -382,7 +385,9 @@ export default function Home() {
         <div className="mode-pill" title={latestReply?.generation?.note}>
           <span className="live-dot" />
           {latestReply?.generation?.mode === 'rag' ? '双库 RAG 生成' : '双库规则基线'}
-          <b>{latestReply?.generation?.mode === 'rag' ? latestReply.generation.model : '模型待配置'}</b>
+          <b>{latestReply?.generation?.mode === 'rag'
+            ? latestReply.generation.model
+            : generationFailed ? '模型调用失败' : '模型待配置'}</b>
         </div>
         <Button variant="ghost" size="sm" onClick={reset} className="reset-button">
           <RotateCcw size={15} /> 重置对话

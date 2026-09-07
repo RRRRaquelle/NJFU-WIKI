@@ -30,6 +30,7 @@ export async function POST(request: Request) {
     return Response.json({ reply });
   } catch (error) {
     const note = error instanceof Error ? error.message : '大模型生成失败';
+    console.warn('RAG generation fallback', { note });
     return Response.json({
       reply: {
         ...baseline,
