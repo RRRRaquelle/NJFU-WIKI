@@ -5,7 +5,10 @@ import { fileURLToPath } from 'node:url';
 import { missingRequiredFields, updateProfile } from '../lib/profile-parser.ts';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const suite = JSON.parse(await readFile(path.join(projectRoot, 'evals', 'badcases.json'), 'utf8'));
+const cases = (await readFile(path.join(projectRoot, 'evals', 'badcases.jsonl'), 'utf8'))
+  .split(/\r?\n/)
+  .filter(Boolean)
+  .map((line) => JSON.parse(line));
 
 function sameValue(actual, expected) {
   return JSON.stringify(actual) === JSON.stringify(expected);
@@ -13,19 +16,21 @@ function sameValue(actual, expected) {
 
 const failures = [];
 
-for (const testCase of suite.cases) {
+const regressionCases = cases.filter((testCase) => testCase.status === 'fixed' && testCase.expected_profile);
+
+for (const testCase of regressionCases) {
   let profile = {};
   for (const turn of testCase.conversation) profile = updateProfile(profile, turn);
 
-  for (const [field, expected] of Object.entries(testCase.expectedProfile)) {
+  for (const [field, expected] of Object.entries(testCase.expected_profile)) {
     if (!sameValue(profile[field], expected)) {
-      failures.push(`${testCase.id}: ${field} expected ${JSON.stringify(expected)}, got ${JSON.stringify(profile[field])}`);
+      failures.push(`${testCase.case_id}: ${field} expected ${JSON.stringify(expected)}, got ${JSON.stringify(profile[field])}`);
     }
   }
 
   const missing = missingRequiredFields(profile);
-  if (!sameValue(missing, testCase.expectedMissingRequiredFields)) {
-    failures.push(`${testCase.id}: missing fields expected ${JSON.stringify(testCase.expectedMissingRequiredFields)}, got ${JSON.stringify(missing)}`);
+  if (!sameValue(missing, testCase.expected_missing_required_fields)) {
+    failures.push(`${testCase.case_id}: missing fields expected ${JSON.stringify(testCase.expected_missing_required_fields)}, got ${JSON.stringify(missing)}`);
   }
 }
 
@@ -34,5 +39,5 @@ if (failures.length) {
   failures.forEach((failure) => console.error(`- ${failure}`));
   process.exitCode = 1;
 } else {
-  console.log(`Bad-case evaluation passed: ${suite.cases.length} cases.`);
+  console.log(`Bad-case evaluation passed: ${regressionCases.length} fixed cases; ${cases.length - regressionCases.length} open cases tracked.`);
 }

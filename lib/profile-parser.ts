@@ -43,7 +43,7 @@ type ParsedTime = {
 };
 
 function parseTimeBudget(text: string): ParsedTime | undefined {
-  const numberPattern = '[零〇一二两三四五六七八九十\\d]+';
+  const numberPattern = '(?:\\d+(?:\\.\\d+)?|[零〇一二两三四五六七八九十]+)';
   const rangePattern = new RegExp(
     `(${numberPattern})\\s*(?:到|至|[-~～—])\\s*(${numberPattern})\\s*(?:个)?\\s*(?:小时|h(?:ours?)?)`,
     'i',
@@ -90,6 +90,9 @@ function inferFoundation(text: string, current?: string) {
     [/算法|蓝桥|acm|icpc|ccpc|数据结构/i, '算法与程序设计'],
     [/数学|建模|统计|数据分析/i, '数学建模'],
     [/人工智能|\bai\b|深度学习|机器学习|图像分类|计算机视觉|目标检测|神经网络|pytorch|tensorflow/i, '人工智能 / 计算机视觉'],
+    [/数据库|\bsql\b|mysql|数据管理/i, '数据库与数据管理'],
+    [/操作系统|底层开发|内核|编译原理|系统能力/i, '系统与底层开发'],
+    [/嵌入式|物联网|单片机|传感器/i, '嵌入式与物联网'],
     [/网站|app|前端|后端|软件|小程序/i, '软件与产品开发'],
   ];
   return routes.find(([pattern]) => pattern.test(text))?.[1] ?? current;
@@ -97,7 +100,7 @@ function inferFoundation(text: string, current?: string) {
 
 function parseTeam(text: string, current?: string) {
   if (/没有队友|一个人|单人|独自/.test(text)) return '暂时单人';
-  const teamMatch = text.match(/([零〇一二两三四五六七八九十\d]+)\s*(?:个|名)?(?:[\u3400-\u9fff]{0,8})?(?:同学|队友|伙伴)/);
+  const teamMatch = text.match(/([零〇一二两三四五六七八九十\d]+)\s*(?:个|名|位)?(?:[\u3400-\u9fff]{0,8})?(?:同学|队友|伙伴|人组队|人团队)/);
   if (!teamMatch) return current;
   const count = parseNaturalNumber(teamMatch[1]);
   return count ? `${count}名可协作同学` : current;
@@ -112,7 +115,7 @@ export function updateProfile(current: StudentProfile, text: string): StudentPro
   if (/保研|推免/.test(text)) goal = '保研 / 推免竞争力';
   else if (/综测|素质拓展|加分/.test(text)) goal = '提高综测';
   else if (/就业|实习|求职/.test(text)) goal = '就业与实习';
-  else if (/学会|能力|入门|提升/.test(text)) goal = '能力提升';
+  else if (/学会|能力|入门|提升|学东西|打基础/.test(text)) goal = '能力提升';
 
   return {
     ...current,

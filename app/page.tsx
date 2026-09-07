@@ -86,12 +86,12 @@ function ProfileItem({ label, value, icon: Icon }: { label: string; value?: stri
   );
 }
 
-function SourceCard({ hit, kind }: { hit: SearchHit; kind: 'policy' | 'resources' }) {
+function SourceCard({ hit, kind, index }: { hit: SearchHit; kind: 'policy' | 'resources'; index: number }) {
   const content = (
     <article className={`source-card ${kind}`}>
       <div className="source-card-topline">
         <Badge className={kind === 'policy' ? 'policy-badge' : 'resource-badge'}>
-          {kind === 'policy' ? '政策依据' : '资料目录'}
+          {kind === 'policy' ? `政策依据 P${index + 1}` : `资料目录 R${index + 1}`}
         </Badge>
         <span>{hit.category}</span>
       </div>
@@ -141,8 +141,8 @@ function EvidencePanel({ reply }: { reply?: AssistantReply }) {
               <Badge variant="outline">{policyHits.length} 条命中</Badge>
             </div>
             <div className="source-list">
-              {policyHits.length ? policyHits.slice(0, 4).map((hit) => (
-                <SourceCard key={hit.id} hit={hit} kind="policy" />
+              {policyHits.length ? policyHits.slice(0, 4).map((hit, index) => (
+                <SourceCard key={hit.id} hit={hit} kind="policy" index={index} />
               )) : <p className="no-hit">本轮未调用政策条目</p>}
             </div>
           </section>
@@ -153,8 +153,8 @@ function EvidencePanel({ reply }: { reply?: AssistantReply }) {
               <Badge variant="outline">{resourceHits.length} 条命中</Badge>
             </div>
             <div className="source-list">
-              {resourceHits.length ? resourceHits.map((hit) => (
-                <SourceCard key={hit.id} hit={hit} kind="resources" />
+              {resourceHits.length ? resourceHits.map((hit, index) => (
+                <SourceCard key={hit.id} hit={hit} kind="resources" index={index} />
               )) : <p className="no-hit">补齐个人信息后再推荐具体资料</p>}
             </div>
           </section>
@@ -258,27 +258,40 @@ export default function Home() {
     conversationEnd.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }, [messages, working]);
 
-  const send = (value = input): Promise<AssistantReply | undefined> => {
+  const send = async (value = input): Promise<AssistantReply | undefined> => {
     const prompt = value.trim();
-    if (!prompt || working) return Promise.resolve(undefined);
+    if (!prompt || working) return undefined;
     const userMessage: ChatMessage = { id: Date.now(), role: 'user', text: prompt };
     setMessages((current) => [...current, userMessage]);
     setInput('');
     setWorking(true);
 
-    return new Promise((resolve) => {
-      window.setTimeout(() => {
-        const reply = answerUser(prompt, profile);
-        setProfile(reply.profile);
-        setLatestReply(reply);
-        setMessages((current) => [
-          ...current,
-          { id: Date.now() + 1, role: 'assistant', text: reply.text, reply },
-        ]);
-        setWorking(false);
-        resolve(reply);
-      }, 420);
-    });
+    let reply: AssistantReply;
+    try {
+      const response = await fetch('/api/advisor', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ input: prompt, profile }),
+      });
+      if (!response.ok) throw new Error(`请求失败：${response.status}`);
+      const payload = await response.json() as { reply?: AssistantReply };
+      if (!payload.reply) throw new Error('回答内容为空');
+      reply = payload.reply;
+    } catch {
+      reply = {
+        ...answerUser(prompt, profile),
+        generation: { mode: 'baseline', note: '在线生成暂不可用，已使用规则基线' },
+      };
+    }
+
+    setProfile(reply.profile);
+    setLatestReply(reply);
+    setMessages((current) => [
+      ...current,
+      { id: Date.now() + 1, role: 'assistant', text: reply.text, reply },
+    ]);
+    setWorking(false);
+    return reply;
   };
 
   const reset = () => {
@@ -366,10 +379,10 @@ export default function Home() {
             <small>个人发展导学助手</small>
           </span>
         </div>
-        <div className="mode-pill">
+        <div className="mode-pill" title={latestReply?.generation?.note}>
           <span className="live-dot" />
-          本地双库模式
-          <b>0 API 费用</b>
+          {latestReply?.generation?.mode === 'rag' ? '双库 RAG 生成' : '双库规则基线'}
+          <b>{latestReply?.generation?.mode === 'rag' ? latestReply.generation.model : '模型待配置'}</b>
         </div>
         <Button variant="ghost" size="sm" onClick={reset} className="reset-button">
           <RotateCcw size={15} /> 重置对话
@@ -421,7 +434,7 @@ export default function Home() {
             {working && (
               <div className="message-row assistant">
                 <div className="avatar assistant-avatar"><Leaf size={17} /></div>
-                <div className="thinking"><span /><span /><span /> 正在分别检索两个知识库…</div>
+                <div className="thinking"><span /><span /><span /> 正在检索两个知识库并组织回答…</div>
               </div>
             )}
             <div ref={conversationEnd} />

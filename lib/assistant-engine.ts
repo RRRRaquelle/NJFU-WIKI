@@ -1,23 +1,14 @@
 import knowledgeData from '@/app/data/knowledge.json';
+import {
+  searchChunks,
+  type Corpus,
+  type KnowledgeChunk,
+  type SearchHit,
+} from '@/lib/knowledge-search';
 import { missingRequiredFields, updateProfile, type StudentProfile } from '@/lib/profile-parser';
 
 export type { StudentProfile } from '@/lib/profile-parser';
-
-export type Corpus = 'policy' | 'resources';
-
-export type KnowledgeChunk = {
-  id: string;
-  corpus: Corpus;
-  title: string;
-  category: string;
-  source: string;
-  content: string;
-  resourceType?: string;
-  stage?: string;
-  url?: string;
-};
-
-export type SearchHit = KnowledgeChunk & { score: number };
+export type { Corpus, KnowledgeChunk, SearchHit } from '@/lib/knowledge-search';
 
 export type ActionStep = {
   label: string;
@@ -40,84 +31,17 @@ export type AssistantReply = {
   };
   policyHits: SearchHit[];
   resourceHits: SearchHit[];
+  generation?: {
+    mode: 'baseline' | 'rag';
+    model?: string;
+    note?: string;
+  };
 };
 
 const allChunks = knowledgeData.chunks as KnowledgeChunk[];
 
-const stopWords = new Set([
-  '我现', '现在', '想要', '一个', '什么', '怎么', '哪些', '可以', '应该', '需要', '资料',
-  '参加', '竞赛', '学生', '学校', '大学', '南京', '林业', '为了', '有什', '的资', '么资',
-]);
-
-const expansions: Record<string, string[]> = {
-  '计网': ['计算机网络', '网络工程', 'Packet Tracer', '组网'],
-  '网络': ['计算机网络', '网络工程', 'Packet Tracer', '组网'],
-  '保研': ['推免', '综合成绩', '综测', '竞赛标准分'],
-  '综测': ['学年综合素质测评', '发展素质分', '竞赛加分'],
-  '算法': ['程序设计', '蓝桥杯', 'ICPC', 'CCPC', 'JSCPC'],
-  '安全': ['信息安全', 'ISCC', 'CISC', 'CTF'],
-  '建模': ['数学建模', '国赛', '论文'],
-};
-
-function tokenize(raw: string) {
-  const text = raw.toLowerCase().normalize('NFKC');
-  const words = text.match(/[a-z0-9][a-z0-9.+#-]*/g) ?? [];
-  const chineseRuns = text.match(/[\u3400-\u9fff]+/g) ?? [];
-  const chineseTokens: string[] = [];
-
-  for (const run of chineseRuns) {
-    if (run.length <= 5) chineseTokens.push(run);
-    for (let index = 0; index < run.length - 1; index += 1) {
-      chineseTokens.push(run.slice(index, index + 2));
-    }
-    for (let index = 0; index < run.length - 2; index += 2) {
-      chineseTokens.push(run.slice(index, index + 3));
-    }
-  }
-
-  const directExpansions = Object.entries(expansions)
-    .filter(([key]) => text.includes(key))
-    .flatMap(([, values]) => values.flatMap((value) => tokenizeWithoutExpansion(value)));
-
-  return [...new Set([...words, ...chineseTokens, ...directExpansions])].filter(
-    (token) => token.length > 1 && !stopWords.has(token),
-  );
-}
-
-function tokenizeWithoutExpansion(raw: string) {
-  const text = raw.toLowerCase().normalize('NFKC');
-  const words = text.match(/[a-z0-9][a-z0-9.+#-]*/g) ?? [];
-  const runs = text.match(/[\u3400-\u9fff]+/g) ?? [];
-  return [
-    ...words,
-    ...runs,
-    ...runs.flatMap((run) =>
-      Array.from({ length: Math.max(0, run.length - 1) }, (_, index) => run.slice(index, index + 2)),
-    ),
-  ];
-}
-
 export function searchKnowledge(query: string, corpus: Corpus, limit = 5): SearchHit[] {
-  const tokens = tokenize(query);
-  const normalizedQuery = query.toLowerCase().replace(/\s+/g, ' ').trim();
-
-  return allChunks
-    .filter((chunk) => chunk.corpus === corpus)
-    .map((chunk) => {
-      const title = chunk.title.toLowerCase();
-      const haystack = `${chunk.title}\n${chunk.category}\n${chunk.content}`.toLowerCase();
-      let score = normalizedQuery.length > 4 && haystack.includes(normalizedQuery) ? 30 : 0;
-      for (const token of tokens) {
-        if (title.includes(token)) score += 7;
-        const occurrences = haystack.split(token).length - 1;
-        score += Math.min(occurrences, 5) * 1.35;
-      }
-      if (chunk.category && query.includes(chunk.category)) score += 8;
-      return { ...chunk, score: Number(score.toFixed(2)) };
-    })
-    .filter((hit) => hit.score > 0)
-    .sort((a, b) => b.score - a.score)
-    .slice(0, limit);
+  return searchChunks(allChunks, query, corpus, limit);
 }
 
 function preferredResourcesForNetwork(): SearchHit[] {
@@ -132,6 +56,47 @@ function preferredResourcesForNetwork(): SearchHit[] {
   return preferences
     .map((title, index) => {
       const chunk = resources.find((item) => item.title === title);
+      return chunk ? { ...chunk, score: 100 - index } : undefined;
+    })
+    .filter((item): item is SearchHit => Boolean(item));
+}
+
+function preferredResourcesForFoundation(foundation?: string): SearchHit[] {
+  const preferredIds: Record<string, string[]> = {
+    '人工智能 / 计算机视觉': [
+      'NJFU-RES-CEA5C79F31', 'NJFU-RES-A144665896', 'NJFU-RES-B448A010DF',
+      'NJFU-RES-F064439644', 'NJFU-RES-CC97792005',
+    ],
+    '信息安全': [
+      'NJFU-RES-FE79F61A11', 'NJFU-RES-570EE94C5F', 'NJFU-RES-E6D869DAB2',
+      'NJFU-RES-8FE4C06D13',
+    ],
+    '算法与程序设计': [
+      'NJFU-RES-49E545D092', 'NJFU-RES-192FD4BAD2', 'NJFU-RES-A55F57E254',
+      'NJFU-RES-79302683F5',
+    ],
+    '软件与产品开发': [
+      'NJFU-RES-7AB0708E6B', 'NJFU-RES-48BE727D54', 'NJFU-RES-590DFB3688',
+      'NJFU-RES-4B81DA1810',
+    ],
+    '数据库与数据管理': [
+      'NJFU-RES-DE389DB9DC', 'NJFU-RES-9D9AEA1073', 'NJFU-RES-30B3A92619',
+      'NJFU-RES-02FEA79929',
+    ],
+    '系统与底层开发': [
+      'NJFU-RES-8FE4C06D13', 'NJFU-RES-E6D869DAB2', 'NJFU-RES-C7EBEAC0CE',
+      'NJFU-RES-87481C00B1',
+    ],
+    '嵌入式与物联网': [
+      'NJFU-RES-5673A98EAB', 'NJFU-RES-154950B342', 'NJFU-RES-F0D9676364',
+      'NJFU-RES-A59EB6FF6C',
+    ],
+  };
+  const ids = foundation ? preferredIds[foundation] ?? [] : [];
+  const resources = allChunks.filter((chunk) => chunk.corpus === 'resources');
+  return ids
+    .map((id, index) => {
+      const chunk = resources.find((item) => item.id === id);
       return chunk ? { ...chunk, score: 100 - index } : undefined;
     })
     .filter((item): item is SearchHit => Boolean(item));
@@ -219,7 +184,11 @@ export function answerUser(input: string, currentProfile: StudentProfile): Assis
 
   const routeQuery = `${profile.foundation} ${profile.goal} 适合学生 时间投入 第一步`;
   const policyHits = searchKnowledge(routeQuery, 'policy', 5);
-  const resourceHits = searchKnowledge(`${profile.foundation} 课程 学习 练习 教材`, 'resources', 5);
+  const curatedResources = preferredResourcesForFoundation(profile.foundation);
+  const searchedResources = searchKnowledge(`${profile.foundation} 课程 学习 练习 教材`, 'resources', 8);
+  const resourceHits = [...curatedResources, ...searchedResources]
+    .filter((hit, index, items) => items.findIndex((item) => item.id === hit.id) === index)
+    .slice(0, 5);
   const title = policyHits[0]?.title ?? '根据现有基础选择一条主线';
   return {
     kind: 'recommendation',

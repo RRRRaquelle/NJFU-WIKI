@@ -1,6 +1,6 @@
 # NJFU Wiki 双知识库导学助手 MVP
 
-这是一个不依赖 Dify、默认不调用任何付费大模型的可运行 Web MVP。
+这是一个不依赖 Dify、支持规则基线和可配置大模型生成的双知识库 Web MVP。
 
 它把两类知识分开使用：
 
@@ -36,16 +36,30 @@ pnpm build:knowledge
 
 生成脚本会重建 `app/data/knowledge.json`。当前索引包含 98 个政策块和 365 个资料记录。
 
-## Bad case 回归评测
+## 第一轮评测
 
-线上或人工测试发现的问题记录在 `evals/badcases.json`，其中包含问题分类、现象、根因、原始对话和期望画像。每次修改画像抽取或追问逻辑后运行：
+标准案例记录在 `evals/rag-eval-cases.jsonl`，bad case 总表记录在 `evals/badcases.jsonl`，分类说明位于 `evals/badcase-taxonomy.json`。
+
+运行画像和检索基线：
+
+```bash
+pnpm eval:baseline
+```
+
+每次修改画像抽取或追问逻辑后运行：
 
 ```bash
 pnpm eval:badcases
 ```
 
-当前评测覆盖专业方向同义表达、中文时间区间及每日到每周换算、带修饰语的队伍关系，以及由抽取失败引起的重复追问。
+配置真实模型并启动站点后运行生成层评测：
+
+```bash
+pnpm eval:generation
+```
+
+当前评测覆盖专业方向同义表达、中文和小数时间、队伍关系、重复追问、双库召回、引用编号、行动结构与政策不确定性。
 
 ## 与大模型的关系
 
-当前版本用可解释的规则和本地检索完成 MVP 主链路，所以没有 Token 成本。后续如果需要更自然的开放式对话，可以保留当前“用户画像 + 双库检索”逻辑，只在最后的回答组织层接入 Ollama 本地模型或任何 OpenAI-compatible API。
+没有配置模型时，系统使用可解释规则和本地检索作为基线，不产生 Token 成本。配置 `.env.example` 中的三个服务端环境变量后，系统会把双库检索结果交给兼容 OpenAI Chat Completions 的模型生成带引用回答；接口异常时自动回退到规则基线。详细链路见 `docs/rag-v1-architecture.md`。

@@ -11,6 +11,8 @@
     "start": "wrangler dev --config dist/server/wrangler.json",
     "build:knowledge": "node scripts/build-knowledge-index.mjs",
     "eval:badcases": "node --experimental-strip-types scripts/run-badcase-evals.mjs",
+    "eval:baseline": "node --experimental-strip-types scripts/run-rag-baseline.mjs",
+    "eval:generation": "node scripts/run-generation-evals.mjs",
     "lint": "oxlint app lib scripts",
     "format": "oxfmt"
   },

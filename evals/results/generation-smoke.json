@@ -1,0 +1,501 @@
+{
+  "summary": {
+    "generatedAt": "2026-09-07T13:01:24.693Z",
+    "appUrl": "http://localhost:3000",
+    "caseCount": 20,
+    "ragCaseCount": 0,
+    "baselineFallbackCount": 20,
+    "generationMetrics": null,
+    "note": "当前没有案例使用大模型生成，请先配置 LLM_API_BASE_URL、LLM_API_KEY 和 LLM_MODEL。"
+  },
+  "cases": [
+    {
+      "caseId": "POLICY-001",
+      "group": "policy_retrieval",
+      "generationMode": "baseline",
+      "model": null,
+      "citationCoverage": 0,
+      "citationValidity": 0,
+      "actionability": 1,
+      "uncertainty": 0,
+      "forbiddenClaimPass": 1,
+      "refs": [],
+      "invalidRefs": [],
+      "forbiddenMatches": [],
+      "answer": "我已记下：保研 / 推免竞争力。为了避免只按“分值高”乱推，还需要你补充：年级、最有基础的课程或项目、每周可投入时间。",
+      "policyHitIds": [
+        "policy-md-004",
+        "policy-md-010",
+        "policy-md-003"
+      ],
+      "resourceHitIds": []
+    },
+    {
+      "caseId": "POLICY-002",
+      "group": "policy_retrieval",
+      "generationMode": "baseline",
+      "model": null,
+      "citationCoverage": 0,
+      "citationValidity": 0,
+      "actionability": 1,
+      "uncertainty": 0,
+      "forbiddenClaimPass": 1,
+      "refs": [],
+      "invalidRefs": [],
+      "forbiddenMatches": [],
+      "answer": "我已记下：保研 / 推免竞争力。为了避免只按“分值高”乱推，还需要你补充：年级、最有基础的课程或项目、每周可投入时间。",
+      "policyHitIds": [
+        "policy-md-004",
+        "policy-md-010",
+        "policy-md-003"
+      ],
+      "resourceHitIds": []
+    },
+    {
+      "caseId": "POLICY-003",
+      "group": "policy_retrieval",
+      "generationMode": "baseline",
+      "model": null,
+      "citationCoverage": 0,
+      "citationValidity": 0,
+      "actionability": 1,
+      "uncertainty": 1,
+      "forbiddenClaimPass": 1,
+      "refs": [],
+      "invalidRefs": [],
+      "forbiddenMatches": [],
+      "answer": "可以筛出历史口径中高于 5 分的奖项，但不能把旧版学年综测分值直接当成本届推免加分。右侧已列出命中的政策条目；申报前请用本年学院细则复核“是否认定、奖级、排名折算、截止日期”。",
+      "policyHitIds": [
+        "policy-md-006",
+        "policy-csv-03_竞赛成果推免贡献计算示例-006",
+        "policy-csv-03_竞赛成果推免贡献计算示例-007",
+        "policy-csv-00_表格索引-004",
+        "policy-csv-04_学年综测竞赛加分历史口径-001"
+      ],
+      "resourceHitIds": [
+        "NJFU-RES-3BC54AFBC3"
+      ]
+    },
+    {
+      "caseId": "POLICY-004",
+      "group": "policy_retrieval",
+      "generationMode": "baseline",
+      "model": null,
+      "citationCoverage": 0,
+      "citationValidity": 0,
+      "actionability": 1,
+      "uncertainty": 0,
+      "forbiddenClaimPass": 1,
+      "refs": [],
+      "invalidRefs": [],
+      "forbiddenMatches": [],
+      "answer": "我已记下：保研 / 推免竞争力。为了避免只按“分值高”乱推，还需要你补充：年级、最有基础的课程或项目、每周可投入时间。",
+      "policyHitIds": [
+        "policy-md-004",
+        "policy-md-010",
+        "policy-md-003"
+      ],
+      "resourceHitIds": []
+    },
+    {
+      "caseId": "POLICY-005",
+      "group": "policy_retrieval",
+      "generationMode": "baseline",
+      "model": null,
+      "citationCoverage": 0,
+      "citationValidity": 0,
+      "actionability": 1,
+      "uncertainty": 0,
+      "forbiddenClaimPass": 1,
+      "refs": [],
+      "invalidRefs": [],
+      "forbiddenMatches": [],
+      "answer": "我已记下：暂无可确认信息。为了避免只按“分值高”乱推，还需要你补充：年级、目标、最有基础的课程或项目、每周可投入时间。",
+      "policyHitIds": [
+        "policy-md-009",
+        "policy-md-014",
+        "policy-md-008"
+      ],
+      "resourceHitIds": []
+    },
+    {
+      "caseId": "POLICY-006",
+      "group": "policy_retrieval",
+      "generationMode": "baseline",
+      "model": null,
+      "citationCoverage": 0,
+      "citationValidity": 0,
+      "actionability": 1,
+      "uncertainty": 1,
+      "forbiddenClaimPass": 1,
+      "refs": [],
+      "invalidRefs": [],
+      "forbiddenMatches": [],
+      "answer": "我已记下：信息安全。为了避免只按“分值高”乱推，还需要你补充：年级、目标、每周可投入时间。",
+      "policyHitIds": [
+        "policy-md-009",
+        "policy-md-014",
+        "policy-md-008"
+      ],
+      "resourceHitIds": []
+    },
+    {
+      "caseId": "POLICY-007",
+      "group": "policy_retrieval",
+      "generationMode": "baseline",
+      "model": null,
+      "citationCoverage": 0,
+      "citationValidity": 0,
+      "actionability": 1,
+      "uncertainty": 0,
+      "forbiddenClaimPass": 1,
+      "refs": [],
+      "invalidRefs": [],
+      "forbiddenMatches": [],
+      "answer": "我已记下：能力提升、算法与程序设计。为了避免只按“分值高”乱推，还需要你补充：年级、每周可投入时间。",
+      "policyHitIds": [
+        "policy-md-014",
+        "policy-md-015",
+        "policy-md-009"
+      ],
+      "resourceHitIds": []
+    },
+    {
+      "caseId": "POLICY-008",
+      "group": "policy_retrieval",
+      "generationMode": "baseline",
+      "model": null,
+      "citationCoverage": 0,
+      "citationValidity": 0,
+      "actionability": 1,
+      "uncertainty": 1,
+      "forbiddenClaimPass": 1,
+      "refs": [],
+      "invalidRefs": [],
+      "forbiddenMatches": [],
+      "answer": "我已同时检索政策库和资料目录库。右侧显示本次命中的原始条目，回答不会把历史口径冒充为当年政策。",
+      "policyHitIds": [
+        "policy-md-014",
+        "policy-csv-06_竞赛政策对应速查-004",
+        "policy-csv-02_南京林业大学推免竞赛标准分-007",
+        "policy-csv-04_学年综测竞赛加分历史口径-004",
+        "policy-md-016"
+      ],
+      "resourceHitIds": [
+        "NJFU-RES-32D5277C00",
+        "NJFU-RES-D758661027",
+        "NJFU-RES-3219992A28"
+      ]
+    },
+    {
+      "caseId": "POLICY-009",
+      "group": "policy_retrieval",
+      "generationMode": "baseline",
+      "model": null,
+      "citationCoverage": 0,
+      "citationValidity": 0,
+      "actionability": 1,
+      "uncertainty": 0,
+      "forbiddenClaimPass": 1,
+      "refs": [],
+      "invalidRefs": [],
+      "forbiddenMatches": [],
+      "answer": "我已记下：保研 / 推免竞争力。为了避免只按“分值高”乱推，还需要你补充：年级、最有基础的课程或项目、每周可投入时间。",
+      "policyHitIds": [
+        "policy-md-004",
+        "policy-md-010",
+        "policy-md-003"
+      ],
+      "resourceHitIds": []
+    },
+    {
+      "caseId": "POLICY-010",
+      "group": "policy_retrieval",
+      "generationMode": "baseline",
+      "model": null,
+      "citationCoverage": 0,
+      "citationValidity": 0,
+      "actionability": 1,
+      "uncertainty": 0,
+      "forbiddenClaimPass": 1,
+      "refs": [],
+      "invalidRefs": [],
+      "forbiddenMatches": [],
+      "answer": "我已记下：暂无可确认信息。为了避免只按“分值高”乱推，还需要你补充：年级、目标、最有基础的课程或项目、每周可投入时间。",
+      "policyHitIds": [
+        "policy-md-009",
+        "policy-md-014",
+        "policy-md-008"
+      ],
+      "resourceHitIds": []
+    },
+    {
+      "caseId": "DUAL-001",
+      "group": "dual_corpus_recommendation",
+      "generationMode": "baseline",
+      "model": null,
+      "citationCoverage": 0,
+      "citationValidity": 0,
+      "actionability": 0,
+      "uncertainty": 0,
+      "forbiddenClaimPass": 1,
+      "refs": [],
+      "invalidRefs": [],
+      "forbiddenMatches": [],
+      "answer": "我已在限定的 NJFU-Courses 仓库目录中检索，右侧的资料来自真实文件记录，点击即可打开 GitHub 原文件。",
+      "policyHitIds": [
+        "policy-md-004",
+        "policy-md-003",
+        "policy-md-001",
+        "policy-md-005",
+        "policy-md-035"
+      ],
+      "resourceHitIds": [
+        "NJFU-RES-C884F72B61",
+        "NJFU-RES-D6356643DC",
+        "NJFU-RES-D33973971F",
+        "NJFU-RES-9D9AEA1073",
+        "NJFU-RES-A855132F2B",
+        "NJFU-RES-D47F5A0669"
+      ]
+    },
+    {
+      "caseId": "DUAL-002",
+      "group": "dual_corpus_recommendation",
+      "generationMode": "baseline",
+      "model": null,
+      "citationCoverage": 0,
+      "citationValidity": 0,
+      "actionability": 0,
+      "uncertainty": 0,
+      "forbiddenClaimPass": 1,
+      "refs": [],
+      "invalidRefs": [],
+      "forbiddenMatches": [],
+      "answer": "我已在限定的 NJFU-Courses 仓库目录中检索，右侧的资料来自真实文件记录，点击即可打开 GitHub 原文件。",
+      "policyHitIds": [
+        "policy-md-001",
+        "policy-md-006",
+        "policy-md-023",
+        "policy-md-031",
+        "policy-md-022"
+      ],
+      "resourceHitIds": [
+        "NJFU-RES-A144665896",
+        "NJFU-RES-CEA5C79F31",
+        "NJFU-RES-CC97792005",
+        "NJFU-RES-B448A010DF",
+        "NJFU-RES-F064439644",
+        "NJFU-RES-567DF3FAC4"
+      ]
+    },
+    {
+      "caseId": "DUAL-003",
+      "group": "dual_corpus_recommendation",
+      "generationMode": "baseline",
+      "model": null,
+      "citationCoverage": 0,
+      "citationValidity": 0,
+      "actionability": 0,
+      "uncertainty": 1,
+      "forbiddenClaimPass": 1,
+      "refs": [],
+      "invalidRefs": [],
+      "forbiddenMatches": [],
+      "answer": "我已在限定的 NJFU-Courses 仓库目录中检索，右侧的资料来自真实文件记录，点击即可打开 GitHub 原文件。",
+      "policyHitIds": [
+        "policy-md-019",
+        "policy-md-018",
+        "policy-md-020",
+        "policy-md-017",
+        "policy-md-021"
+      ],
+      "resourceHitIds": [
+        "NJFU-RES-7689C57F8C",
+        "NJFU-RES-A55F57E254",
+        "NJFU-RES-3880026DB3",
+        "NJFU-RES-192FD4BAD2",
+        "NJFU-RES-8D8BE54432",
+        "NJFU-RES-27773FD330"
+      ]
+    },
+    {
+      "caseId": "DUAL-004",
+      "group": "dual_corpus_recommendation",
+      "generationMode": "baseline",
+      "model": null,
+      "citationCoverage": 0,
+      "citationValidity": 0,
+      "actionability": 1,
+      "uncertainty": 1,
+      "forbiddenClaimPass": 1,
+      "refs": [],
+      "invalidRefs": [],
+      "forbiddenMatches": [],
+      "answer": "根据你目前的信息安全基础，我更倾向从“4. 推免竞赛标准分”开始验证。右侧已同时列出竞赛判断依据和可立即使用的课程资料。\n建议先验证：4. 推免竞赛标准分\n先用现有基础做一个最小作品，比只根据奖项分值选赛更容易获得可提交的成果。\n当届赛项、奖项等级和学院认定规则必须再向官方或辅导员核验。\n先用 2 周，按“每周约 10 小时”完成一次低成本验证。\n阅读赛事条目\n确认适合对象、交付物和时间投入。\n打开一份入门资料\n完成可以被别人查看的最小成果。\n决定是否继续\n根据进度、队伍稳定性和官方认定结果决定。",
+      "policyHitIds": [
+        "policy-md-004",
+        "policy-md-003",
+        "policy-md-026",
+        "policy-md-027",
+        "policy-md-010"
+      ],
+      "resourceHitIds": [
+        "NJFU-RES-FE79F61A11",
+        "NJFU-RES-570EE94C5F",
+        "NJFU-RES-E6D869DAB2",
+        "NJFU-RES-8FE4C06D13",
+        "NJFU-RES-8137123B06"
+      ]
+    },
+    {
+      "caseId": "DUAL-005",
+      "group": "dual_corpus_recommendation",
+      "generationMode": "baseline",
+      "model": null,
+      "citationCoverage": 0,
+      "citationValidity": 0,
+      "actionability": 1,
+      "uncertainty": 1,
+      "forbiddenClaimPass": 1,
+      "refs": [],
+      "invalidRefs": [],
+      "forbiddenMatches": [],
+      "answer": "根据你目前的数学建模基础，我更倾向从“1. 学年综合素质测评和推免综合成绩不是同一个分数”开始验证。右侧已同时列出竞赛判断依据和可立即使用的课程资料。\n建议先验证：1. 学年综合素质测评和推免综合成绩不是同一个分数\n先用现有基础做一个最小作品，比只根据奖项分值选赛更容易获得可提交的成果。\n当届赛项、奖项等级和学院认定规则必须再向官方或辅导员核验。\n先用 2 周，按“每周约 12 小时”完成一次低成本验证。\n阅读赛事条目\n确认适合对象、交付物和时间投入。\n打开一份入门资料\n完成可以被别人查看的最小成果。\n决定是否继续\n根据进度、队伍稳定性和官方认定结果决定。",
+      "policyHitIds": [
+        "policy-md-001",
+        "policy-md-014",
+        "policy-md-006",
+        "policy-csv-04_学年综测竞赛加分历史口径-004",
+        "policy-md-035"
+      ],
+      "resourceHitIds": [
+        "NJFU-RES-32D5277C00",
+        "NJFU-RES-D758661027",
+        "NJFU-RES-3219992A28",
+        "NJFU-RES-78AA5C680C",
+        "NJFU-RES-EB51A1F313"
+      ]
+    },
+    {
+      "caseId": "DUAL-006",
+      "group": "dual_corpus_recommendation",
+      "generationMode": "baseline",
+      "model": null,
+      "citationCoverage": 0,
+      "citationValidity": 0,
+      "actionability": 0,
+      "uncertainty": 1,
+      "forbiddenClaimPass": 1,
+      "refs": [],
+      "invalidRefs": [],
+      "forbiddenMatches": [],
+      "answer": "我已在限定的 NJFU-Courses 仓库目录中检索，右侧的资料来自真实文件记录，点击即可打开 GitHub 原文件。",
+      "policyHitIds": [
+        "policy-md-024",
+        "policy-md-022",
+        "policy-md-008",
+        "policy-md-018",
+        "policy-md-019"
+      ],
+      "resourceHitIds": [
+        "NJFU-RES-4B81DA1810",
+        "NJFU-RES-590DFB3688",
+        "NJFU-RES-D52F931B7F",
+        "NJFU-RES-7AB0708E6B",
+        "NJFU-RES-CAC4EFE06F",
+        "NJFU-RES-DD8B94C19C"
+      ]
+    },
+    {
+      "caseId": "DUAL-007",
+      "group": "dual_corpus_recommendation",
+      "generationMode": "baseline",
+      "model": null,
+      "citationCoverage": 0,
+      "citationValidity": 0,
+      "actionability": 0,
+      "uncertainty": 0,
+      "forbiddenClaimPass": 1,
+      "refs": [],
+      "invalidRefs": [],
+      "forbiddenMatches": [],
+      "answer": "我已记下：嵌入式与物联网、每周约 10 小时。为了避免只按“分值高”乱推，还需要你补充：年级、目标。",
+      "policyHitIds": [
+        "policy-md-009",
+        "policy-md-014",
+        "policy-md-008"
+      ],
+      "resourceHitIds": []
+    },
+    {
+      "caseId": "DUAL-008",
+      "group": "dual_corpus_recommendation",
+      "generationMode": "baseline",
+      "model": null,
+      "citationCoverage": 0,
+      "citationValidity": 0,
+      "actionability": 0,
+      "uncertainty": 1,
+      "forbiddenClaimPass": 1,
+      "refs": [],
+      "invalidRefs": [],
+      "forbiddenMatches": [],
+      "answer": "我已记下：能力提升、系统与底层开发。为了避免只按“分值高”乱推，还需要你补充：年级、每周可投入时间。",
+      "policyHitIds": [
+        "policy-md-014",
+        "policy-md-015",
+        "policy-md-009"
+      ],
+      "resourceHitIds": []
+    },
+    {
+      "caseId": "DUAL-009",
+      "group": "dual_corpus_recommendation",
+      "generationMode": "baseline",
+      "model": null,
+      "citationCoverage": 0,
+      "citationValidity": 0,
+      "actionability": 0,
+      "uncertainty": 1,
+      "forbiddenClaimPass": 1,
+      "refs": [],
+      "invalidRefs": [],
+      "forbiddenMatches": [],
+      "answer": "我已同时检索政策库和资料目录库。右侧显示本次命中的原始条目，回答不会把历史口径冒充为当年政策。",
+      "policyHitIds": [
+        "policy-md-008",
+        "policy-md-022",
+        "policy-md-024",
+        "policy-md-023",
+        "policy-md-011"
+      ],
+      "resourceHitIds": [
+        "NJFU-RES-9D9AEA1073",
+        "NJFU-RES-DE389DB9DC",
+        "NJFU-RES-A940504843"
+      ]
+    },
+    {
+      "caseId": "DUAL-010",
+      "group": "dual_corpus_recommendation",
+      "generationMode": "baseline",
+      "model": null,
+      "citationCoverage": 0,
+      "citationValidity": 0,
+      "actionability": 0,
+      "uncertainty": 0,
+      "forbiddenClaimPass": 1,
+      "refs": [],
+      "invalidRefs": [],
+      "forbiddenMatches": [],
+      "answer": "我已记下：大三、保研 / 推免竞争力、计算机网络。为了避免只按“分值高”乱推，还需要你补充：每周可投入时间。",
+      "policyHitIds": [
+        "policy-md-004",
+        "policy-md-010",
+        "policy-md-003"
+      ],
+      "resourceHitIds": []
+    }
+  ]
+}

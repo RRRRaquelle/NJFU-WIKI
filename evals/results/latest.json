@@ -1,0 +1,4186 @@
+{
+  "summary": {
+    "generatedAt": "2026-09-07T12:59:19.775Z",
+    "suite": {
+      "caseCount": 30,
+      "profileCaseCount": 10,
+      "retrievalTaskCount": 30
+    },
+    "profileUnderstanding": {
+      "fieldAccuracy": 1,
+      "exactCaseAccuracy": 1,
+      "unnecessaryClarificationRate": 0
+    },
+    "retrieval": {
+      "overall": {
+        "taskCount": 30,
+        "hitAt5": 0.9333,
+        "recallAt5": 0.6556,
+        "mrrAt5": 0.8306,
+        "precisionAt5": 0.3933,
+        "contextPrecisionAt5": 0.7682,
+        "ndcgAt5": 0.7152
+      },
+      "policy": {
+        "taskCount": 20,
+        "hitAt5": 0.95,
+        "recallAt5": 0.6667,
+        "mrrAt5": 0.7958,
+        "precisionAt5": 0.35,
+        "contextPrecisionAt5": 0.7369,
+        "ndcgAt5": 0.6993
+      },
+      "resources": {
+        "taskCount": 10,
+        "hitAt5": 0.9,
+        "recallAt5": 0.6333,
+        "mrrAt5": 0.9,
+        "precisionAt5": 0.48,
+        "contextPrecisionAt5": 0.831,
+        "ndcgAt5": 0.7472
+      },
+      "dualCorpusCaseSuccessRate": 0.8
+    }
+  },
+  "cases": [
+    {
+      "caseId": "PROFILE-001",
+      "group": "profile_understanding",
+      "difficulty": "medium",
+      "conversation": [
+        "我大二，做过一个图像分类课程项目，会一点 Python 和 PyTorch，想参加比赛，但不知道适合哪个。",
+        "希望提高综测，每天能投入二到三个小时，有两个经常一起的同学。"
+      ],
+      "profile": {
+        "grade": "大二",
+        "goal": "提高综测",
+        "foundation": "人工智能 / 计算机视觉",
+        "weeklyHours": 17.5,
+        "weeklyHoursRange": [
+          14,
+          21
+        ],
+        "weeklyHoursLabel": "每周约 14–21 小时（每天 2–3 小时）",
+        "team": "2名可协作同学"
+      },
+      "profileChecks": [
+        {
+          "caseId": "PROFILE-001",
+          "field": "grade",
+          "expected": "大二",
+          "actual": "大二",
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-001",
+          "field": "goal",
+          "expected": "提高综测",
+          "actual": "提高综测",
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-001",
+          "field": "foundation",
+          "expected": "人工智能 / 计算机视觉",
+          "actual": "人工智能 / 计算机视觉",
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-001",
+          "field": "weeklyHours",
+          "expected": 17.5,
+          "actual": 17.5,
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-001",
+          "field": "team",
+          "expected": "2名可协作同学",
+          "actual": "2名可协作同学",
+          "passed": true
+        }
+      ],
+      "missingRequiredFields": [],
+      "unnecessaryClarification": false,
+      "retrievalChecks": [],
+      "answerRequirements": [
+        "不得再次询问已经提供的年级、基础或时间"
+      ],
+      "forbiddenClaims": []
+    },
+    {
+      "caseId": "PROFILE-002",
+      "group": "profile_understanding",
+      "difficulty": "easy",
+      "conversation": [
+        "我大二，想保研。",
+        "计网有基础，做过 Packet Tracer，算法一般，有两个同学，每周能投入8小时。"
+      ],
+      "profile": {
+        "grade": "大二",
+        "goal": "保研 / 推免竞争力",
+        "foundation": "计算机网络",
+        "weeklyHours": 8,
+        "weeklyHoursRange": [
+          8,
+          8
+        ],
+        "weeklyHoursLabel": "每周约 8 小时",
+        "team": "2名可协作同学",
+        "algorithmWeak": true
+      },
+      "profileChecks": [
+        {
+          "caseId": "PROFILE-002",
+          "field": "grade",
+          "expected": "大二",
+          "actual": "大二",
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-002",
+          "field": "goal",
+          "expected": "保研 / 推免竞争力",
+          "actual": "保研 / 推免竞争力",
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-002",
+          "field": "foundation",
+          "expected": "计算机网络",
+          "actual": "计算机网络",
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-002",
+          "field": "weeklyHours",
+          "expected": 8,
+          "actual": 8,
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-002",
+          "field": "team",
+          "expected": "2名可协作同学",
+          "actual": "2名可协作同学",
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-002",
+          "field": "algorithmWeak",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        }
+      ],
+      "missingRequiredFields": [],
+      "unnecessaryClarification": false,
+      "retrievalChecks": [],
+      "answerRequirements": [
+        "画像信息完整后应进入推荐阶段"
+      ],
+      "forbiddenClaims": []
+    },
+    {
+      "caseId": "PROFILE-003",
+      "group": "profile_understanding",
+      "difficulty": "easy",
+      "conversation": [
+        "我是大一，想先提升能力，自己学过一点CTF，每周大约6小时，目前没有队友。"
+      ],
+      "profile": {
+        "grade": "大一",
+        "goal": "能力提升",
+        "foundation": "信息安全",
+        "weeklyHours": 6,
+        "weeklyHoursRange": [
+          6,
+          6
+        ],
+        "weeklyHoursLabel": "每周约 6 小时",
+        "team": "暂时单人"
+      },
+      "profileChecks": [
+        {
+          "caseId": "PROFILE-003",
+          "field": "grade",
+          "expected": "大一",
+          "actual": "大一",
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-003",
+          "field": "goal",
+          "expected": "能力提升",
+          "actual": "能力提升",
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-003",
+          "field": "foundation",
+          "expected": "信息安全",
+          "actual": "信息安全",
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-003",
+          "field": "weeklyHours",
+          "expected": 6,
+          "actual": 6,
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-003",
+          "field": "team",
+          "expected": "暂时单人",
+          "actual": "暂时单人",
+          "passed": true
+        }
+      ],
+      "missingRequiredFields": [],
+      "unnecessaryClarification": false,
+      "retrievalChecks": [],
+      "answerRequirements": [
+        "识别单人状态"
+      ],
+      "forbiddenClaims": []
+    },
+    {
+      "caseId": "PROFILE-004",
+      "group": "profile_understanding",
+      "difficulty": "medium",
+      "conversation": [
+        "三年级，准备找实习，蓝桥杯做过一些题，一周十个小时，一个人参加。"
+      ],
+      "profile": {
+        "grade": "大三",
+        "goal": "就业与实习",
+        "foundation": "算法与程序设计",
+        "weeklyHours": 10,
+        "weeklyHoursRange": [
+          10,
+          10
+        ],
+        "weeklyHoursLabel": "每周约 10 小时",
+        "team": "暂时单人"
+      },
+      "profileChecks": [
+        {
+          "caseId": "PROFILE-004",
+          "field": "grade",
+          "expected": "大三",
+          "actual": "大三",
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-004",
+          "field": "goal",
+          "expected": "就业与实习",
+          "actual": "就业与实习",
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-004",
+          "field": "foundation",
+          "expected": "算法与程序设计",
+          "actual": "算法与程序设计",
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-004",
+          "field": "weeklyHours",
+          "expected": 10,
+          "actual": 10,
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-004",
+          "field": "team",
+          "expected": "暂时单人",
+          "actual": "暂时单人",
+          "passed": true
+        }
+      ],
+      "missingRequiredFields": [],
+      "unnecessaryClarification": false,
+      "retrievalChecks": [],
+      "answerRequirements": [
+        "识别三年级和每周时间"
+      ],
+      "forbiddenClaims": []
+    },
+    {
+      "caseId": "PROFILE-005",
+      "group": "profile_understanding",
+      "difficulty": "easy",
+      "conversation": [
+        "我大二，想保研，数学建模课还可以，每周12小时，有三名队友。"
+      ],
+      "profile": {
+        "grade": "大二",
+        "goal": "保研 / 推免竞争力",
+        "foundation": "数学建模",
+        "weeklyHours": 12,
+        "weeklyHoursRange": [
+          12,
+          12
+        ],
+        "weeklyHoursLabel": "每周约 12 小时",
+        "team": "3名可协作同学"
+      },
+      "profileChecks": [
+        {
+          "caseId": "PROFILE-005",
+          "field": "grade",
+          "expected": "大二",
+          "actual": "大二",
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-005",
+          "field": "goal",
+          "expected": "保研 / 推免竞争力",
+          "actual": "保研 / 推免竞争力",
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-005",
+          "field": "foundation",
+          "expected": "数学建模",
+          "actual": "数学建模",
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-005",
+          "field": "weeklyHours",
+          "expected": 12,
+          "actual": 12,
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-005",
+          "field": "team",
+          "expected": "3名可协作同学",
+          "actual": "3名可协作同学",
+          "passed": true
+        }
+      ],
+      "missingRequiredFields": [],
+      "unnecessaryClarification": false,
+      "retrievalChecks": [],
+      "answerRequirements": [
+        "识别数学建模方向"
+      ],
+      "forbiddenClaims": []
+    },
+    {
+      "caseId": "PROFILE-006",
+      "group": "profile_understanding",
+      "difficulty": "medium",
+      "conversation": [
+        "我大二，目标是提升综测，做过一个小程序和网站，每日两小时，和两位同学一起。"
+      ],
+      "profile": {
+        "grade": "大二",
+        "goal": "提高综测",
+        "foundation": "软件与产品开发",
+        "weeklyHours": 14,
+        "weeklyHoursRange": [
+          14,
+          14
+        ],
+        "weeklyHoursLabel": "每周约 14 小时（每天 2 小时）",
+        "team": "2名可协作同学"
+      },
+      "profileChecks": [
+        {
+          "caseId": "PROFILE-006",
+          "field": "grade",
+          "expected": "大二",
+          "actual": "大二",
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-006",
+          "field": "goal",
+          "expected": "提高综测",
+          "actual": "提高综测",
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-006",
+          "field": "foundation",
+          "expected": "软件与产品开发",
+          "actual": "软件与产品开发",
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-006",
+          "field": "weeklyHours",
+          "expected": 14,
+          "actual": 14,
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-006",
+          "field": "team",
+          "expected": "2名可协作同学",
+          "actual": "2名可协作同学",
+          "passed": true
+        }
+      ],
+      "missingRequiredFields": [],
+      "unnecessaryClarification": false,
+      "retrievalChecks": [],
+      "answerRequirements": [
+        "将每日两小时换算为每周14小时"
+      ],
+      "forbiddenClaims": []
+    },
+    {
+      "caseId": "PROFILE-007",
+      "group": "profile_understanding",
+      "difficulty": "hard",
+      "conversation": [
+        "二年级，想参加竞赛为保研做准备，会SQL，做过数据库课程设计，每周九小时，两个人组队。"
+      ],
+      "profile": {
+        "grade": "大二",
+        "goal": "保研 / 推免竞争力",
+        "foundation": "数据库与数据管理",
+        "weeklyHours": 9,
+        "weeklyHoursRange": [
+          9,
+          9
+        ],
+        "weeklyHoursLabel": "每周约 9 小时",
+        "team": "2名可协作同学"
+      },
+      "profileChecks": [
+        {
+          "caseId": "PROFILE-007",
+          "field": "grade",
+          "expected": "大二",
+          "actual": "大二",
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-007",
+          "field": "goal",
+          "expected": "保研 / 推免竞争力",
+          "actual": "保研 / 推免竞争力",
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-007",
+          "field": "foundation",
+          "expected": "数据库与数据管理",
+          "actual": "数据库与数据管理",
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-007",
+          "field": "weeklyHours",
+          "expected": 9,
+          "actual": 9,
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-007",
+          "field": "team",
+          "expected": "2名可协作同学",
+          "actual": "2名可协作同学",
+          "passed": true
+        }
+      ],
+      "missingRequiredFields": [],
+      "unnecessaryClarification": false,
+      "retrievalChecks": [],
+      "answerRequirements": [
+        "识别数据库项目基础"
+      ],
+      "forbiddenClaims": []
+    },
+    {
+      "caseId": "PROFILE-008",
+      "group": "profile_understanding",
+      "difficulty": "hard",
+      "conversation": [
+        "我大一，主要想学东西，学过操作系统和一点C语言，每天1.5小时，目前独自准备。"
+      ],
+      "profile": {
+        "grade": "大一",
+        "goal": "能力提升",
+        "foundation": "系统与底层开发",
+        "weeklyHours": 10.5,
+        "weeklyHoursRange": [
+          10.5,
+          10.5
+        ],
+        "weeklyHoursLabel": "每周约 10.5 小时（每天 1.5 小时）",
+        "team": "暂时单人"
+      },
+      "profileChecks": [
+        {
+          "caseId": "PROFILE-008",
+          "field": "grade",
+          "expected": "大一",
+          "actual": "大一",
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-008",
+          "field": "goal",
+          "expected": "能力提升",
+          "actual": "能力提升",
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-008",
+          "field": "foundation",
+          "expected": "系统与底层开发",
+          "actual": "系统与底层开发",
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-008",
+          "field": "weeklyHours",
+          "expected": 10.5,
+          "actual": 10.5,
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-008",
+          "field": "team",
+          "expected": "暂时单人",
+          "actual": "暂时单人",
+          "passed": true
+        }
+      ],
+      "missingRequiredFields": [],
+      "unnecessaryClarification": false,
+      "retrievalChecks": [],
+      "answerRequirements": [
+        "支持小数时间表达"
+      ],
+      "forbiddenClaims": []
+    },
+    {
+      "caseId": "PROFILE-009",
+      "group": "profile_understanding",
+      "difficulty": "medium",
+      "conversation": [
+        "我是大二学生，想通过比赛增加素质拓展学分，做过嵌入式开发，每星期二十小时，四人团队。"
+      ],
+      "profile": {
+        "grade": "大二",
+        "goal": "提高综测",
+        "foundation": "嵌入式与物联网",
+        "weeklyHours": 20,
+        "weeklyHoursRange": [
+          20,
+          20
+        ],
+        "weeklyHoursLabel": "每周约 20 小时",
+        "team": "4名可协作同学"
+      },
+      "profileChecks": [
+        {
+          "caseId": "PROFILE-009",
+          "field": "grade",
+          "expected": "大二",
+          "actual": "大二",
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-009",
+          "field": "goal",
+          "expected": "提高综测",
+          "actual": "提高综测",
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-009",
+          "field": "foundation",
+          "expected": "嵌入式与物联网",
+          "actual": "嵌入式与物联网",
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-009",
+          "field": "weeklyHours",
+          "expected": 20,
+          "actual": 20,
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-009",
+          "field": "team",
+          "expected": "4名可协作同学",
+          "actual": "4名可协作同学",
+          "passed": true
+        }
+      ],
+      "missingRequiredFields": [],
+      "unnecessaryClarification": false,
+      "retrievalChecks": [],
+      "answerRequirements": [
+        "将素质拓展学分理解为综测目标"
+      ],
+      "forbiddenClaims": []
+    },
+    {
+      "caseId": "PROFILE-010",
+      "group": "profile_understanding",
+      "difficulty": "medium",
+      "conversation": [
+        "大三了，目标是就业，软件工程课做过完整项目，每周只能五到六个小时，有一名固定队友。"
+      ],
+      "profile": {
+        "grade": "大三",
+        "goal": "就业与实习",
+        "foundation": "软件与产品开发",
+        "weeklyHours": 5.5,
+        "weeklyHoursRange": [
+          5,
+          6
+        ],
+        "weeklyHoursLabel": "每周约 5–6 小时",
+        "team": "1名可协作同学"
+      },
+      "profileChecks": [
+        {
+          "caseId": "PROFILE-010",
+          "field": "grade",
+          "expected": "大三",
+          "actual": "大三",
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-010",
+          "field": "goal",
+          "expected": "就业与实习",
+          "actual": "就业与实习",
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-010",
+          "field": "foundation",
+          "expected": "软件与产品开发",
+          "actual": "软件与产品开发",
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-010",
+          "field": "weeklyHours",
+          "expected": 5.5,
+          "actual": 5.5,
+          "passed": true
+        },
+        {
+          "caseId": "PROFILE-010",
+          "field": "team",
+          "expected": "1名可协作同学",
+          "actual": "1名可协作同学",
+          "passed": true
+        }
+      ],
+      "missingRequiredFields": [],
+      "unnecessaryClarification": false,
+      "retrievalChecks": [],
+      "answerRequirements": [
+        "保留每周时间区间"
+      ],
+      "forbiddenClaims": []
+    },
+    {
+      "caseId": "POLICY-001",
+      "group": "policy_retrieval",
+      "difficulty": "easy",
+      "conversation": [
+        "信息学院推免综合成绩由什么组成？"
+      ],
+      "profile": {
+        "goal": "保研 / 推免竞争力"
+      },
+      "profileChecks": [],
+      "missingRequiredFields": [
+        "年级",
+        "最有基础的课程或项目",
+        "每周可投入时间"
+      ],
+      "unnecessaryClarification": false,
+      "retrievalChecks": [
+        {
+          "caseId": "POLICY-001",
+          "group": "policy_retrieval",
+          "corpus": "policy",
+          "query": "信息学院2026届推免综合成绩构成",
+          "relevantIds": [
+            "policy-md-003",
+            "policy-csv-01_信息学院2026届推免综合成绩构成-001",
+            "policy-csv-01_信息学院2026届推免综合成绩构成-003"
+          ],
+          "hits": [
+            {
+              "rank": 1,
+              "id": "policy-md-003",
+              "title": "3. 信息学院 2026 届推免综合成绩构成",
+              "score": 291.25
+            },
+            {
+              "rank": 2,
+              "id": "policy-md-002",
+              "title": "2. 信息学院 2026 届推免的基本门槛",
+              "score": 108.9
+            },
+            {
+              "rank": 3,
+              "id": "policy-md-001",
+              "title": "1. 学年综合素质测评和推免综合成绩不是同一个分数",
+              "score": 103.25
+            },
+            {
+              "rank": 4,
+              "id": "policy-csv-00_表格索引-001",
+              "title": "1",
+              "score": 102.9
+            },
+            {
+              "rank": 5,
+              "id": "policy-md-004",
+              "title": "4. 推免竞赛标准分",
+              "score": 78.2
+            }
+          ],
+          "hitAt5": 1,
+          "recallAt5": 0.3333,
+          "mrrAt5": 1,
+          "precisionAt5": 0.2,
+          "contextPrecisionAt5": 1,
+          "ndcgAt5": 0.6735
+        }
+      ],
+      "answerRequirements": [
+        "区分学业成绩、科研成果和学科竞赛"
+      ],
+      "forbiddenClaims": [
+        "将学年综测等同于推免综合成绩"
+      ]
+    },
+    {
+      "caseId": "POLICY-002",
+      "group": "policy_retrieval",
+      "difficulty": "easy",
+      "conversation": [
+        "团队竞赛成果在推免中怎么折算？"
+      ],
+      "profile": {
+        "goal": "保研 / 推免竞争力"
+      },
+      "profileChecks": [],
+      "missingRequiredFields": [
+        "年级",
+        "最有基础的课程或项目",
+        "每周可投入时间"
+      ],
+      "unnecessaryClarification": false,
+      "retrievalChecks": [
+        {
+          "caseId": "POLICY-002",
+          "group": "policy_retrieval",
+          "corpus": "policy",
+          "query": "团队成果 推免 折算 排名",
+          "relevantIds": [
+            "policy-md-005",
+            "policy-csv-03_竞赛成果推免贡献计算示例-006",
+            "policy-csv-03_竞赛成果推免贡献计算示例-007"
+          ],
+          "hits": [
+            {
+              "rank": 1,
+              "id": "policy-md-005",
+              "title": "5. 团队成果如何折算",
+              "score": 98.7
+            },
+            {
+              "rank": 2,
+              "id": "policy-md-004",
+              "title": "4. 推免竞赛标准分",
+              "score": 74.15
+            },
+            {
+              "rank": 3,
+              "id": "policy-md-003",
+              "title": "3. 信息学院 2026 届推免综合成绩构成",
+              "score": 68.75
+            },
+            {
+              "rank": 4,
+              "id": "policy-md-001",
+              "title": "1. 学年综合素质测评和推免综合成绩不是同一个分数",
+              "score": 63.35
+            },
+            {
+              "rank": 5,
+              "id": "policy-md-002",
+              "title": "2. 信息学院 2026 届推免的基本门槛",
+              "score": 20.5
+            }
+          ],
+          "hitAt5": 1,
+          "recallAt5": 0.3333,
+          "mrrAt5": 1,
+          "precisionAt5": 0.2,
+          "contextPrecisionAt5": 1,
+          "ndcgAt5": 0.6735
+        }
+      ],
+      "answerRequirements": [
+        "说明成员排序可能影响收益"
+      ],
+      "forbiddenClaims": [
+        "所有团队成员得分完全相同"
+      ]
+    },
+    {
+      "caseId": "POLICY-003",
+      "group": "policy_retrieval",
+      "difficulty": "medium",
+      "conversation": [
+        "哪些竞赛得奖在历史口径中可以加5分以上？"
+      ],
+      "profile": {},
+      "profileChecks": [],
+      "missingRequiredFields": [
+        "年级",
+        "目标",
+        "最有基础的课程或项目",
+        "每周可投入时间"
+      ],
+      "unnecessaryClarification": false,
+      "retrievalChecks": [
+        {
+          "caseId": "POLICY-003",
+          "group": "policy_retrieval",
+          "corpus": "policy",
+          "query": "学年综测 竞赛加分 历史口径 5分以上",
+          "relevantIds": [
+            "policy-md-006",
+            "policy-csv-04_学年综测竞赛加分历史口径-001",
+            "policy-csv-05_旧版学年综测B类通用分值-001"
+          ],
+          "hits": [
+            {
+              "rank": 1,
+              "id": "policy-md-006",
+              "title": "6. 学年综测竞赛加分的历史公开口径",
+              "score": 166.1
+            },
+            {
+              "rank": 2,
+              "id": "policy-md-001",
+              "title": "1. 学年综合素质测评和推免综合成绩不是同一个分数",
+              "score": 139.95
+            },
+            {
+              "rank": 3,
+              "id": "policy-csv-00_表格索引-004",
+              "title": "4",
+              "score": 41.85
+            },
+            {
+              "rank": 4,
+              "id": "policy-csv-04_学年综测竞赛加分历史口径-001",
+              "title": "“挑战杯”课外学术科技作品",
+              "score": 28.35
+            },
+            {
+              "rank": 5,
+              "id": "policy-csv-04_学年综测竞赛加分历史口径-004",
+              "title": "全国大学生数学建模竞赛",
+              "score": 28.35
+            }
+          ],
+          "hitAt5": 1,
+          "recallAt5": 0.6667,
+          "mrrAt5": 1,
+          "precisionAt5": 0.4,
+          "contextPrecisionAt5": 0.75,
+          "ndcgAt5": 0.7979
+        }
+      ],
+      "answerRequirements": [
+        "明确这是历史公开口径",
+        "提醒核验当年细则"
+      ],
+      "forbiddenClaims": [
+        "保证本届一定加5分以上"
+      ]
+    },
+    {
+      "caseId": "POLICY-004",
+      "group": "policy_retrieval",
+      "difficulty": "easy",
+      "conversation": [
+        "GPA没有进入前40%，能靠竞赛获得推免资格吗？"
+      ],
+      "profile": {
+        "goal": "保研 / 推免竞争力"
+      },
+      "profileChecks": [],
+      "missingRequiredFields": [
+        "年级",
+        "最有基础的课程或项目",
+        "每周可投入时间"
+      ],
+      "unnecessaryClarification": false,
+      "retrievalChecks": [
+        {
+          "caseId": "POLICY-004",
+          "group": "policy_retrieval",
+          "corpus": "policy",
+          "query": "GPA 前40% 靠竞赛保研 推免门槛",
+          "relevantIds": [
+            "policy-md-002",
+            "policy-md-036"
+          ],
+          "hits": [
+            {
+              "rank": 1,
+              "id": "policy-md-036",
+              "title": "2. 我的 GPA 还没有进入前 40%，能不能靠竞赛保研？",
+              "score": 84.35
+            },
+            {
+              "rank": 2,
+              "id": "policy-md-004",
+              "title": "4. 推免竞赛标准分",
+              "score": 76.85
+            },
+            {
+              "rank": 3,
+              "id": "policy-md-003",
+              "title": "3. 信息学院 2026 届推免综合成绩构成",
+              "score": 72.8
+            },
+            {
+              "rank": 4,
+              "id": "policy-md-001",
+              "title": "1. 学年综合素质测评和推免综合成绩不是同一个分数",
+              "score": 68.75
+            },
+            {
+              "rank": 5,
+              "id": "policy-md-002",
+              "title": "2. 信息学院 2026 届推免的基本门槛",
+              "score": 34.25
+            }
+          ],
+          "hitAt5": 1,
+          "recallAt5": 1,
+          "mrrAt5": 1,
+          "precisionAt5": 0.4,
+          "contextPrecisionAt5": 0.7,
+          "ndcgAt5": 0.8503
+        }
+      ],
+      "answerRequirements": [
+        "先说明基本门槛再讨论竞赛贡献"
+      ],
+      "forbiddenClaims": [
+        "承诺竞赛可以绕过所有门槛"
+      ]
+    },
+    {
+      "caseId": "POLICY-005",
+      "group": "policy_retrieval",
+      "difficulty": "easy",
+      "conversation": [
+        "中国高校计算机大赛C4适合什么基础的学生？"
+      ],
+      "profile": {},
+      "profileChecks": [],
+      "missingRequiredFields": [
+        "年级",
+        "目标",
+        "最有基础的课程或项目",
+        "每周可投入时间"
+      ],
+      "unnecessaryClarification": false,
+      "retrievalChecks": [
+        {
+          "caseId": "POLICY-005",
+          "group": "policy_retrieval",
+          "corpus": "policy",
+          "query": "中国高校计算机大赛 C4 适合学生 基础 赛道",
+          "relevantIds": [
+            "policy-md-023",
+            "policy-csv-06_竞赛政策对应速查-009"
+          ],
+          "hits": [
+            {
+              "rank": 1,
+              "id": "policy-md-023",
+              "title": "2. 中国高校计算机大赛（C4）",
+              "score": 145
+            },
+            {
+              "rank": 2,
+              "id": "policy-csv-06_竞赛政策对应速查-009",
+              "title": "中国高校计算机大赛（C4）各赛道",
+              "score": 137.15
+            },
+            {
+              "rank": 3,
+              "id": "policy-md-022",
+              "title": "1. 中国大学生计算机设计大赛",
+              "score": 51.2
+            },
+            {
+              "rank": 4,
+              "id": "policy-csv-06_竞赛政策对应速查-006",
+              "title": "中国大学生计算机设计大赛",
+              "score": 48.5
+            },
+            {
+              "rank": 5,
+              "id": "policy-md-029",
+              "title": "1. 全国大学生计算机系统能力大赛",
+              "score": 44.2
+            }
+          ],
+          "hitAt5": 1,
+          "recallAt5": 1,
+          "mrrAt5": 1,
+          "precisionAt5": 0.4,
+          "contextPrecisionAt5": 1,
+          "ndcgAt5": 1
+        }
+      ],
+      "answerRequirements": [
+        "说明C4存在不同赛道"
+      ],
+      "forbiddenClaims": [
+        "把C4所有赛道视为同一种能力要求"
+      ]
+    },
+    {
+      "caseId": "POLICY-006",
+      "group": "policy_retrieval",
+      "difficulty": "easy",
+      "conversation": [
+        "ISCC和全国大学生信息安全竞赛有什么区别？"
+      ],
+      "profile": {
+        "foundation": "信息安全"
+      },
+      "profileChecks": [],
+      "missingRequiredFields": [
+        "年级",
+        "目标",
+        "每周可投入时间"
+      ],
+      "unnecessaryClarification": false,
+      "retrievalChecks": [
+        {
+          "caseId": "POLICY-006",
+          "group": "policy_retrieval",
+          "corpus": "policy",
+          "query": "ISCC 全国大学生信息安全竞赛 CISC 区别",
+          "relevantIds": [
+            "policy-md-026",
+            "policy-md-027",
+            "policy-csv-06_竞赛政策对应速查-010"
+          ],
+          "hits": [
+            {
+              "rank": 1,
+              "id": "policy-md-026",
+              "title": "1. 全国大学生信息安全竞赛（CISC）",
+              "score": 156.05
+            },
+            {
+              "rank": 2,
+              "id": "policy-csv-06_竞赛政策对应速查-010",
+              "title": "全国大学生信息安全竞赛、ISCC",
+              "score": 135.8
+            },
+            {
+              "rank": 3,
+              "id": "policy-md-027",
+              "title": "2. ISCC 大学生信息安全与对抗技术竞赛",
+              "score": 95.4
+            },
+            {
+              "rank": 4,
+              "id": "policy-md-046",
+              "title": "赛事官方或主办方页面",
+              "score": 51.3
+            },
+            {
+              "rank": 5,
+              "id": "policy-md-014",
+              "title": "1. 全国大学生数学建模竞赛",
+              "score": 48.25
+            }
+          ],
+          "hitAt5": 1,
+          "recallAt5": 1,
+          "mrrAt5": 1,
+          "precisionAt5": 0.6,
+          "contextPrecisionAt5": 1,
+          "ndcgAt5": 0.9595
+        }
+      ],
+      "answerRequirements": [
+        "分别说明两个赛事"
+      ],
+      "forbiddenClaims": []
+    },
+    {
+      "caseId": "POLICY-007",
+      "group": "policy_retrieval",
+      "difficulty": "easy",
+      "conversation": [
+        "蓝桥杯适合作为算法竞赛入门吗？"
+      ],
+      "profile": {
+        "goal": "能力提升",
+        "foundation": "算法与程序设计"
+      },
+      "profileChecks": [],
+      "missingRequiredFields": [
+        "年级",
+        "每周可投入时间"
+      ],
+      "unnecessaryClarification": false,
+      "retrievalChecks": [
+        {
+          "caseId": "POLICY-007",
+          "group": "policy_retrieval",
+          "corpus": "policy",
+          "query": "蓝桥杯 算法 入门 适合学生 准备",
+          "relevantIds": [
+            "policy-md-017",
+            "policy-csv-06_竞赛政策对应速查-008"
+          ],
+          "hits": [
+            {
+              "rank": 1,
+              "id": "policy-md-019",
+              "title": "3. ICPC 国际大学生程序设计竞赛",
+              "score": 82.25
+            },
+            {
+              "rank": 2,
+              "id": "policy-md-018",
+              "title": "2. JSCPC 江苏省大学生程序设计大赛",
+              "score": 74.15
+            },
+            {
+              "rank": 3,
+              "id": "policy-md-017",
+              "title": "1. 蓝桥杯全国软件和信息技术专业人才大赛",
+              "score": 70.95
+            },
+            {
+              "rank": 4,
+              "id": "policy-md-020",
+              "title": "4. CCPC 中国大学生程序设计竞赛",
+              "score": 70.1
+            },
+            {
+              "rank": 5,
+              "id": "policy-md-021",
+              "title": "5. 百度之星程序设计大赛",
+              "score": 60.4
+            }
+          ],
+          "hitAt5": 1,
+          "recallAt5": 0.5,
+          "mrrAt5": 0.3333,
+          "precisionAt5": 0.2,
+          "contextPrecisionAt5": 0.3333,
+          "ndcgAt5": 0.3936
+        }
+      ],
+      "answerRequirements": [
+        "结合入门门槛说明"
+      ],
+      "forbiddenClaims": [
+        "保证参赛即可获奖"
+      ]
+    },
+    {
+      "caseId": "POLICY-008",
+      "group": "policy_retrieval",
+      "difficulty": "easy",
+      "conversation": [
+        "全国大学生数学建模竞赛一般需要哪些能力？"
+      ],
+      "profile": {
+        "goal": "能力提升",
+        "foundation": "数学建模"
+      },
+      "profileChecks": [],
+      "missingRequiredFields": [
+        "年级",
+        "每周可投入时间"
+      ],
+      "unnecessaryClarification": false,
+      "retrievalChecks": [
+        {
+          "caseId": "POLICY-008",
+          "group": "policy_retrieval",
+          "corpus": "policy",
+          "query": "全国大学生数学建模竞赛 能力 时间投入 论文",
+          "relevantIds": [
+            "policy-md-014",
+            "policy-csv-06_竞赛政策对应速查-004"
+          ],
+          "hits": [
+            {
+              "rank": 1,
+              "id": "policy-md-014",
+              "title": "1. 全国大学生数学建模竞赛",
+              "score": 190.9
+            },
+            {
+              "rank": 2,
+              "id": "policy-csv-06_竞赛政策对应速查-004",
+              "title": "全国大学生数学建模竞赛",
+              "score": 127.45
+            },
+            {
+              "rank": 3,
+              "id": "policy-csv-02_南京林业大学推免竞赛标准分-007",
+              "title": "全国大学生数学建模竞赛",
+              "score": 126.1
+            },
+            {
+              "rank": 4,
+              "id": "policy-csv-04_学年综测竞赛加分历史口径-004",
+              "title": "全国大学生数学建模竞赛",
+              "score": 126.1
+            },
+            {
+              "rank": 5,
+              "id": "policy-md-016",
+              "title": "3. “外研社·国才杯”全国大学生外语能力大赛",
+              "score": 57.95
+            }
+          ],
+          "hitAt5": 1,
+          "recallAt5": 1,
+          "mrrAt5": 1,
+          "precisionAt5": 0.4,
+          "contextPrecisionAt5": 1,
+          "ndcgAt5": 1
+        }
+      ],
+      "answerRequirements": [
+        "提到建模、编程或论文协作"
+      ],
+      "forbiddenClaims": []
+    },
+    {
+      "caseId": "POLICY-009",
+      "group": "policy_retrieval",
+      "difficulty": "medium",
+      "conversation": [
+        "为了保研是不是选理论分值最高的比赛最好？"
+      ],
+      "profile": {
+        "goal": "保研 / 推免竞争力"
+      },
+      "profileChecks": [],
+      "missingRequiredFields": [
+        "年级",
+        "最有基础的课程或项目",
+        "每周可投入时间"
+      ],
+      "unnecessaryClarification": false,
+      "retrievalChecks": [
+        {
+          "caseId": "POLICY-009",
+          "group": "policy_retrieval",
+          "corpus": "policy",
+          "query": "保研 分值最高 比赛 适配性 时间成本",
+          "relevantIds": [
+            "policy-md-010",
+            "policy-md-038",
+            "policy-md-040"
+          ],
+          "hits": [
+            {
+              "rank": 1,
+              "id": "policy-md-004",
+              "title": "4. 推免竞赛标准分",
+              "score": 79.55
+            },
+            {
+              "rank": 2,
+              "id": "policy-md-010",
+              "title": "4. 只想增加推免竞争力，不代表应该选择分值最高的比赛",
+              "score": 73.3
+            },
+            {
+              "rank": 3,
+              "id": "policy-md-003",
+              "title": "3. 信息学院 2026 届推免综合成绩构成",
+              "score": 71.45
+            },
+            {
+              "rank": 4,
+              "id": "policy-md-001",
+              "title": "1. 学年综合素质测评和推免综合成绩不是同一个分数",
+              "score": 68.75
+            },
+            {
+              "rank": 5,
+              "id": "policy-md-035",
+              "title": "1. 我现在大三，打算保研，为了提高综测应该参加哪个竞赛？",
+              "score": 34.25
+            }
+          ],
+          "hitAt5": 1,
+          "recallAt5": 0.3333,
+          "mrrAt5": 0.5,
+          "precisionAt5": 0.2,
+          "contextPrecisionAt5": 0.5,
+          "ndcgAt5": 0.425
+        }
+      ],
+      "answerRequirements": [
+        "讨论成功概率、时间和现有基础"
+      ],
+      "forbiddenClaims": [
+        "只按最高分值推荐"
+      ]
+    },
+    {
+      "caseId": "POLICY-010",
+      "group": "policy_retrieval",
+      "difficulty": "medium",
+      "conversation": [
+        "没有竞赛基础应该从哪个比赛开始？"
+      ],
+      "profile": {},
+      "profileChecks": [],
+      "missingRequiredFields": [
+        "年级",
+        "目标",
+        "最有基础的课程或项目",
+        "每周可投入时间"
+      ],
+      "unnecessaryClarification": false,
+      "retrievalChecks": [
+        {
+          "caseId": "POLICY-010",
+          "group": "policy_retrieval",
+          "corpus": "policy",
+          "query": "没有竞赛基础 从哪个比赛开始 入门",
+          "relevantIds": [
+            "policy-md-037",
+            "policy-md-007",
+            "policy-md-008"
+          ],
+          "hits": [
+            {
+              "rank": 1,
+              "id": "policy-md-037",
+              "title": "3. 我没有任何竞赛基础，最适合从哪个比赛开始？",
+              "score": 136.9
+            },
+            {
+              "rank": 2,
+              "id": "policy-md-044",
+              "title": "10. 如何判断一个比赛值不值得继续投入？",
+              "score": 33.15
+            },
+            {
+              "rank": 3,
+              "id": "policy-md-035",
+              "title": "1. 我现在大三，打算保研，为了提高综测应该参加哪个竞赛？",
+              "score": 20.5
+            },
+            {
+              "rank": 4,
+              "id": "policy-md-042",
+              "title": "8. 训练型比赛没有加分，还有必要参加吗？",
+              "score": 19.4
+            },
+            {
+              "rank": 5,
+              "id": "policy-md-009",
+              "title": "3. 大三学生：结果时间和现有基础比理论分值更重要",
+              "score": 17.8
+            }
+          ],
+          "hitAt5": 1,
+          "recallAt5": 0.3333,
+          "mrrAt5": 1,
+          "precisionAt5": 0.2,
+          "contextPrecisionAt5": 1,
+          "ndcgAt5": 0.6735
+        }
+      ],
+      "answerRequirements": [
+        "根据年级和兴趣提出低成本验证"
+      ],
+      "forbiddenClaims": [
+        "忽略个人情况直接指定唯一比赛"
+      ]
+    },
+    {
+      "caseId": "DUAL-001",
+      "group": "dual_corpus_recommendation",
+      "difficulty": "easy",
+      "conversation": [
+        "我大二想保研，做过Packet Tracer，有两名同学，每周8小时，适合参加什么比赛并先看哪些资料？"
+      ],
+      "profile": {
+        "grade": "大二",
+        "goal": "保研 / 推免竞争力",
+        "foundation": "计算机网络",
+        "weeklyHours": 8,
+        "weeklyHoursRange": [
+          8,
+          8
+        ],
+        "weeklyHoursLabel": "每周约 8 小时",
+        "team": "2名可协作同学"
+      },
+      "profileChecks": [],
+      "missingRequiredFields": [],
+      "unnecessaryClarification": false,
+      "retrievalChecks": [
+        {
+          "caseId": "DUAL-001",
+          "group": "dual_corpus_recommendation",
+          "corpus": "policy",
+          "query": "大二 保研 计算机网络 Packet Tracer C4 网络技术挑战",
+          "relevantIds": [
+            "policy-md-008",
+            "policy-md-023",
+            "policy-csv-06_竞赛政策对应速查-009"
+          ],
+          "hits": [
+            {
+              "rank": 1,
+              "id": "policy-md-023",
+              "title": "2. 中国高校计算机大赛（C4）",
+              "score": 79.3
+            },
+            {
+              "rank": 2,
+              "id": "policy-md-004",
+              "title": "4. 推免竞赛标准分",
+              "score": 76.85
+            },
+            {
+              "rank": 3,
+              "id": "policy-md-003",
+              "title": "3. 信息学院 2026 届推免综合成绩构成",
+              "score": 71.45
+            },
+            {
+              "rank": 4,
+              "id": "policy-md-001",
+              "title": "1. 学年综合素质测评和推免综合成绩不是同一个分数",
+              "score": 68.75
+            },
+            {
+              "rank": 5,
+              "id": "policy-csv-06_竞赛政策对应速查-009",
+              "title": "中国高校计算机大赛（C4）各赛道",
+              "score": 40.15
+            }
+          ],
+          "hitAt5": 1,
+          "recallAt5": 0.6667,
+          "mrrAt5": 1,
+          "precisionAt5": 0.4,
+          "contextPrecisionAt5": 0.7,
+          "ndcgAt5": 0.7852
+        },
+        {
+          "caseId": "DUAL-001",
+          "group": "dual_corpus_recommendation",
+          "corpus": "resources",
+          "query": "计算机网络 Packet Tracer 组网 题目 要求 任务书 评分标准",
+          "relevantIds": [
+            "NJFU-RES-BE257C0A3B",
+            "NJFU-RES-DB4AC4B571",
+            "NJFU-RES-D6356643DC",
+            "NJFU-RES-FE79F61A11"
+          ],
+          "hits": [
+            {
+              "rank": 1,
+              "id": "NJFU-RES-D6356643DC",
+              "title": "《网络工程与组网实习》课程设计考核评分标准",
+              "score": 192.75
+            },
+            {
+              "rank": 2,
+              "id": "NJFU-RES-DB4AC4B571",
+              "title": "2022-《网络工程与组网实习》-课程设计任务书",
+              "score": 163.9
+            },
+            {
+              "rank": 3,
+              "id": "NJFU-RES-D47F5A0669",
+              "title": "《网络工程与组网实习》评分",
+              "score": 155.3
+            },
+            {
+              "rank": 4,
+              "id": "NJFU-RES-BE257C0A3B",
+              "title": "《网络工程与组网实习》-题目和要求",
+              "score": 148.8
+            },
+            {
+              "rank": 5,
+              "id": "NJFU-RES-0E88787E7E",
+              "title": "2022网络工程与组网实习报告-格式要求（模版）",
+              "score": 133.7
+            }
+          ],
+          "hitAt5": 1,
+          "recallAt5": 0.75,
+          "mrrAt5": 1,
+          "precisionAt5": 0.6,
+          "contextPrecisionAt5": 0.9167,
+          "ndcgAt5": 0.8903
+        }
+      ],
+      "answerRequirements": [
+        "同时给出竞赛方向和GitHub资料",
+        "给出第一周行动"
+      ],
+      "forbiddenClaims": [
+        "承诺C4一定获得推免加分"
+      ]
+    },
+    {
+      "caseId": "DUAL-002",
+      "group": "dual_corpus_recommendation",
+      "difficulty": "medium",
+      "conversation": [
+        "我大二，做过图像分类和PyTorch项目，想提高综测，每周15小时，有两名同学，应该验证什么竞赛方向和资料？"
+      ],
+      "profile": {
+        "grade": "大二",
+        "goal": "提高综测",
+        "foundation": "人工智能 / 计算机视觉",
+        "weeklyHours": 15,
+        "weeklyHoursRange": [
+          15,
+          15
+        ],
+        "weeklyHoursLabel": "每周约 15 小时",
+        "team": "2名可协作同学"
+      },
+      "profileChecks": [],
+      "missingRequiredFields": [],
+      "unnecessaryClarification": false,
+      "retrievalChecks": [
+        {
+          "caseId": "DUAL-002",
+          "group": "dual_corpus_recommendation",
+          "corpus": "policy",
+          "query": "图像分类 PyTorch 人工智能 计算机视觉 竞赛 C4 计算机设计大赛",
+          "relevantIds": [
+            "policy-md-022",
+            "policy-md-023",
+            "policy-md-031"
+          ],
+          "hits": [
+            {
+              "rank": 1,
+              "id": "policy-md-031",
+              "title": "3. 中国机器人及人工智能大赛",
+              "score": 132.35
+            },
+            {
+              "rank": 2,
+              "id": "policy-md-022",
+              "title": "1. 中国大学生计算机设计大赛",
+              "score": 121.3
+            },
+            {
+              "rank": 3,
+              "id": "policy-md-023",
+              "title": "2. 中国高校计算机大赛（C4）",
+              "score": 107.9
+            },
+            {
+              "rank": 4,
+              "id": "policy-csv-06_竞赛政策对应速查-006",
+              "title": "中国大学生计算机设计大赛",
+              "score": 99.7
+            },
+            {
+              "rank": 5,
+              "id": "policy-csv-04_学年综测竞赛加分历史口径-006",
+              "title": "全国大学生计算机设计大赛",
+              "score": 97
+            }
+          ],
+          "hitAt5": 1,
+          "recallAt5": 1,
+          "mrrAt5": 1,
+          "precisionAt5": 0.6,
+          "contextPrecisionAt5": 1,
+          "ndcgAt5": 0.858
+        },
+        {
+          "caseId": "DUAL-002",
+          "group": "dual_corpus_recommendation",
+          "corpus": "resources",
+          "query": "图像分类 PyTorch 数字图像处理 数据挖掘 分类",
+          "relevantIds": [
+            "NJFU-RES-CEA5C79F31",
+            "NJFU-RES-A144665896",
+            "NJFU-RES-B448A010DF",
+            "NJFU-RES-F064439644"
+          ],
+          "hits": [
+            {
+              "rank": 1,
+              "id": "NJFU-RES-A144665896",
+              "title": "数字图像处理个人笔记",
+              "score": 120.7
+            },
+            {
+              "rank": 2,
+              "id": "NJFU-RES-CEA5C79F31",
+              "title": "数字图像处理知识点总结",
+              "score": 118
+            },
+            {
+              "rank": 3,
+              "id": "NJFU-RES-CC97792005",
+              "title": "03数据挖掘-数据预处理",
+              "score": 93.2
+            },
+            {
+              "rank": 4,
+              "id": "NJFU-RES-B448A010DF",
+              "title": "05数据挖掘-分类-贝叶斯分类",
+              "score": 91.85
+            },
+            {
+              "rank": 5,
+              "id": "NJFU-RES-F064439644",
+              "title": "05数据挖掘-分类-决策树",
+              "score": 91.85
+            }
+          ],
+          "hitAt5": 1,
+          "recallAt5": 1,
+          "mrrAt5": 1,
+          "precisionAt5": 0.8,
+          "contextPrecisionAt5": 0.8875,
+          "ndcgAt5": 0.8446
+        }
+      ],
+      "answerRequirements": [
+        "不要只列比赛名称",
+        "将图像处理或分类资料对应到准备行动"
+      ],
+      "forbiddenClaims": [
+        "声称知识库中存在PyTorch完整教程"
+      ]
+    },
+    {
+      "caseId": "DUAL-003",
+      "group": "dual_corpus_recommendation",
+      "difficulty": "easy",
+      "conversation": [
+        "我大一想练算法，以后参加蓝桥杯，每周6小时，应该先用什么资料？"
+      ],
+      "profile": {
+        "grade": "大一",
+        "foundation": "算法与程序设计",
+        "weeklyHours": 6,
+        "weeklyHoursRange": [
+          6,
+          6
+        ],
+        "weeklyHoursLabel": "每周约 6 小时"
+      },
+      "profileChecks": [],
+      "missingRequiredFields": [
+        "目标"
+      ],
+      "unnecessaryClarification": false,
+      "retrievalChecks": [
+        {
+          "caseId": "DUAL-003",
+          "group": "dual_corpus_recommendation",
+          "corpus": "policy",
+          "query": "大一 算法 蓝桥杯 入门 准备",
+          "relevantIds": [
+            "policy-md-007",
+            "policy-md-017"
+          ],
+          "hits": [
+            {
+              "rank": 1,
+              "id": "policy-md-019",
+              "title": "3. ICPC 国际大学生程序设计竞赛",
+              "score": 78.2
+            },
+            {
+              "rank": 2,
+              "id": "policy-md-018",
+              "title": "2. JSCPC 江苏省大学生程序设计大赛",
+              "score": 70.1
+            },
+            {
+              "rank": 3,
+              "id": "policy-md-020",
+              "title": "4. CCPC 中国大学生程序设计竞赛",
+              "score": 68.75
+            },
+            {
+              "rank": 4,
+              "id": "policy-md-017",
+              "title": "1. 蓝桥杯全国软件和信息技术专业人才大赛",
+              "score": 68.25
+            },
+            {
+              "rank": 5,
+              "id": "policy-md-021",
+              "title": "5. 百度之星程序设计大赛",
+              "score": 59.05
+            }
+          ],
+          "hitAt5": 1,
+          "recallAt5": 0.5,
+          "mrrAt5": 0.25,
+          "precisionAt5": 0.2,
+          "contextPrecisionAt5": 0.25,
+          "ndcgAt5": 0.339
+        },
+        {
+          "caseId": "DUAL-003",
+          "group": "dual_corpus_recommendation",
+          "corpus": "resources",
+          "query": "数据结构 算法 日常练习 代码 知识点",
+          "relevantIds": [
+            "NJFU-RES-49E545D092",
+            "NJFU-RES-192FD4BAD2",
+            "NJFU-RES-A55F57E254"
+          ],
+          "hits": [
+            {
+              "rank": 1,
+              "id": "NJFU-RES-192FD4BAD2",
+              "title": "数据结构日常练习代码合集",
+              "score": 149.8
+            },
+            {
+              "rank": 2,
+              "id": "NJFU-RES-49E545D092",
+              "title": "数据结构各章知识点202206",
+              "score": 118
+            },
+            {
+              "rank": 3,
+              "id": "NJFU-RES-8D8BE54432",
+              "title": "数据结构实习补充项目代码合集",
+              "score": 94.55
+            },
+            {
+              "rank": 4,
+              "id": "NJFU-RES-27773FD330",
+              "title": "数据结构实习第二天代码合集",
+              "score": 94.55
+            },
+            {
+              "rank": 5,
+              "id": "NJFU-RES-47158CA1E6",
+              "title": "数据结构实习第三天代码合集",
+              "score": 94.55
+            }
+          ],
+          "hitAt5": 1,
+          "recallAt5": 0.6667,
+          "mrrAt5": 1,
+          "precisionAt5": 0.4,
+          "contextPrecisionAt5": 1,
+          "ndcgAt5": 0.8839
+        }
+      ],
+      "answerRequirements": [
+        "给出基础训练顺序"
+      ],
+      "forbiddenClaims": []
+    },
+    {
+      "caseId": "DUAL-004",
+      "group": "dual_corpus_recommendation",
+      "difficulty": "medium",
+      "conversation": [
+        "我大二学过CTF，想为保研积累成果，每周10小时，一个人准备，该参加什么并补什么基础？"
+      ],
+      "profile": {
+        "grade": "大二",
+        "goal": "保研 / 推免竞争力",
+        "foundation": "信息安全",
+        "weeklyHours": 10,
+        "weeklyHoursRange": [
+          10,
+          10
+        ],
+        "weeklyHoursLabel": "每周约 10 小时",
+        "team": "暂时单人"
+      },
+      "profileChecks": [],
+      "missingRequiredFields": [],
+      "unnecessaryClarification": false,
+      "retrievalChecks": [
+        {
+          "caseId": "DUAL-004",
+          "group": "dual_corpus_recommendation",
+          "corpus": "policy",
+          "query": "CTF 信息安全 CISC ISCC 保研 单人 准备",
+          "relevantIds": [
+            "policy-md-026",
+            "policy-md-027",
+            "policy-md-028"
+          ],
+          "hits": [
+            {
+              "rank": 1,
+              "id": "policy-md-003",
+              "title": "3. 信息学院 2026 届推免综合成绩构成",
+              "score": 85.2
+            },
+            {
+              "rank": 2,
+              "id": "policy-md-004",
+              "title": "4. 推免竞赛标准分",
+              "score": 76.85
+            },
+            {
+              "rank": 3,
+              "id": "policy-md-026",
+              "title": "1. 全国大学生信息安全竞赛（CISC）",
+              "score": 73.05
+            },
+            {
+              "rank": 4,
+              "id": "policy-md-001",
+              "title": "1. 学年综合素质测评和推免综合成绩不是同一个分数",
+              "score": 70.1
+            },
+            {
+              "rank": 5,
+              "id": "policy-md-027",
+              "title": "2. ISCC 大学生信息安全与对抗技术竞赛",
+              "score": 69
+            }
+          ],
+          "hitAt5": 1,
+          "recallAt5": 0.6667,
+          "mrrAt5": 0.3333,
+          "precisionAt5": 0.4,
+          "contextPrecisionAt5": 0.3667,
+          "ndcgAt5": 0.4806
+        },
+        {
+          "caseId": "DUAL-004",
+          "group": "dual_corpus_recommendation",
+          "corpus": "resources",
+          "query": "计算机网络 操作系统 信息安全 基础",
+          "relevantIds": [
+            "NJFU-RES-FE79F61A11",
+            "NJFU-RES-E6D869DAB2",
+            "NJFU-RES-570EE94C5F"
+          ],
+          "hits": [
+            {
+              "rank": 1,
+              "id": "NJFU-RES-B0D88FCEBF",
+              "title": "《网络工程与组网实习》课程设计-报告-模板",
+              "score": 122.65
+            },
+            {
+              "rank": 2,
+              "id": "NJFU-RES-0E88787E7E",
+              "title": "2022网络工程与组网实习报告-格式要求（模版）",
+              "score": 122.65
+            },
+            {
+              "rank": 3,
+              "id": "NJFU-RES-D6356643DC",
+              "title": "《网络工程与组网实习》课程设计考核评分标准",
+              "score": 122.65
+            },
+            {
+              "rank": 4,
+              "id": "NJFU-RES-D47F5A0669",
+              "title": "《网络工程与组网实习》评分",
+              "score": 122.65
+            },
+            {
+              "rank": 5,
+              "id": "NJFU-RES-BE257C0A3B",
+              "title": "《网络工程与组网实习》-题目和要求",
+              "score": 122.65
+            }
+          ],
+          "hitAt5": 0,
+          "recallAt5": 0,
+          "mrrAt5": 0,
+          "precisionAt5": 0,
+          "contextPrecisionAt5": 0,
+          "ndcgAt5": 0
+        }
+      ],
+      "answerRequirements": [
+        "说明仓库缺少专门CTF材料时的限制"
+      ],
+      "forbiddenClaims": [
+        "编造仓库中的CTF题库"
+      ]
+    },
+    {
+      "caseId": "DUAL-005",
+      "group": "dual_corpus_recommendation",
+      "difficulty": "easy",
+      "conversation": [
+        "我大二概率统计还可以，想参加数学建模提高综测，三人组，每周12小时，需要先看什么？"
+      ],
+      "profile": {
+        "grade": "大二",
+        "goal": "提高综测",
+        "foundation": "数学建模",
+        "weeklyHours": 12,
+        "weeklyHoursRange": [
+          12,
+          12
+        ],
+        "weeklyHoursLabel": "每周约 12 小时"
+      },
+      "profileChecks": [],
+      "missingRequiredFields": [],
+      "unnecessaryClarification": false,
+      "retrievalChecks": [
+        {
+          "caseId": "DUAL-005",
+          "group": "dual_corpus_recommendation",
+          "corpus": "policy",
+          "query": "大二 数学建模 提高综测 三人组 时间投入",
+          "relevantIds": [
+            "policy-md-014",
+            "policy-md-008",
+            "policy-csv-04_学年综测竞赛加分历史口径-004"
+          ],
+          "hits": [
+            {
+              "rank": 1,
+              "id": "policy-md-001",
+              "title": "1. 学年综合素质测评和推免综合成绩不是同一个分数",
+              "score": 123.5
+            },
+            {
+              "rank": 2,
+              "id": "policy-md-014",
+              "title": "1. 全国大学生数学建模竞赛",
+              "score": 98.45
+            },
+            {
+              "rank": 3,
+              "id": "policy-md-006",
+              "title": "6. 学年综测竞赛加分的历史公开口径",
+              "score": 89.25
+            },
+            {
+              "rank": 4,
+              "id": "policy-csv-04_学年综测竞赛加分历史口径-004",
+              "title": "全国大学生数学建模竞赛",
+              "score": 63.35
+            },
+            {
+              "rank": 5,
+              "id": "policy-md-035",
+              "title": "1. 我现在大三，打算保研，为了提高综测应该参加哪个竞赛？",
+              "score": 62
+            }
+          ],
+          "hitAt5": 1,
+          "recallAt5": 0.6667,
+          "mrrAt5": 0.5,
+          "precisionAt5": 0.4,
+          "contextPrecisionAt5": 0.5,
+          "ndcgAt5": 0.5493
+        },
+        {
+          "caseId": "DUAL-005",
+          "group": "dual_corpus_recommendation",
+          "corpus": "resources",
+          "query": "概率论 数理统计 高等数学 数据分析 建模",
+          "relevantIds": [
+            "NJFU-RES-32D5277C00",
+            "NJFU-RES-9F90A15C55",
+            "NJFU-RES-5CC164BA63"
+          ],
+          "hits": [
+            {
+              "rank": 1,
+              "id": "NJFU-RES-32D5277C00",
+              "title": "概率论与数理统计a",
+              "score": 110
+            },
+            {
+              "rank": 2,
+              "id": "NJFU-RES-5CC164BA63",
+              "title": "高等数学(下)知识点总结(1)",
+              "score": 76.75
+            },
+            {
+              "rank": 3,
+              "id": "NJFU-RES-F9F4D9926A",
+              "title": "高等数学A(2) 15-16-2 (A卷)试卷",
+              "score": 76.75
+            },
+            {
+              "rank": 4,
+              "id": "NJFU-RES-1336E8ADBD",
+              "title": "高等数学A(2) 15-16-2 (B卷)试卷",
+              "score": 76.75
+            },
+            {
+              "rank": 5,
+              "id": "NJFU-RES-BB6E99058D",
+              "title": "高等数学A(2) 17-18-2 (A卷)答案",
+              "score": 76.75
+            }
+          ],
+          "hitAt5": 1,
+          "recallAt5": 0.6667,
+          "mrrAt5": 1,
+          "precisionAt5": 0.4,
+          "contextPrecisionAt5": 1,
+          "ndcgAt5": 0.8557
+        }
+      ],
+      "answerRequirements": [
+        "给出三人分工建议",
+        "区分历史综测口径"
+      ],
+      "forbiddenClaims": []
+    },
+    {
+      "caseId": "DUAL-006",
+      "group": "dual_corpus_recommendation",
+      "difficulty": "medium",
+      "conversation": [
+        "做过网站和小程序，想找软件开发实习，也想参加一个能形成作品的比赛，有哪些资料能复用？"
+      ],
+      "profile": {
+        "goal": "就业与实习",
+        "foundation": "软件与产品开发"
+      },
+      "profileChecks": [],
+      "missingRequiredFields": [
+        "年级",
+        "每周可投入时间"
+      ],
+      "unnecessaryClarification": false,
+      "retrievalChecks": [
+        {
+          "caseId": "DUAL-006",
+          "group": "dual_corpus_recommendation",
+          "corpus": "policy",
+          "query": "软件开发 网站 小程序 作品 中国软件杯 服务外包 计算机设计大赛",
+          "relevantIds": [
+            "policy-md-022",
+            "policy-md-024",
+            "policy-md-025"
+          ],
+          "hits": [
+            {
+              "rank": 1,
+              "id": "policy-md-024",
+              "title": "3. 中国软件杯大学生软件设计大赛",
+              "score": 146.35
+            },
+            {
+              "rank": 2,
+              "id": "policy-md-022",
+              "title": "1. 中国大学生计算机设计大赛",
+              "score": 118.6
+            },
+            {
+              "rank": 3,
+              "id": "policy-csv-06_竞赛政策对应速查-012",
+              "title": "系统能力、物联网、机器人与 AI、RAICOM、RoboCup、华为 ICT、中国软件杯、服务外包",
+              "score": 116.4
+            },
+            {
+              "rank": 4,
+              "id": "policy-csv-06_竞赛政策对应速查-006",
+              "title": "中国大学生计算机设计大赛",
+              "score": 97
+            },
+            {
+              "rank": 5,
+              "id": "policy-csv-04_学年综测竞赛加分历史口径-006",
+              "title": "全国大学生计算机设计大赛",
+              "score": 87.3
+            }
+          ],
+          "hitAt5": 1,
+          "recallAt5": 0.6667,
+          "mrrAt5": 1,
+          "precisionAt5": 0.4,
+          "contextPrecisionAt5": 1,
+          "ndcgAt5": 0.8839
+        },
+        {
+          "caseId": "DUAL-006",
+          "group": "dual_corpus_recommendation",
+          "corpus": "resources",
+          "query": "软件工程 需求分析 软件设计 测试 项目文档",
+          "relevantIds": [
+            "NJFU-RES-7AB0708E6B",
+            "NJFU-RES-48BE727D54",
+            "NJFU-RES-590DFB3688",
+            "NJFU-RES-4B81DA1810"
+          ],
+          "hits": [
+            {
+              "rank": 1,
+              "id": "NJFU-RES-48BE727D54",
+              "title": "3. 第3章 软件按需求分析-用例图",
+              "score": 124.25
+            },
+            {
+              "rank": 2,
+              "id": "NJFU-RES-16CDF040FC",
+              "title": "4. 第3章 软件需求分析-数据流图",
+              "score": 124.25
+            },
+            {
+              "rank": 3,
+              "id": "NJFU-RES-53072FEAD5",
+              "title": "5. 第3章 软件需求分析-3",
+              "score": 124.25
+            },
+            {
+              "rank": 4,
+              "id": "NJFU-RES-590DFB3688",
+              "title": "6. 第4章 软件设计",
+              "score": 111.85
+            },
+            {
+              "rank": 5,
+              "id": "NJFU-RES-D52F931B7F",
+              "title": "软件工程2023-2024-1复习重点与期末题型回忆",
+              "score": 95.65
+            }
+          ],
+          "hitAt5": 1,
+          "recallAt5": 0.5,
+          "mrrAt5": 1,
+          "precisionAt5": 0.4,
+          "contextPrecisionAt5": 0.75,
+          "ndcgAt5": 0.6179
+        }
+      ],
+      "answerRequirements": [
+        "把课程资料转化为作品交付物"
+      ],
+      "forbiddenClaims": []
+    },
+    {
+      "caseId": "DUAL-007",
+      "group": "dual_corpus_recommendation",
+      "difficulty": "medium",
+      "conversation": [
+        "我做过单片机和传感器项目，想参加物联网或机器人比赛，每周10小时，有三个人，第一步学什么？"
+      ],
+      "profile": {
+        "foundation": "嵌入式与物联网",
+        "weeklyHours": 10,
+        "weeklyHoursRange": [
+          10,
+          10
+        ],
+        "weeklyHoursLabel": "每周约 10 小时"
+      },
+      "profileChecks": [],
+      "missingRequiredFields": [
+        "年级",
+        "目标"
+      ],
+      "unnecessaryClarification": false,
+      "retrievalChecks": [
+        {
+          "caseId": "DUAL-007",
+          "group": "dual_corpus_recommendation",
+          "corpus": "policy",
+          "query": "物联网 机器人 单片机 传感器 三人团队 竞赛",
+          "relevantIds": [
+            "policy-md-030",
+            "policy-md-031",
+            "policy-md-032",
+            "policy-md-033"
+          ],
+          "hits": [
+            {
+              "rank": 1,
+              "id": "policy-md-032",
+              "title": "4. 睿抗机器人开发者大赛（RAICOM）",
+              "score": 60.4
+            },
+            {
+              "rank": 2,
+              "id": "policy-md-030",
+              "title": "2. 全国大学生物联网设计竞赛",
+              "score": 58.8
+            },
+            {
+              "rank": 3,
+              "id": "policy-csv-06_竞赛政策对应速查-012",
+              "title": "系统能力、物联网、机器人与 AI、RAICOM、RoboCup、华为 ICT、中国软件杯、服务外包",
+              "score": 58.2
+            },
+            {
+              "rank": 4,
+              "id": "policy-md-031",
+              "title": "3. 中国机器人及人工智能大赛",
+              "score": 52.05
+            },
+            {
+              "rank": 5,
+              "id": "policy-md-033",
+              "title": "5. RoboCup 机器人世界杯中国赛",
+              "score": 49.35
+            }
+          ],
+          "hitAt5": 1,
+          "recallAt5": 1,
+          "mrrAt5": 1,
+          "precisionAt5": 0.8,
+          "contextPrecisionAt5": 0.8875,
+          "ndcgAt5": 0.8446
+        },
+        {
+          "caseId": "DUAL-007",
+          "group": "dual_corpus_recommendation",
+          "corpus": "resources",
+          "query": "嵌入式开发 项目规划书 程序代码 项目软件文档",
+          "relevantIds": [
+            "NJFU-RES-5673A98EAB",
+            "NJFU-RES-154950B342",
+            "NJFU-RES-F0D9676364",
+            "NJFU-RES-A59EB6FF6C"
+          ],
+          "hits": [
+            {
+              "rank": 1,
+              "id": "NJFU-RES-5673A98EAB",
+              "title": "项目规划书模板",
+              "score": 139.45
+            },
+            {
+              "rank": 2,
+              "id": "NJFU-RES-F0D9676364",
+              "title": "项目软件文档",
+              "score": 138.1
+            },
+            {
+              "rank": 3,
+              "id": "NJFU-RES-A59EB6FF6C",
+              "title": "项目软件文档示例",
+              "score": 138.1
+            },
+            {
+              "rank": 4,
+              "id": "NJFU-RES-154950B342",
+              "title": "项目程序代码",
+              "score": 125.7
+            },
+            {
+              "rank": 5,
+              "id": "NJFU-RES-B42B64204C",
+              "title": "项目报告及封面",
+              "score": 56.95
+            }
+          ],
+          "hitAt5": 1,
+          "recallAt5": 1,
+          "mrrAt5": 1,
+          "precisionAt5": 0.8,
+          "contextPrecisionAt5": 1,
+          "ndcgAt5": 1
+        }
+      ],
+      "answerRequirements": [
+        "先核验设备和实验室资源"
+      ],
+      "forbiddenClaims": [
+        "假设学校一定提供硬件"
+      ]
+    },
+    {
+      "caseId": "DUAL-008",
+      "group": "dual_corpus_recommendation",
+      "difficulty": "medium",
+      "conversation": [
+        "我喜欢操作系统和底层开发，想参加计算机系统能力大赛，应该怎么开始准备？"
+      ],
+      "profile": {
+        "goal": "能力提升",
+        "foundation": "系统与底层开发"
+      },
+      "profileChecks": [],
+      "missingRequiredFields": [
+        "年级",
+        "每周可投入时间"
+      ],
+      "unnecessaryClarification": false,
+      "retrievalChecks": [
+        {
+          "caseId": "DUAL-008",
+          "group": "dual_corpus_recommendation",
+          "corpus": "policy",
+          "query": "计算机系统能力大赛 操作系统 底层开发 准备",
+          "relevantIds": [
+            "policy-md-029"
+          ],
+          "hits": [
+            {
+              "rank": 1,
+              "id": "policy-md-029",
+              "title": "1. 全国大学生计算机系统能力大赛",
+              "score": 133.95
+            },
+            {
+              "rank": 2,
+              "id": "policy-md-023",
+              "title": "2. 中国高校计算机大赛（C4）",
+              "score": 55
+            },
+            {
+              "rank": 3,
+              "id": "policy-md-022",
+              "title": "1. 中国大学生计算机设计大赛",
+              "score": 44.2
+            },
+            {
+              "rank": 4,
+              "id": "policy-md-016",
+              "title": "3. “外研社·国才杯”全国大学生外语能力大赛",
+              "score": 42.85
+            },
+            {
+              "rank": 5,
+              "id": "policy-csv-04_学年综测竞赛加分历史口径-006",
+              "title": "全国大学生计算机设计大赛",
+              "score": 38.8
+            }
+          ],
+          "hitAt5": 1,
+          "recallAt5": 1,
+          "mrrAt5": 1,
+          "precisionAt5": 0.2,
+          "contextPrecisionAt5": 1,
+          "ndcgAt5": 1
+        },
+        {
+          "caseId": "DUAL-008",
+          "group": "dual_corpus_recommendation",
+          "corpus": "resources",
+          "query": "操作系统 页面管理 进程同步 计算机组成原理 编译原理",
+          "relevantIds": [
+            "NJFU-RES-8FE4C06D13",
+            "NJFU-RES-C1EF3CEF13",
+            "NJFU-RES-940D1B3015",
+            "NJFU-RES-C7EBEAC0CE"
+          ],
+          "hits": [
+            {
+              "rank": 1,
+              "id": "NJFU-RES-8FE4C06D13",
+              "title": "操作系统课程设计：页面管理模拟程序与任务书",
+              "score": 140.1
+            },
+            {
+              "rank": 2,
+              "id": "NJFU-RES-C7EBEAC0CE",
+              "title": "计算机组成原理-第6版.pdf by 白中英、戴志涛 (z-lib.org)",
+              "score": 134.45
+            },
+            {
+              "rank": 3,
+              "id": "NJFU-RES-52CB331BE3",
+              "title": "组成原理",
+              "score": 96.75
+            },
+            {
+              "rank": 4,
+              "id": "NJFU-RES-E6D869DAB2",
+              "title": "操作系统专业复习题",
+              "score": 84.85
+            },
+            {
+              "rank": 5,
+              "id": "NJFU-RES-7494F52F98",
+              "title": "编译原理及编译程序构造 (薛联凤 秦振松)",
+              "score": 79.45
+            }
+          ],
+          "hitAt5": 1,
+          "recallAt5": 0.5,
+          "mrrAt5": 1,
+          "precisionAt5": 0.4,
+          "contextPrecisionAt5": 1,
+          "ndcgAt5": 0.7611
+        }
+      ],
+      "answerRequirements": [
+        "把操作系统课程项目作为低成本验证"
+      ],
+      "forbiddenClaims": []
+    },
+    {
+      "caseId": "DUAL-009",
+      "group": "dual_corpus_recommendation",
+      "difficulty": "medium",
+      "conversation": [
+        "我做过数据库课程设计，想参加软件类竞赛并形成一个完整项目，每周8小时，先补哪些材料？"
+      ],
+      "profile": {
+        "foundation": "数据库与数据管理",
+        "weeklyHours": 8,
+        "weeklyHoursRange": [
+          8,
+          8
+        ],
+        "weeklyHoursLabel": "每周约 8 小时"
+      },
+      "profileChecks": [],
+      "missingRequiredFields": [
+        "年级",
+        "目标"
+      ],
+      "unnecessaryClarification": false,
+      "retrievalChecks": [
+        {
+          "caseId": "DUAL-009",
+          "group": "dual_corpus_recommendation",
+          "corpus": "policy",
+          "query": "数据库课程设计 软件类竞赛 完整项目 计算机设计大赛 软件杯",
+          "relevantIds": [
+            "policy-md-022",
+            "policy-md-024",
+            "policy-md-025"
+          ],
+          "hits": [
+            {
+              "rank": 1,
+              "id": "policy-md-022",
+              "title": "1. 中国大学生计算机设计大赛",
+              "score": 115.65
+            },
+            {
+              "rank": 2,
+              "id": "policy-csv-04_学年综测竞赛加分历史口径-006",
+              "title": "全国大学生计算机设计大赛",
+              "score": 87.3
+            },
+            {
+              "rank": 3,
+              "id": "policy-csv-06_竞赛政策对应速查-006",
+              "title": "中国大学生计算机设计大赛",
+              "score": 87.3
+            },
+            {
+              "rank": 4,
+              "id": "policy-md-024",
+              "title": "3. 中国软件杯大学生软件设计大赛",
+              "score": 86.8
+            },
+            {
+              "rank": 5,
+              "id": "policy-md-023",
+              "title": "2. 中国高校计算机大赛（C4）",
+              "score": 65.8
+            }
+          ],
+          "hitAt5": 1,
+          "recallAt5": 0.6667,
+          "mrrAt5": 1,
+          "precisionAt5": 0.4,
+          "contextPrecisionAt5": 0.75,
+          "ndcgAt5": 0.7979
+        },
+        {
+          "caseId": "DUAL-009",
+          "group": "dual_corpus_recommendation",
+          "corpus": "resources",
+          "query": "数据库课程设计 任务书 评分标准 SQL 数据库设计",
+          "relevantIds": [
+            "NJFU-RES-DE389DB9DC",
+            "NJFU-RES-9D9AEA1073",
+            "NJFU-RES-30B3A92619",
+            "NJFU-RES-02FEA79929"
+          ],
+          "hits": [
+            {
+              "rank": 1,
+              "id": "NJFU-RES-9D9AEA1073",
+              "title": "2022数据库课程设计考核评分标准",
+              "score": 221.1
+            },
+            {
+              "rank": 2,
+              "id": "NJFU-RES-DE389DB9DC",
+              "title": "2022数据库课程设计任务书",
+              "score": 193.6
+            },
+            {
+              "rank": 3,
+              "id": "NJFU-RES-D6356643DC",
+              "title": "《网络工程与组网实习》课程设计考核评分标准",
+              "score": 137.5
+            },
+            {
+              "rank": 4,
+              "id": "NJFU-RES-A940504843",
+              "title": "《数据库原理MySQL》第二次上机作业",
+              "score": 131.35
+            },
+            {
+              "rank": 5,
+              "id": "NJFU-RES-5CBB125FC3",
+              "title": "《数据库原理MySQL》第三次上机作业",
+              "score": 131.35
+            }
+          ],
+          "hitAt5": 1,
+          "recallAt5": 0.5,
+          "mrrAt5": 1,
+          "precisionAt5": 0.4,
+          "contextPrecisionAt5": 1,
+          "ndcgAt5": 0.8035
+        }
+      ],
+      "answerRequirements": [
+        "明确可复用的任务书和评分标准"
+      ],
+      "forbiddenClaims": []
+    },
+    {
+      "caseId": "DUAL-010",
+      "group": "dual_corpus_recommendation",
+      "difficulty": "hard",
+      "conversation": [
+        "我大三想保研，只剩几个月，算法基础一般但计网项目比较完整，是转算法还是继续做网络方向？"
+      ],
+      "profile": {
+        "grade": "大三",
+        "goal": "保研 / 推免竞争力",
+        "foundation": "计算机网络",
+        "algorithmWeak": true
+      },
+      "profileChecks": [],
+      "missingRequiredFields": [
+        "每周可投入时间"
+      ],
+      "unnecessaryClarification": false,
+      "retrievalChecks": [
+        {
+          "caseId": "DUAL-010",
+          "group": "dual_corpus_recommendation",
+          "corpus": "policy",
+          "query": "大三 保研 几个月 算法一般 计网项目 网络方向 时间成本",
+          "relevantIds": [
+            "policy-md-009",
+            "policy-md-010",
+            "policy-md-044",
+            "policy-md-023"
+          ],
+          "hits": [
+            {
+              "rank": 1,
+              "id": "policy-md-019",
+              "title": "3. ICPC 国际大学生程序设计竞赛",
+              "score": 86.3
+            },
+            {
+              "rank": 2,
+              "id": "policy-md-004",
+              "title": "4. 推免竞赛标准分",
+              "score": 78.2
+            },
+            {
+              "rank": 3,
+              "id": "policy-md-018",
+              "title": "2. JSCPC 江苏省大学生程序设计大赛",
+              "score": 78.2
+            },
+            {
+              "rank": 4,
+              "id": "policy-md-003",
+              "title": "3. 信息学院 2026 届推免综合成绩构成",
+              "score": 72.8
+            },
+            {
+              "rank": 5,
+              "id": "policy-md-017",
+              "title": "1. 蓝桥杯全国软件和信息技术专业人才大赛",
+              "score": 72.3
+            }
+          ],
+          "hitAt5": 0,
+          "recallAt5": 0,
+          "mrrAt5": 0,
+          "precisionAt5": 0,
+          "contextPrecisionAt5": 0,
+          "ndcgAt5": 0
+        },
+        {
+          "caseId": "DUAL-010",
+          "group": "dual_corpus_recommendation",
+          "corpus": "resources",
+          "query": "计算机网络 组网 项目 报告 测试 评分标准",
+          "relevantIds": [
+            "NJFU-RES-BE257C0A3B",
+            "NJFU-RES-B0D88FCEBF",
+            "NJFU-RES-B4245B72E5",
+            "NJFU-RES-D6356643DC"
+          ],
+          "hits": [
+            {
+              "rank": 1,
+              "id": "NJFU-RES-D6356643DC",
+              "title": "《网络工程与组网实习》课程设计考核评分标准",
+              "score": 188.7
+            },
+            {
+              "rank": 2,
+              "id": "NJFU-RES-D47F5A0669",
+              "title": "《网络工程与组网实习》评分",
+              "score": 151.25
+            },
+            {
+              "rank": 3,
+              "id": "NJFU-RES-B0D88FCEBF",
+              "title": "《网络工程与组网实习》课程设计-报告-模板",
+              "score": 135.05
+            },
+            {
+              "rank": 4,
+              "id": "NJFU-RES-0E88787E7E",
+              "title": "2022网络工程与组网实习报告-格式要求（模版）",
+              "score": 135.05
+            },
+            {
+              "rank": 5,
+              "id": "NJFU-RES-BE257C0A3B",
+              "title": "《网络工程与组网实习》-题目和要求",
+              "score": 119.95
+            }
+          ],
+          "hitAt5": 1,
+          "recallAt5": 0.75,
+          "mrrAt5": 1,
+          "precisionAt5": 0.6,
+          "contextPrecisionAt5": 0.7556,
+          "ndcgAt5": 0.8149
+        }
+      ],
+      "answerRequirements": [
+        "比较转轨成本和现有成果复用",
+        "提醒核验结果截止时间"
+      ],
+      "forbiddenClaims": [
+        "仅因理论分值选择算法赛"
+      ]
+    }
+  ],
+  "retrievalTasks": [
+    {
+      "caseId": "POLICY-001",
+      "group": "policy_retrieval",
+      "corpus": "policy",
+      "query": "信息学院2026届推免综合成绩构成",
+      "relevantIds": [
+        "policy-md-003",
+        "policy-csv-01_信息学院2026届推免综合成绩构成-001",
+        "policy-csv-01_信息学院2026届推免综合成绩构成-003"
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "id": "policy-md-003",
+          "title": "3. 信息学院 2026 届推免综合成绩构成",
+          "score": 291.25
+        },
+        {
+          "rank": 2,
+          "id": "policy-md-002",
+          "title": "2. 信息学院 2026 届推免的基本门槛",
+          "score": 108.9
+        },
+        {
+          "rank": 3,
+          "id": "policy-md-001",
+          "title": "1. 学年综合素质测评和推免综合成绩不是同一个分数",
+          "score": 103.25
+        },
+        {
+          "rank": 4,
+          "id": "policy-csv-00_表格索引-001",
+          "title": "1",
+          "score": 102.9
+        },
+        {
+          "rank": 5,
+          "id": "policy-md-004",
+          "title": "4. 推免竞赛标准分",
+          "score": 78.2
+        }
+      ],
+      "hitAt5": 1,
+      "recallAt5": 0.3333,
+      "mrrAt5": 1,
+      "precisionAt5": 0.2,
+      "contextPrecisionAt5": 1,
+      "ndcgAt5": 0.6735
+    },
+    {
+      "caseId": "POLICY-002",
+      "group": "policy_retrieval",
+      "corpus": "policy",
+      "query": "团队成果 推免 折算 排名",
+      "relevantIds": [
+        "policy-md-005",
+        "policy-csv-03_竞赛成果推免贡献计算示例-006",
+        "policy-csv-03_竞赛成果推免贡献计算示例-007"
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "id": "policy-md-005",
+          "title": "5. 团队成果如何折算",
+          "score": 98.7
+        },
+        {
+          "rank": 2,
+          "id": "policy-md-004",
+          "title": "4. 推免竞赛标准分",
+          "score": 74.15
+        },
+        {
+          "rank": 3,
+          "id": "policy-md-003",
+          "title": "3. 信息学院 2026 届推免综合成绩构成",
+          "score": 68.75
+        },
+        {
+          "rank": 4,
+          "id": "policy-md-001",
+          "title": "1. 学年综合素质测评和推免综合成绩不是同一个分数",
+          "score": 63.35
+        },
+        {
+          "rank": 5,
+          "id": "policy-md-002",
+          "title": "2. 信息学院 2026 届推免的基本门槛",
+          "score": 20.5
+        }
+      ],
+      "hitAt5": 1,
+      "recallAt5": 0.3333,
+      "mrrAt5": 1,
+      "precisionAt5": 0.2,
+      "contextPrecisionAt5": 1,
+      "ndcgAt5": 0.6735
+    },
+    {
+      "caseId": "POLICY-003",
+      "group": "policy_retrieval",
+      "corpus": "policy",
+      "query": "学年综测 竞赛加分 历史口径 5分以上",
+      "relevantIds": [
+        "policy-md-006",
+        "policy-csv-04_学年综测竞赛加分历史口径-001",
+        "policy-csv-05_旧版学年综测B类通用分值-001"
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "id": "policy-md-006",
+          "title": "6. 学年综测竞赛加分的历史公开口径",
+          "score": 166.1
+        },
+        {
+          "rank": 2,
+          "id": "policy-md-001",
+          "title": "1. 学年综合素质测评和推免综合成绩不是同一个分数",
+          "score": 139.95
+        },
+        {
+          "rank": 3,
+          "id": "policy-csv-00_表格索引-004",
+          "title": "4",
+          "score": 41.85
+        },
+        {
+          "rank": 4,
+          "id": "policy-csv-04_学年综测竞赛加分历史口径-001",
+          "title": "“挑战杯”课外学术科技作品",
+          "score": 28.35
+        },
+        {
+          "rank": 5,
+          "id": "policy-csv-04_学年综测竞赛加分历史口径-004",
+          "title": "全国大学生数学建模竞赛",
+          "score": 28.35
+        }
+      ],
+      "hitAt5": 1,
+      "recallAt5": 0.6667,
+      "mrrAt5": 1,
+      "precisionAt5": 0.4,
+      "contextPrecisionAt5": 0.75,
+      "ndcgAt5": 0.7979
+    },
+    {
+      "caseId": "POLICY-004",
+      "group": "policy_retrieval",
+      "corpus": "policy",
+      "query": "GPA 前40% 靠竞赛保研 推免门槛",
+      "relevantIds": [
+        "policy-md-002",
+        "policy-md-036"
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "id": "policy-md-036",
+          "title": "2. 我的 GPA 还没有进入前 40%，能不能靠竞赛保研？",
+          "score": 84.35
+        },
+        {
+          "rank": 2,
+          "id": "policy-md-004",
+          "title": "4. 推免竞赛标准分",
+          "score": 76.85
+        },
+        {
+          "rank": 3,
+          "id": "policy-md-003",
+          "title": "3. 信息学院 2026 届推免综合成绩构成",
+          "score": 72.8
+        },
+        {
+          "rank": 4,
+          "id": "policy-md-001",
+          "title": "1. 学年综合素质测评和推免综合成绩不是同一个分数",
+          "score": 68.75
+        },
+        {
+          "rank": 5,
+          "id": "policy-md-002",
+          "title": "2. 信息学院 2026 届推免的基本门槛",
+          "score": 34.25
+        }
+      ],
+      "hitAt5": 1,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "precisionAt5": 0.4,
+      "contextPrecisionAt5": 0.7,
+      "ndcgAt5": 0.8503
+    },
+    {
+      "caseId": "POLICY-005",
+      "group": "policy_retrieval",
+      "corpus": "policy",
+      "query": "中国高校计算机大赛 C4 适合学生 基础 赛道",
+      "relevantIds": [
+        "policy-md-023",
+        "policy-csv-06_竞赛政策对应速查-009"
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "id": "policy-md-023",
+          "title": "2. 中国高校计算机大赛（C4）",
+          "score": 145
+        },
+        {
+          "rank": 2,
+          "id": "policy-csv-06_竞赛政策对应速查-009",
+          "title": "中国高校计算机大赛（C4）各赛道",
+          "score": 137.15
+        },
+        {
+          "rank": 3,
+          "id": "policy-md-022",
+          "title": "1. 中国大学生计算机设计大赛",
+          "score": 51.2
+        },
+        {
+          "rank": 4,
+          "id": "policy-csv-06_竞赛政策对应速查-006",
+          "title": "中国大学生计算机设计大赛",
+          "score": 48.5
+        },
+        {
+          "rank": 5,
+          "id": "policy-md-029",
+          "title": "1. 全国大学生计算机系统能力大赛",
+          "score": 44.2
+        }
+      ],
+      "hitAt5": 1,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "precisionAt5": 0.4,
+      "contextPrecisionAt5": 1,
+      "ndcgAt5": 1
+    },
+    {
+      "caseId": "POLICY-006",
+      "group": "policy_retrieval",
+      "corpus": "policy",
+      "query": "ISCC 全国大学生信息安全竞赛 CISC 区别",
+      "relevantIds": [
+        "policy-md-026",
+        "policy-md-027",
+        "policy-csv-06_竞赛政策对应速查-010"
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "id": "policy-md-026",
+          "title": "1. 全国大学生信息安全竞赛（CISC）",
+          "score": 156.05
+        },
+        {
+          "rank": 2,
+          "id": "policy-csv-06_竞赛政策对应速查-010",
+          "title": "全国大学生信息安全竞赛、ISCC",
+          "score": 135.8
+        },
+        {
+          "rank": 3,
+          "id": "policy-md-027",
+          "title": "2. ISCC 大学生信息安全与对抗技术竞赛",
+          "score": 95.4
+        },
+        {
+          "rank": 4,
+          "id": "policy-md-046",
+          "title": "赛事官方或主办方页面",
+          "score": 51.3
+        },
+        {
+          "rank": 5,
+          "id": "policy-md-014",
+          "title": "1. 全国大学生数学建模竞赛",
+          "score": 48.25
+        }
+      ],
+      "hitAt5": 1,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "precisionAt5": 0.6,
+      "contextPrecisionAt5": 1,
+      "ndcgAt5": 0.9595
+    },
+    {
+      "caseId": "POLICY-007",
+      "group": "policy_retrieval",
+      "corpus": "policy",
+      "query": "蓝桥杯 算法 入门 适合学生 准备",
+      "relevantIds": [
+        "policy-md-017",
+        "policy-csv-06_竞赛政策对应速查-008"
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "id": "policy-md-019",
+          "title": "3. ICPC 国际大学生程序设计竞赛",
+          "score": 82.25
+        },
+        {
+          "rank": 2,
+          "id": "policy-md-018",
+          "title": "2. JSCPC 江苏省大学生程序设计大赛",
+          "score": 74.15
+        },
+        {
+          "rank": 3,
+          "id": "policy-md-017",
+          "title": "1. 蓝桥杯全国软件和信息技术专业人才大赛",
+          "score": 70.95
+        },
+        {
+          "rank": 4,
+          "id": "policy-md-020",
+          "title": "4. CCPC 中国大学生程序设计竞赛",
+          "score": 70.1
+        },
+        {
+          "rank": 5,
+          "id": "policy-md-021",
+          "title": "5. 百度之星程序设计大赛",
+          "score": 60.4
+        }
+      ],
+      "hitAt5": 1,
+      "recallAt5": 0.5,
+      "mrrAt5": 0.3333,
+      "precisionAt5": 0.2,
+      "contextPrecisionAt5": 0.3333,
+      "ndcgAt5": 0.3936
+    },
+    {
+      "caseId": "POLICY-008",
+      "group": "policy_retrieval",
+      "corpus": "policy",
+      "query": "全国大学生数学建模竞赛 能力 时间投入 论文",
+      "relevantIds": [
+        "policy-md-014",
+        "policy-csv-06_竞赛政策对应速查-004"
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "id": "policy-md-014",
+          "title": "1. 全国大学生数学建模竞赛",
+          "score": 190.9
+        },
+        {
+          "rank": 2,
+          "id": "policy-csv-06_竞赛政策对应速查-004",
+          "title": "全国大学生数学建模竞赛",
+          "score": 127.45
+        },
+        {
+          "rank": 3,
+          "id": "policy-csv-02_南京林业大学推免竞赛标准分-007",
+          "title": "全国大学生数学建模竞赛",
+          "score": 126.1
+        },
+        {
+          "rank": 4,
+          "id": "policy-csv-04_学年综测竞赛加分历史口径-004",
+          "title": "全国大学生数学建模竞赛",
+          "score": 126.1
+        },
+        {
+          "rank": 5,
+          "id": "policy-md-016",
+          "title": "3. “外研社·国才杯”全国大学生外语能力大赛",
+          "score": 57.95
+        }
+      ],
+      "hitAt5": 1,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "precisionAt5": 0.4,
+      "contextPrecisionAt5": 1,
+      "ndcgAt5": 1
+    },
+    {
+      "caseId": "POLICY-009",
+      "group": "policy_retrieval",
+      "corpus": "policy",
+      "query": "保研 分值最高 比赛 适配性 时间成本",
+      "relevantIds": [
+        "policy-md-010",
+        "policy-md-038",
+        "policy-md-040"
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "id": "policy-md-004",
+          "title": "4. 推免竞赛标准分",
+          "score": 79.55
+        },
+        {
+          "rank": 2,
+          "id": "policy-md-010",
+          "title": "4. 只想增加推免竞争力，不代表应该选择分值最高的比赛",
+          "score": 73.3
+        },
+        {
+          "rank": 3,
+          "id": "policy-md-003",
+          "title": "3. 信息学院 2026 届推免综合成绩构成",
+          "score": 71.45
+        },
+        {
+          "rank": 4,
+          "id": "policy-md-001",
+          "title": "1. 学年综合素质测评和推免综合成绩不是同一个分数",
+          "score": 68.75
+        },
+        {
+          "rank": 5,
+          "id": "policy-md-035",
+          "title": "1. 我现在大三，打算保研，为了提高综测应该参加哪个竞赛？",
+          "score": 34.25
+        }
+      ],
+      "hitAt5": 1,
+      "recallAt5": 0.3333,
+      "mrrAt5": 0.5,
+      "precisionAt5": 0.2,
+      "contextPrecisionAt5": 0.5,
+      "ndcgAt5": 0.425
+    },
+    {
+      "caseId": "POLICY-010",
+      "group": "policy_retrieval",
+      "corpus": "policy",
+      "query": "没有竞赛基础 从哪个比赛开始 入门",
+      "relevantIds": [
+        "policy-md-037",
+        "policy-md-007",
+        "policy-md-008"
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "id": "policy-md-037",
+          "title": "3. 我没有任何竞赛基础，最适合从哪个比赛开始？",
+          "score": 136.9
+        },
+        {
+          "rank": 2,
+          "id": "policy-md-044",
+          "title": "10. 如何判断一个比赛值不值得继续投入？",
+          "score": 33.15
+        },
+        {
+          "rank": 3,
+          "id": "policy-md-035",
+          "title": "1. 我现在大三，打算保研，为了提高综测应该参加哪个竞赛？",
+          "score": 20.5
+        },
+        {
+          "rank": 4,
+          "id": "policy-md-042",
+          "title": "8. 训练型比赛没有加分，还有必要参加吗？",
+          "score": 19.4
+        },
+        {
+          "rank": 5,
+          "id": "policy-md-009",
+          "title": "3. 大三学生：结果时间和现有基础比理论分值更重要",
+          "score": 17.8
+        }
+      ],
+      "hitAt5": 1,
+      "recallAt5": 0.3333,
+      "mrrAt5": 1,
+      "precisionAt5": 0.2,
+      "contextPrecisionAt5": 1,
+      "ndcgAt5": 0.6735
+    },
+    {
+      "caseId": "DUAL-001",
+      "group": "dual_corpus_recommendation",
+      "corpus": "policy",
+      "query": "大二 保研 计算机网络 Packet Tracer C4 网络技术挑战",
+      "relevantIds": [
+        "policy-md-008",
+        "policy-md-023",
+        "policy-csv-06_竞赛政策对应速查-009"
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "id": "policy-md-023",
+          "title": "2. 中国高校计算机大赛（C4）",
+          "score": 79.3
+        },
+        {
+          "rank": 2,
+          "id": "policy-md-004",
+          "title": "4. 推免竞赛标准分",
+          "score": 76.85
+        },
+        {
+          "rank": 3,
+          "id": "policy-md-003",
+          "title": "3. 信息学院 2026 届推免综合成绩构成",
+          "score": 71.45
+        },
+        {
+          "rank": 4,
+          "id": "policy-md-001",
+          "title": "1. 学年综合素质测评和推免综合成绩不是同一个分数",
+          "score": 68.75
+        },
+        {
+          "rank": 5,
+          "id": "policy-csv-06_竞赛政策对应速查-009",
+          "title": "中国高校计算机大赛（C4）各赛道",
+          "score": 40.15
+        }
+      ],
+      "hitAt5": 1,
+      "recallAt5": 0.6667,
+      "mrrAt5": 1,
+      "precisionAt5": 0.4,
+      "contextPrecisionAt5": 0.7,
+      "ndcgAt5": 0.7852
+    },
+    {
+      "caseId": "DUAL-001",
+      "group": "dual_corpus_recommendation",
+      "corpus": "resources",
+      "query": "计算机网络 Packet Tracer 组网 题目 要求 任务书 评分标准",
+      "relevantIds": [
+        "NJFU-RES-BE257C0A3B",
+        "NJFU-RES-DB4AC4B571",
+        "NJFU-RES-D6356643DC",
+        "NJFU-RES-FE79F61A11"
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "id": "NJFU-RES-D6356643DC",
+          "title": "《网络工程与组网实习》课程设计考核评分标准",
+          "score": 192.75
+        },
+        {
+          "rank": 2,
+          "id": "NJFU-RES-DB4AC4B571",
+          "title": "2022-《网络工程与组网实习》-课程设计任务书",
+          "score": 163.9
+        },
+        {
+          "rank": 3,
+          "id": "NJFU-RES-D47F5A0669",
+          "title": "《网络工程与组网实习》评分",
+          "score": 155.3
+        },
+        {
+          "rank": 4,
+          "id": "NJFU-RES-BE257C0A3B",
+          "title": "《网络工程与组网实习》-题目和要求",
+          "score": 148.8
+        },
+        {
+          "rank": 5,
+          "id": "NJFU-RES-0E88787E7E",
+          "title": "2022网络工程与组网实习报告-格式要求（模版）",
+          "score": 133.7
+        }
+      ],
+      "hitAt5": 1,
+      "recallAt5": 0.75,
+      "mrrAt5": 1,
+      "precisionAt5": 0.6,
+      "contextPrecisionAt5": 0.9167,
+      "ndcgAt5": 0.8903
+    },
+    {
+      "caseId": "DUAL-002",
+      "group": "dual_corpus_recommendation",
+      "corpus": "policy",
+      "query": "图像分类 PyTorch 人工智能 计算机视觉 竞赛 C4 计算机设计大赛",
+      "relevantIds": [
+        "policy-md-022",
+        "policy-md-023",
+        "policy-md-031"
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "id": "policy-md-031",
+          "title": "3. 中国机器人及人工智能大赛",
+          "score": 132.35
+        },
+        {
+          "rank": 2,
+          "id": "policy-md-022",
+          "title": "1. 中国大学生计算机设计大赛",
+          "score": 121.3
+        },
+        {
+          "rank": 3,
+          "id": "policy-md-023",
+          "title": "2. 中国高校计算机大赛（C4）",
+          "score": 107.9
+        },
+        {
+          "rank": 4,
+          "id": "policy-csv-06_竞赛政策对应速查-006",
+          "title": "中国大学生计算机设计大赛",
+          "score": 99.7
+        },
+        {
+          "rank": 5,
+          "id": "policy-csv-04_学年综测竞赛加分历史口径-006",
+          "title": "全国大学生计算机设计大赛",
+          "score": 97
+        }
+      ],
+      "hitAt5": 1,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "precisionAt5": 0.6,
+      "contextPrecisionAt5": 1,
+      "ndcgAt5": 0.858
+    },
+    {
+      "caseId": "DUAL-002",
+      "group": "dual_corpus_recommendation",
+      "corpus": "resources",
+      "query": "图像分类 PyTorch 数字图像处理 数据挖掘 分类",
+      "relevantIds": [
+        "NJFU-RES-CEA5C79F31",
+        "NJFU-RES-A144665896",
+        "NJFU-RES-B448A010DF",
+        "NJFU-RES-F064439644"
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "id": "NJFU-RES-A144665896",
+          "title": "数字图像处理个人笔记",
+          "score": 120.7
+        },
+        {
+          "rank": 2,
+          "id": "NJFU-RES-CEA5C79F31",
+          "title": "数字图像处理知识点总结",
+          "score": 118
+        },
+        {
+          "rank": 3,
+          "id": "NJFU-RES-CC97792005",
+          "title": "03数据挖掘-数据预处理",
+          "score": 93.2
+        },
+        {
+          "rank": 4,
+          "id": "NJFU-RES-B448A010DF",
+          "title": "05数据挖掘-分类-贝叶斯分类",
+          "score": 91.85
+        },
+        {
+          "rank": 5,
+          "id": "NJFU-RES-F064439644",
+          "title": "05数据挖掘-分类-决策树",
+          "score": 91.85
+        }
+      ],
+      "hitAt5": 1,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "precisionAt5": 0.8,
+      "contextPrecisionAt5": 0.8875,
+      "ndcgAt5": 0.8446
+    },
+    {
+      "caseId": "DUAL-003",
+      "group": "dual_corpus_recommendation",
+      "corpus": "policy",
+      "query": "大一 算法 蓝桥杯 入门 准备",
+      "relevantIds": [
+        "policy-md-007",
+        "policy-md-017"
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "id": "policy-md-019",
+          "title": "3. ICPC 国际大学生程序设计竞赛",
+          "score": 78.2
+        },
+        {
+          "rank": 2,
+          "id": "policy-md-018",
+          "title": "2. JSCPC 江苏省大学生程序设计大赛",
+          "score": 70.1
+        },
+        {
+          "rank": 3,
+          "id": "policy-md-020",
+          "title": "4. CCPC 中国大学生程序设计竞赛",
+          "score": 68.75
+        },
+        {
+          "rank": 4,
+          "id": "policy-md-017",
+          "title": "1. 蓝桥杯全国软件和信息技术专业人才大赛",
+          "score": 68.25
+        },
+        {
+          "rank": 5,
+          "id": "policy-md-021",
+          "title": "5. 百度之星程序设计大赛",
+          "score": 59.05
+        }
+      ],
+      "hitAt5": 1,
+      "recallAt5": 0.5,
+      "mrrAt5": 0.25,
+      "precisionAt5": 0.2,
+      "contextPrecisionAt5": 0.25,
+      "ndcgAt5": 0.339
+    },
+    {
+      "caseId": "DUAL-003",
+      "group": "dual_corpus_recommendation",
+      "corpus": "resources",
+      "query": "数据结构 算法 日常练习 代码 知识点",
+      "relevantIds": [
+        "NJFU-RES-49E545D092",
+        "NJFU-RES-192FD4BAD2",
+        "NJFU-RES-A55F57E254"
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "id": "NJFU-RES-192FD4BAD2",
+          "title": "数据结构日常练习代码合集",
+          "score": 149.8
+        },
+        {
+          "rank": 2,
+          "id": "NJFU-RES-49E545D092",
+          "title": "数据结构各章知识点202206",
+          "score": 118
+        },
+        {
+          "rank": 3,
+          "id": "NJFU-RES-8D8BE54432",
+          "title": "数据结构实习补充项目代码合集",
+          "score": 94.55
+        },
+        {
+          "rank": 4,
+          "id": "NJFU-RES-27773FD330",
+          "title": "数据结构实习第二天代码合集",
+          "score": 94.55
+        },
+        {
+          "rank": 5,
+          "id": "NJFU-RES-47158CA1E6",
+          "title": "数据结构实习第三天代码合集",
+          "score": 94.55
+        }
+      ],
+      "hitAt5": 1,
+      "recallAt5": 0.6667,
+      "mrrAt5": 1,
+      "precisionAt5": 0.4,
+      "contextPrecisionAt5": 1,
+      "ndcgAt5": 0.8839
+    },
+    {
+      "caseId": "DUAL-004",
+      "group": "dual_corpus_recommendation",
+      "corpus": "policy",
+      "query": "CTF 信息安全 CISC ISCC 保研 单人 准备",
+      "relevantIds": [
+        "policy-md-026",
+        "policy-md-027",
+        "policy-md-028"
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "id": "policy-md-003",
+          "title": "3. 信息学院 2026 届推免综合成绩构成",
+          "score": 85.2
+        },
+        {
+          "rank": 2,
+          "id": "policy-md-004",
+          "title": "4. 推免竞赛标准分",
+          "score": 76.85
+        },
+        {
+          "rank": 3,
+          "id": "policy-md-026",
+          "title": "1. 全国大学生信息安全竞赛（CISC）",
+          "score": 73.05
+        },
+        {
+          "rank": 4,
+          "id": "policy-md-001",
+          "title": "1. 学年综合素质测评和推免综合成绩不是同一个分数",
+          "score": 70.1
+        },
+        {
+          "rank": 5,
+          "id": "policy-md-027",
+          "title": "2. ISCC 大学生信息安全与对抗技术竞赛",
+          "score": 69
+        }
+      ],
+      "hitAt5": 1,
+      "recallAt5": 0.6667,
+      "mrrAt5": 0.3333,
+      "precisionAt5": 0.4,
+      "contextPrecisionAt5": 0.3667,
+      "ndcgAt5": 0.4806
+    },
+    {
+      "caseId": "DUAL-004",
+      "group": "dual_corpus_recommendation",
+      "corpus": "resources",
+      "query": "计算机网络 操作系统 信息安全 基础",
+      "relevantIds": [
+        "NJFU-RES-FE79F61A11",
+        "NJFU-RES-E6D869DAB2",
+        "NJFU-RES-570EE94C5F"
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "id": "NJFU-RES-B0D88FCEBF",
+          "title": "《网络工程与组网实习》课程设计-报告-模板",
+          "score": 122.65
+        },
+        {
+          "rank": 2,
+          "id": "NJFU-RES-0E88787E7E",
+          "title": "2022网络工程与组网实习报告-格式要求（模版）",
+          "score": 122.65
+        },
+        {
+          "rank": 3,
+          "id": "NJFU-RES-D6356643DC",
+          "title": "《网络工程与组网实习》课程设计考核评分标准",
+          "score": 122.65
+        },
+        {
+          "rank": 4,
+          "id": "NJFU-RES-D47F5A0669",
+          "title": "《网络工程与组网实习》评分",
+          "score": 122.65
+        },
+        {
+          "rank": 5,
+          "id": "NJFU-RES-BE257C0A3B",
+          "title": "《网络工程与组网实习》-题目和要求",
+          "score": 122.65
+        }
+      ],
+      "hitAt5": 0,
+      "recallAt5": 0,
+      "mrrAt5": 0,
+      "precisionAt5": 0,
+      "contextPrecisionAt5": 0,
+      "ndcgAt5": 0
+    },
+    {
+      "caseId": "DUAL-005",
+      "group": "dual_corpus_recommendation",
+      "corpus": "policy",
+      "query": "大二 数学建模 提高综测 三人组 时间投入",
+      "relevantIds": [
+        "policy-md-014",
+        "policy-md-008",
+        "policy-csv-04_学年综测竞赛加分历史口径-004"
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "id": "policy-md-001",
+          "title": "1. 学年综合素质测评和推免综合成绩不是同一个分数",
+          "score": 123.5
+        },
+        {
+          "rank": 2,
+          "id": "policy-md-014",
+          "title": "1. 全国大学生数学建模竞赛",
+          "score": 98.45
+        },
+        {
+          "rank": 3,
+          "id": "policy-md-006",
+          "title": "6. 学年综测竞赛加分的历史公开口径",
+          "score": 89.25
+        },
+        {
+          "rank": 4,
+          "id": "policy-csv-04_学年综测竞赛加分历史口径-004",
+          "title": "全国大学生数学建模竞赛",
+          "score": 63.35
+        },
+        {
+          "rank": 5,
+          "id": "policy-md-035",
+          "title": "1. 我现在大三，打算保研，为了提高综测应该参加哪个竞赛？",
+          "score": 62
+        }
+      ],
+      "hitAt5": 1,
+      "recallAt5": 0.6667,
+      "mrrAt5": 0.5,
+      "precisionAt5": 0.4,
+      "contextPrecisionAt5": 0.5,
+      "ndcgAt5": 0.5493
+    },
+    {
+      "caseId": "DUAL-005",
+      "group": "dual_corpus_recommendation",
+      "corpus": "resources",
+      "query": "概率论 数理统计 高等数学 数据分析 建模",
+      "relevantIds": [
+        "NJFU-RES-32D5277C00",
+        "NJFU-RES-9F90A15C55",
+        "NJFU-RES-5CC164BA63"
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "id": "NJFU-RES-32D5277C00",
+          "title": "概率论与数理统计a",
+          "score": 110
+        },
+        {
+          "rank": 2,
+          "id": "NJFU-RES-5CC164BA63",
+          "title": "高等数学(下)知识点总结(1)",
+          "score": 76.75
+        },
+        {
+          "rank": 3,
+          "id": "NJFU-RES-F9F4D9926A",
+          "title": "高等数学A(2) 15-16-2 (A卷)试卷",
+          "score": 76.75
+        },
+        {
+          "rank": 4,
+          "id": "NJFU-RES-1336E8ADBD",
+          "title": "高等数学A(2) 15-16-2 (B卷)试卷",
+          "score": 76.75
+        },
+        {
+          "rank": 5,
+          "id": "NJFU-RES-BB6E99058D",
+          "title": "高等数学A(2) 17-18-2 (A卷)答案",
+          "score": 76.75
+        }
+      ],
+      "hitAt5": 1,
+      "recallAt5": 0.6667,
+      "mrrAt5": 1,
+      "precisionAt5": 0.4,
+      "contextPrecisionAt5": 1,
+      "ndcgAt5": 0.8557
+    },
+    {
+      "caseId": "DUAL-006",
+      "group": "dual_corpus_recommendation",
+      "corpus": "policy",
+      "query": "软件开发 网站 小程序 作品 中国软件杯 服务外包 计算机设计大赛",
+      "relevantIds": [
+        "policy-md-022",
+        "policy-md-024",
+        "policy-md-025"
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "id": "policy-md-024",
+          "title": "3. 中国软件杯大学生软件设计大赛",
+          "score": 146.35
+        },
+        {
+          "rank": 2,
+          "id": "policy-md-022",
+          "title": "1. 中国大学生计算机设计大赛",
+          "score": 118.6
+        },
+        {
+          "rank": 3,
+          "id": "policy-csv-06_竞赛政策对应速查-012",
+          "title": "系统能力、物联网、机器人与 AI、RAICOM、RoboCup、华为 ICT、中国软件杯、服务外包",
+          "score": 116.4
+        },
+        {
+          "rank": 4,
+          "id": "policy-csv-06_竞赛政策对应速查-006",
+          "title": "中国大学生计算机设计大赛",
+          "score": 97
+        },
+        {
+          "rank": 5,
+          "id": "policy-csv-04_学年综测竞赛加分历史口径-006",
+          "title": "全国大学生计算机设计大赛",
+          "score": 87.3
+        }
+      ],
+      "hitAt5": 1,
+      "recallAt5": 0.6667,
+      "mrrAt5": 1,
+      "precisionAt5": 0.4,
+      "contextPrecisionAt5": 1,
+      "ndcgAt5": 0.8839
+    },
+    {
+      "caseId": "DUAL-006",
+      "group": "dual_corpus_recommendation",
+      "corpus": "resources",
+      "query": "软件工程 需求分析 软件设计 测试 项目文档",
+      "relevantIds": [
+        "NJFU-RES-7AB0708E6B",
+        "NJFU-RES-48BE727D54",
+        "NJFU-RES-590DFB3688",
+        "NJFU-RES-4B81DA1810"
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "id": "NJFU-RES-48BE727D54",
+          "title": "3. 第3章 软件按需求分析-用例图",
+          "score": 124.25
+        },
+        {
+          "rank": 2,
+          "id": "NJFU-RES-16CDF040FC",
+          "title": "4. 第3章 软件需求分析-数据流图",
+          "score": 124.25
+        },
+        {
+          "rank": 3,
+          "id": "NJFU-RES-53072FEAD5",
+          "title": "5. 第3章 软件需求分析-3",
+          "score": 124.25
+        },
+        {
+          "rank": 4,
+          "id": "NJFU-RES-590DFB3688",
+          "title": "6. 第4章 软件设计",
+          "score": 111.85
+        },
+        {
+          "rank": 5,
+          "id": "NJFU-RES-D52F931B7F",
+          "title": "软件工程2023-2024-1复习重点与期末题型回忆",
+          "score": 95.65
+        }
+      ],
+      "hitAt5": 1,
+      "recallAt5": 0.5,
+      "mrrAt5": 1,
+      "precisionAt5": 0.4,
+      "contextPrecisionAt5": 0.75,
+      "ndcgAt5": 0.6179
+    },
+    {
+      "caseId": "DUAL-007",
+      "group": "dual_corpus_recommendation",
+      "corpus": "policy",
+      "query": "物联网 机器人 单片机 传感器 三人团队 竞赛",
+      "relevantIds": [
+        "policy-md-030",
+        "policy-md-031",
+        "policy-md-032",
+        "policy-md-033"
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "id": "policy-md-032",
+          "title": "4. 睿抗机器人开发者大赛（RAICOM）",
+          "score": 60.4
+        },
+        {
+          "rank": 2,
+          "id": "policy-md-030",
+          "title": "2. 全国大学生物联网设计竞赛",
+          "score": 58.8
+        },
+        {
+          "rank": 3,
+          "id": "policy-csv-06_竞赛政策对应速查-012",
+          "title": "系统能力、物联网、机器人与 AI、RAICOM、RoboCup、华为 ICT、中国软件杯、服务外包",
+          "score": 58.2
+        },
+        {
+          "rank": 4,
+          "id": "policy-md-031",
+          "title": "3. 中国机器人及人工智能大赛",
+          "score": 52.05
+        },
+        {
+          "rank": 5,
+          "id": "policy-md-033",
+          "title": "5. RoboCup 机器人世界杯中国赛",
+          "score": 49.35
+        }
+      ],
+      "hitAt5": 1,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "precisionAt5": 0.8,
+      "contextPrecisionAt5": 0.8875,
+      "ndcgAt5": 0.8446
+    },
+    {
+      "caseId": "DUAL-007",
+      "group": "dual_corpus_recommendation",
+      "corpus": "resources",
+      "query": "嵌入式开发 项目规划书 程序代码 项目软件文档",
+      "relevantIds": [
+        "NJFU-RES-5673A98EAB",
+        "NJFU-RES-154950B342",
+        "NJFU-RES-F0D9676364",
+        "NJFU-RES-A59EB6FF6C"
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "id": "NJFU-RES-5673A98EAB",
+          "title": "项目规划书模板",
+          "score": 139.45
+        },
+        {
+          "rank": 2,
+          "id": "NJFU-RES-F0D9676364",
+          "title": "项目软件文档",
+          "score": 138.1
+        },
+        {
+          "rank": 3,
+          "id": "NJFU-RES-A59EB6FF6C",
+          "title": "项目软件文档示例",
+          "score": 138.1
+        },
+        {
+          "rank": 4,
+          "id": "NJFU-RES-154950B342",
+          "title": "项目程序代码",
+          "score": 125.7
+        },
+        {
+          "rank": 5,
+          "id": "NJFU-RES-B42B64204C",
+          "title": "项目报告及封面",
+          "score": 56.95
+        }
+      ],
+      "hitAt5": 1,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "precisionAt5": 0.8,
+      "contextPrecisionAt5": 1,
+      "ndcgAt5": 1
+    },
+    {
+      "caseId": "DUAL-008",
+      "group": "dual_corpus_recommendation",
+      "corpus": "policy",
+      "query": "计算机系统能力大赛 操作系统 底层开发 准备",
+      "relevantIds": [
+        "policy-md-029"
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "id": "policy-md-029",
+          "title": "1. 全国大学生计算机系统能力大赛",
+          "score": 133.95
+        },
+        {
+          "rank": 2,
+          "id": "policy-md-023",
+          "title": "2. 中国高校计算机大赛（C4）",
+          "score": 55
+        },
+        {
+          "rank": 3,
+          "id": "policy-md-022",
+          "title": "1. 中国大学生计算机设计大赛",
+          "score": 44.2
+        },
+        {
+          "rank": 4,
+          "id": "policy-md-016",
+          "title": "3. “外研社·国才杯”全国大学生外语能力大赛",
+          "score": 42.85
+        },
+        {
+          "rank": 5,
+          "id": "policy-csv-04_学年综测竞赛加分历史口径-006",
+          "title": "全国大学生计算机设计大赛",
+          "score": 38.8
+        }
+      ],
+      "hitAt5": 1,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "precisionAt5": 0.2,
+      "contextPrecisionAt5": 1,
+      "ndcgAt5": 1
+    },
+    {
+      "caseId": "DUAL-008",
+      "group": "dual_corpus_recommendation",
+      "corpus": "resources",
+      "query": "操作系统 页面管理 进程同步 计算机组成原理 编译原理",
+      "relevantIds": [
+        "NJFU-RES-8FE4C06D13",
+        "NJFU-RES-C1EF3CEF13",
+        "NJFU-RES-940D1B3015",
+        "NJFU-RES-C7EBEAC0CE"
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "id": "NJFU-RES-8FE4C06D13",
+          "title": "操作系统课程设计：页面管理模拟程序与任务书",
+          "score": 140.1
+        },
+        {
+          "rank": 2,
+          "id": "NJFU-RES-C7EBEAC0CE",
+          "title": "计算机组成原理-第6版.pdf by 白中英、戴志涛 (z-lib.org)",
+          "score": 134.45
+        },
+        {
+          "rank": 3,
+          "id": "NJFU-RES-52CB331BE3",
+          "title": "组成原理",
+          "score": 96.75
+        },
+        {
+          "rank": 4,
+          "id": "NJFU-RES-E6D869DAB2",
+          "title": "操作系统专业复习题",
+          "score": 84.85
+        },
+        {
+          "rank": 5,
+          "id": "NJFU-RES-7494F52F98",
+          "title": "编译原理及编译程序构造 (薛联凤 秦振松)",
+          "score": 79.45
+        }
+      ],
+      "hitAt5": 1,
+      "recallAt5": 0.5,
+      "mrrAt5": 1,
+      "precisionAt5": 0.4,
+      "contextPrecisionAt5": 1,
+      "ndcgAt5": 0.7611
+    },
+    {
+      "caseId": "DUAL-009",
+      "group": "dual_corpus_recommendation",
+      "corpus": "policy",
+      "query": "数据库课程设计 软件类竞赛 完整项目 计算机设计大赛 软件杯",
+      "relevantIds": [
+        "policy-md-022",
+        "policy-md-024",
+        "policy-md-025"
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "id": "policy-md-022",
+          "title": "1. 中国大学生计算机设计大赛",
+          "score": 115.65
+        },
+        {
+          "rank": 2,
+          "id": "policy-csv-04_学年综测竞赛加分历史口径-006",
+          "title": "全国大学生计算机设计大赛",
+          "score": 87.3
+        },
+        {
+          "rank": 3,
+          "id": "policy-csv-06_竞赛政策对应速查-006",
+          "title": "中国大学生计算机设计大赛",
+          "score": 87.3
+        },
+        {
+          "rank": 4,
+          "id": "policy-md-024",
+          "title": "3. 中国软件杯大学生软件设计大赛",
+          "score": 86.8
+        },
+        {
+          "rank": 5,
+          "id": "policy-md-023",
+          "title": "2. 中国高校计算机大赛（C4）",
+          "score": 65.8
+        }
+      ],
+      "hitAt5": 1,
+      "recallAt5": 0.6667,
+      "mrrAt5": 1,
+      "precisionAt5": 0.4,
+      "contextPrecisionAt5": 0.75,
+      "ndcgAt5": 0.7979
+    },
+    {
+      "caseId": "DUAL-009",
+      "group": "dual_corpus_recommendation",
+      "corpus": "resources",
+      "query": "数据库课程设计 任务书 评分标准 SQL 数据库设计",
+      "relevantIds": [
+        "NJFU-RES-DE389DB9DC",
+        "NJFU-RES-9D9AEA1073",
+        "NJFU-RES-30B3A92619",
+        "NJFU-RES-02FEA79929"
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "id": "NJFU-RES-9D9AEA1073",
+          "title": "2022数据库课程设计考核评分标准",
+          "score": 221.1
+        },
+        {
+          "rank": 2,
+          "id": "NJFU-RES-DE389DB9DC",
+          "title": "2022数据库课程设计任务书",
+          "score": 193.6
+        },
+        {
+          "rank": 3,
+          "id": "NJFU-RES-D6356643DC",
+          "title": "《网络工程与组网实习》课程设计考核评分标准",
+          "score": 137.5
+        },
+        {
+          "rank": 4,
+          "id": "NJFU-RES-A940504843",
+          "title": "《数据库原理MySQL》第二次上机作业",
+          "score": 131.35
+        },
+        {
+          "rank": 5,
+          "id": "NJFU-RES-5CBB125FC3",
+          "title": "《数据库原理MySQL》第三次上机作业",
+          "score": 131.35
+        }
+      ],
+      "hitAt5": 1,
+      "recallAt5": 0.5,
+      "mrrAt5": 1,
+      "precisionAt5": 0.4,
+      "contextPrecisionAt5": 1,
+      "ndcgAt5": 0.8035
+    },
+    {
+      "caseId": "DUAL-010",
+      "group": "dual_corpus_recommendation",
+      "corpus": "policy",
+      "query": "大三 保研 几个月 算法一般 计网项目 网络方向 时间成本",
+      "relevantIds": [
+        "policy-md-009",
+        "policy-md-010",
+        "policy-md-044",
+        "policy-md-023"
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "id": "policy-md-019",
+          "title": "3. ICPC 国际大学生程序设计竞赛",
+          "score": 86.3
+        },
+        {
+          "rank": 2,
+          "id": "policy-md-004",
+          "title": "4. 推免竞赛标准分",
+          "score": 78.2
+        },
+        {
+          "rank": 3,
+          "id": "policy-md-018",
+          "title": "2. JSCPC 江苏省大学生程序设计大赛",
+          "score": 78.2
+        },
+        {
+          "rank": 4,
+          "id": "policy-md-003",
+          "title": "3. 信息学院 2026 届推免综合成绩构成",
+          "score": 72.8
+        },
+        {
+          "rank": 5,
+          "id": "policy-md-017",
+          "title": "1. 蓝桥杯全国软件和信息技术专业人才大赛",
+          "score": 72.3
+        }
+      ],
+      "hitAt5": 0,
+      "recallAt5": 0,
+      "mrrAt5": 0,
+      "precisionAt5": 0,
+      "contextPrecisionAt5": 0,
+      "ndcgAt5": 0
+    },
+    {
+      "caseId": "DUAL-010",
+      "group": "dual_corpus_recommendation",
+      "corpus": "resources",
+      "query": "计算机网络 组网 项目 报告 测试 评分标准",
+      "relevantIds": [
+        "NJFU-RES-BE257C0A3B",
+        "NJFU-RES-B0D88FCEBF",
+        "NJFU-RES-B4245B72E5",
+        "NJFU-RES-D6356643DC"
+      ],
+      "hits": [
+        {
+          "rank": 1,
+          "id": "NJFU-RES-D6356643DC",
+          "title": "《网络工程与组网实习》课程设计考核评分标准",
+          "score": 188.7
+        },
+        {
+          "rank": 2,
+          "id": "NJFU-RES-D47F5A0669",
+          "title": "《网络工程与组网实习》评分",
+          "score": 151.25
+        },
+        {
+          "rank": 3,
+          "id": "NJFU-RES-B0D88FCEBF",
+          "title": "《网络工程与组网实习》课程设计-报告-模板",
+          "score": 135.05
+        },
+        {
+          "rank": 4,
+          "id": "NJFU-RES-0E88787E7E",
+          "title": "2022网络工程与组网实习报告-格式要求（模版）",
+          "score": 135.05
+        },
+        {
+          "rank": 5,
+          "id": "NJFU-RES-BE257C0A3B",
+          "title": "《网络工程与组网实习》-题目和要求",
+          "score": 119.95
+        }
+      ],
+      "hitAt5": 1,
+      "recallAt5": 0.75,
+      "mrrAt5": 1,
+      "precisionAt5": 0.6,
+      "contextPrecisionAt5": 0.7556,
+      "ndcgAt5": 0.8149
+    }
+  ]
+}
