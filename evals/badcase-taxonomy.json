@@ -16,6 +16,8 @@
     { "code": "CITATION_ERROR", "stage": "generation", "name": "引用错误", "description": "引用编号、资料名称或链接与实际证据不一致。" },
     { "code": "DECISION_MISMATCH", "stage": "generation", "name": "推荐不适配", "description": "推荐没有考虑用户年级、基础、目标或时间。" },
     { "code": "ACTIONABILITY", "stage": "generation", "name": "缺少可执行行动", "description": "回答没有给出明确且可开始的下一步。" },
-    { "code": "UNCERTAINTY_ERROR", "stage": "generation", "name": "不确定性表达错误", "description": "把历史规则、未知信息或待核验政策说成确定事实。" }
+    { "code": "UNCERTAINTY_ERROR", "stage": "generation", "name": "不确定性表达错误", "description": "把历史规则、未知信息或待核验政策说成确定事实。" },
+    { "code": "MODEL_PROVIDER_UNAVAILABLE", "stage": "generation", "name": "模型服务暂时不可用", "description": "外部模型服务返回 500、502、503 或 504，导致生成阶段失败。" },
+    { "code": "GENERATION_RESILIENCE", "stage": "generation", "name": "生成容错不足", "description": "模型发生可重试错误时，系统没有重试、备用模型或清晰的降级说明。" }
   ]
 }

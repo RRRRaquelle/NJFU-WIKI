@@ -4,7 +4,18 @@ type LlmConfig = {
   apiBaseUrl: string;
   apiKey: string;
   model: string;
+  fallbackModel?: string;
 };
+
+class LlmHttpError extends Error {
+  status: number;
+
+  constructor(status: number, message: string) {
+    super(message);
+    this.name = 'LlmHttpError';
+    this.status = status;
+  }
+}
 
 type GeneratedRecommendation = {
   title?: string;
@@ -24,8 +35,9 @@ function readLlmConfig(): LlmConfig | undefined {
   const apiBaseUrl = process.env.LLM_API_BASE_URL?.trim();
   const apiKey = process.env.LLM_API_KEY?.trim();
   const model = process.env.LLM_MODEL?.trim();
+  const fallbackModel = process.env.LLM_FALLBACK_MODEL?.trim();
   if (!apiBaseUrl || !apiKey || !model) return undefined;
-  return { apiBaseUrl, apiKey, model };
+  return { apiBaseUrl, apiKey, model, fallbackModel };
 }
 
 function endpointFor(apiBaseUrl: string) {
@@ -45,44 +57,72 @@ async function responseError(response: Response) {
   } catch {
     // Some providers return an empty or non-JSON error body.
   }
-  return new Error(`大模型接口返回 ${response.status}${detail ? `：${detail}` : ''}`);
+  return new LlmHttpError(
+    response.status,
+    `大模型接口返回 ${response.status}${detail ? `：${detail}` : ''}`,
+  );
 }
+
+const retryableStatuses = new Set([429, 500, 502, 503, 504]);
 
 async function requestGeneratedText(
   config: LlmConfig,
   systemPrompt: string,
   userPayload: unknown,
   signal: AbortSignal,
-) {
+): Promise<{ raw: string; model: string }> {
   if (isGeminiEndpoint(config.apiBaseUrl)) {
     const nativeBase = config.apiBaseUrl.replace(/\/+$/, '').replace(/\/openai$/, '');
-    const response = await fetch(`${nativeBase}/models/${encodeURIComponent(config.model)}:generateContent`, {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-        'x-goog-api-key': config.apiKey,
-      },
-      body: JSON.stringify({
-        systemInstruction: { parts: [{ text: systemPrompt }] },
-        contents: [{ role: 'user', parts: [{ text: JSON.stringify(userPayload) }] }],
-        generationConfig: {
-          maxOutputTokens: 1600,
-          responseMimeType: 'application/json',
-        },
-      }),
-      signal,
-    });
+    const models = [config.model, config.fallbackModel]
+      .filter((model): model is string => Boolean(model))
+      .filter((model, index, all) => all.indexOf(model) === index);
 
-    if (!response.ok) throw await responseError(response);
-    const payload = await response.json() as {
-      candidates?: Array<{ content?: { parts?: Array<{ text?: string }> } }>;
-    };
-    const raw = payload.candidates?.[0]?.content?.parts
-      ?.map((part) => part.text ?? '')
-      .join('')
-      .trim();
-    if (!raw) throw new Error('Gemini 没有返回可用文本');
-    return raw;
+    for (let index = 0; index < models.length; index += 1) {
+      const model = models[index];
+      const response = await fetch(`${nativeBase}/models/${encodeURIComponent(model)}:generateContent`, {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          'x-goog-api-key': config.apiKey,
+        },
+        body: JSON.stringify({
+          systemInstruction: { parts: [{ text: systemPrompt }] },
+          contents: [{ role: 'user', parts: [{ text: JSON.stringify(userPayload) }] }],
+          generationConfig: {
+            maxOutputTokens: 1600,
+            responseMimeType: 'application/json',
+          },
+        }),
+        signal,
+      });
+
+      if (!response.ok) {
+        const error = await responseError(response);
+        const hasFallback = index < models.length - 1;
+        if (hasFallback && retryableStatuses.has(error.status)) {
+          console.warn('Gemini primary model unavailable; retrying with fallback', {
+            primaryModel: model,
+            fallbackModel: models[index + 1],
+            status: error.status,
+          });
+          await new Promise((resolve) => setTimeout(resolve, 800));
+          continue;
+        }
+        throw error;
+      }
+
+      const payload = await response.json() as {
+        candidates?: Array<{ content?: { parts?: Array<{ text?: string }> } }>;
+      };
+      const raw = payload.candidates?.[0]?.content?.parts
+        ?.map((part) => part.text ?? '')
+        .join('')
+        .trim();
+      if (!raw) throw new Error('Gemini 没有返回可用文本');
+      return { raw, model };
+    }
+
+    throw new Error('Gemini 主模型和备用模型均不可用');
   }
 
   const response = await fetch(endpointFor(config.apiBaseUrl), {
@@ -110,7 +150,7 @@ async function requestGeneratedText(
   };
   const raw = payload.choices?.[0]?.message?.content;
   if (!raw) throw new Error('大模型接口没有返回内容');
-  return raw;
+  return { raw, model: config.model };
 }
 
 function evidence(hits: SearchHit[], prefix: 'P' | 'R') {
@@ -209,10 +249,10 @@ JSON 格式：
   };
 
   const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), 45_000);
+  const timer = setTimeout(() => controller.abort(), 70_000);
   try {
-    const raw = await requestGeneratedText(config, systemPrompt, userPayload, controller.signal);
-    return mergeGenerated(base, extractJson(raw), config.model);
+    const generated = await requestGeneratedText(config, systemPrompt, userPayload, controller.signal);
+    return mergeGenerated(base, extractJson(generated.raw), generated.model);
   } finally {
     clearTimeout(timer);
   }
