@@ -8,6 +8,8 @@ NJFU Wiki 是一个面向南京林业大学学生的 AI 产品 MVP。它不是�
 
 **项目状态：** MVP 已完成｜真实 DeepSeek RAG 已接入｜检索与生成层评测已建立｜在线演示已发布
 
+![NJFU Wiki 首页预览](./docs/images/njfu-wiki-demo.png)
+
 ## 01｜为什么做这个产品
 
 校园资料往往散落在 GitHub、群聊、网盘和经验帖里。真正困难的并不是“搜不到文件”，而是学生还不知道自己此刻应该找什么：
@@ -92,7 +94,7 @@ flowchart LR
 | 生成 | 忠实度 / 答案相关性 / 上下文相关性 | 89.47% / 100% / 93.42% |
 | 推荐 | 推荐适配度 / 行动性 | 90% / 94.74% |
 
-> 这些数字来自当前 30 个检索任务和 19 个生成评审样本，只用于 MVP 回归，不代表对所有真实问题的泛化表现。完整结果见 [evals/results](./evals/results)，Bad Case 总表见 [evals/badcases.jsonl](./evals/badcases.jsonl)。
+> 这些数字来自当前 30 个检索任务和 19 个生成评审样本，只用于 MVP 回归，不代表对所有真实问题的泛化表现。查看[检索评测报告](./evals/results/baseline-v7.md)、[生成评审报告](./evals/results/judge-deepseek-reasoner-v3-final.md)与 [Bad Case 总表](./evals/badcases.jsonl)。
 
 ## 07｜技术实现
 
