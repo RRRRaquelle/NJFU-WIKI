@@ -2,7 +2,7 @@
 
 > 帮助南京林业大学计算机学院学生，从“不知道该找什么”走到“知道下一步做什么”。
 
-[产品思考与方案设计](https://www.figma.com/board/Uaa8TfAvCXnz7MMvOqjiK3/NJFU-WIKI-2.0?node-id=0-1&t=TWZbfCstcUmpN2bn-1) · [用户侧 MVP PRD](./docs/product/PRD-v0.2-user-mvp.md) · 在线体验部署中
+[在线体验](https://njfu-wiki.vercel.app) · [产品思考与方案设计](https://www.figma.com/board/Uaa8TfAvCXnz7MMvOqjiK3/NJFU-WIKI-2.0?node-id=0-1&t=TWZbfCstcUmpN2bn-1) · [用户侧 MVP PRD](./docs/product/PRD-v0.2-user-mvp.md)
 
 ![NJFU Wiki 绿色首页](./docs/images/njfu-wiki-demo.png)
 
@@ -41,7 +41,7 @@ Agent 不是事实来源。事实必须来自知识库证据；信息不足时�
 
 ### 在线体验
 
-Vercel 版本部署完成后可直接访问，**体验者无需填写 API Key**。模型密钥只保存在部署平台的服务端环境变量中，不会发送到浏览器。
+[打开 NJFU Wiki 在线体验](https://njfu-wiki.vercel.app)。**体验者无需填写 API Key**；模型密钥只保存在 Vercel 的服务端环境变量中，不会发送到浏览器。
 
 推荐从下面两个任务开始：
 
