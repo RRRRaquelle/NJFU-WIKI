@@ -1,4 +1,5 @@
 import { answerUser, type StudentProfile } from '@/lib/assistant-engine';
+import { isAllowedRequestOrigin, reserveModelQuota } from '@/lib/demo-request-guard';
 import { generateGroundedReply } from '@/lib/rag-generator';
 
 type AdvisorRequest = {
@@ -11,6 +12,10 @@ function isProfile(value: unknown): value is StudentProfile {
 }
 
 export async function POST(request: Request) {
+  if (!isAllowedRequestOrigin(request)) {
+    return Response.json({ error: '不允许从其他站点调用演示接口' }, { status: 403 });
+  }
+
   let body: AdvisorRequest;
   try {
     body = await request.json() as AdvisorRequest;
@@ -24,6 +29,23 @@ export async function POST(request: Request) {
 
   const profile = isProfile(body.profile) ? body.profile : {};
   const baseline = answerUser(body.input.trim(), profile);
+  const modelConfigured = Boolean(
+    process.env.LLM_API_BASE_URL?.trim()
+      && process.env.LLM_API_KEY?.trim()
+      && process.env.LLM_MODEL?.trim(),
+  );
+  const quota = modelConfigured ? reserveModelQuota(request) : { allowed: true };
+
+  if (!quota.allowed) {
+    return Response.json({
+      reply: {
+        ...baseline,
+        generation: { mode: 'baseline', note: quota.note },
+      },
+    }, {
+      headers: { 'x-njfu-generation-mode': 'protected-baseline' },
+    });
+  }
 
   try {
     const reply = await generateGroundedReply(body.input.trim(), baseline.profile, baseline);
