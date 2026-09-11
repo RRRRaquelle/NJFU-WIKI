@@ -37,3 +37,16 @@ next-env.d.ts
 /.wrangler/
 /outputs/
 /work/
+
+# generated evaluation snapshots (keep only reproducible final reports)
+/evals/results/*
+!/evals/results/baseline-v1.json
+!/evals/results/baseline-v1.md
+!/evals/results/baseline-v7.json
+!/evals/results/baseline-v7.md
+!/evals/results/deepseek-v4-flash-v11-final.json
+!/evals/results/judge-deepseek-reasoner-v3-final.json
+!/evals/results/judge-deepseek-reasoner-v3-final.md
+!/evals/results/generation-smoke.json
+!/evals/results/latest.json
+!/evals/results/latest.md

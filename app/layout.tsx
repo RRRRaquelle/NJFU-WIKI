@@ -1,20 +1,9 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
-import './globals.css';
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
+import '@/features/wiki/figma.css';
 
 export const metadata: Metadata = {
-  title: 'NJFU Wiki · 个人发展导学助手',
-  description: '基于竞赛政策库和 NJFU-Courses 资料目录的本地双库 MVP。',
+  title: 'NJFU Wiki · 让经验被看见',
+  description: '面向南京林业大学学生的资料发现与个人发展导学平台。',
 };
 
 export default function RootLayout({
@@ -24,11 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

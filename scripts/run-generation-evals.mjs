@@ -5,11 +5,13 @@ import { fileURLToPath } from 'node:url';
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const appUrl = (process.env.EVAL_APP_URL ?? 'http://127.0.0.1:3000').replace(/\/+$/, '');
 const runName = (process.env.EVAL_RUN_NAME ?? 'generation-latest').replace(/[^a-zA-Z0-9._-]/g, '-');
+const selectedCaseIds = new Set((process.env.EVAL_CASE_IDS ?? '').split(',').map((value) => value.trim()).filter(Boolean));
 const cases = (await readFile(path.join(projectRoot, 'evals', 'rag-eval-cases.jsonl'), 'utf8'))
   .split(/\r?\n/)
   .filter(Boolean)
   .map((line) => JSON.parse(line))
-  .filter((item) => item.group !== 'profile_understanding');
+  .filter((item) => item.group !== 'profile_understanding')
+  .filter((item) => selectedCaseIds.size === 0 || selectedCaseIds.has(item.case_id));
 
 function combinedText(reply) {
   return [
@@ -62,6 +64,7 @@ for (const testCase of cases) {
   results.push({
     caseId: testCase.case_id,
     group: testCase.group,
+    replyKind: reply.kind,
     generationMode: reply.generation?.mode ?? 'unknown',
     model: reply.generation?.model ?? null,
     citationCoverage,
@@ -79,12 +82,17 @@ for (const testCase of cases) {
 }
 
 const ragResults = results.filter((item) => item.generationMode === 'rag');
+const clarificationResults = results.filter((item) => item.replyKind === 'clarify');
+const unexpectedBaselineResults = results.filter((item) => (
+  item.generationMode === 'baseline' && item.replyKind !== 'clarify'
+));
 const summary = {
   generatedAt: new Date().toISOString(),
   appUrl,
   caseCount: results.length,
   ragCaseCount: ragResults.length,
-  baselineFallbackCount: results.filter((item) => item.generationMode === 'baseline').length,
+  deterministicClarificationCount: clarificationResults.length,
+  baselineFallbackCount: unexpectedBaselineResults.length,
   generationMetrics: ragResults.length ? {
     citationCoverage: mean(ragResults.map((item) => item.citationCoverage)),
     citationValidity: mean(ragResults.map((item) => item.citationValidity)),

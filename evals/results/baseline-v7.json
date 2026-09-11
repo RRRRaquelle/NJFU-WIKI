@@ -1,6 +1,6 @@
 {
   "summary": {
-    "generatedAt": "2026-09-10T14:46:25.681Z",
+    "generatedAt": "2026-09-11T04:38:58.706Z",
     "suite": {
       "caseCount": 30,
       "profileCaseCount": 10,
@@ -14,32 +14,32 @@
     "retrieval": {
       "overall": {
         "taskCount": 30,
-        "hitAt5": 0.9333,
-        "recallAt5": 0.6556,
-        "mrrAt5": 0.8306,
-        "precisionAt5": 0.3933,
-        "contextPrecisionAt5": 0.7682,
-        "ndcgAt5": 0.7152
+        "hitAt5": 1,
+        "recallAt5": 0.7306,
+        "mrrAt5": 0.9194,
+        "precisionAt5": 0.44,
+        "contextPrecisionAt5": 0.8543,
+        "ndcgAt5": 0.7938
       },
       "policy": {
         "taskCount": 20,
-        "hitAt5": 0.95,
-        "recallAt5": 0.6667,
-        "mrrAt5": 0.7958,
-        "precisionAt5": 0.35,
-        "contextPrecisionAt5": 0.7369,
-        "ndcgAt5": 0.6993
+        "hitAt5": 1,
+        "recallAt5": 0.7542,
+        "mrrAt5": 0.8792,
+        "precisionAt5": 0.41,
+        "contextPrecisionAt5": 0.8186,
+        "ndcgAt5": 0.7843
       },
       "resources": {
         "taskCount": 10,
-        "hitAt5": 0.9,
-        "recallAt5": 0.6333,
-        "mrrAt5": 0.9,
-        "precisionAt5": 0.48,
-        "contextPrecisionAt5": 0.831,
-        "ndcgAt5": 0.7472
+        "hitAt5": 1,
+        "recallAt5": 0.6833,
+        "mrrAt5": 1,
+        "precisionAt5": 0.5,
+        "contextPrecisionAt5": 0.9256,
+        "ndcgAt5": 0.8127
       },
-      "dualCorpusCaseSuccessRate": 0.8
+      "dualCorpusCaseSuccessRate": 1
     }
   },
   "cases": [
@@ -512,6 +512,7 @@
         "grade": "大一",
         "goal": "能力提升",
         "foundation": "系统与底层开发",
+        "interest": "系统与底层开发",
         "weeklyHours": 10.5,
         "weeklyHoursRange": [
           10.5,
@@ -706,7 +707,7 @@
       "profileChecks": [],
       "missingRequiredFields": [
         "年级",
-        "最有基础的课程或项目",
+        "最有基础或最感兴趣的课程、项目",
         "每周可投入时间"
       ],
       "unnecessaryClarification": false,
@@ -726,39 +727,39 @@
               "rank": 1,
               "id": "policy-md-003",
               "title": "3. 信息学院 2026 届推免综合成绩构成",
-              "score": 291.25
+              "score": 371.25
             },
             {
               "rank": 2,
-              "id": "policy-md-002",
-              "title": "2. 信息学院 2026 届推免的基本门槛",
-              "score": 108.9
+              "id": "policy-csv-01_信息学院2026届推免综合成绩构成-001",
+              "title": "学业成绩",
+              "score": 146.05
             },
             {
               "rank": 3,
-              "id": "policy-md-001",
-              "title": "1. 学年综合素质测评和推免综合成绩不是同一个分数",
-              "score": 103.25
+              "id": "policy-csv-01_信息学院2026届推免综合成绩构成-003",
+              "title": "学科竞赛",
+              "score": 139.05
             },
             {
               "rank": 4,
-              "id": "policy-csv-00_表格索引-001",
-              "title": "1",
-              "score": 102.9
+              "id": "policy-csv-01_信息学院2026届推免综合成绩构成-002",
+              "title": "科研成果",
+              "score": 136.35
             },
             {
               "rank": 5,
-              "id": "policy-md-004",
-              "title": "4. 推免竞赛标准分",
-              "score": 78.2
+              "id": "policy-csv-01_信息学院2026届推免综合成绩构成-004",
+              "title": "参军入伍服兵役",
+              "score": 133.65
             }
           ],
           "hitAt5": 1,
-          "recallAt5": 0.3333,
+          "recallAt5": 1,
           "mrrAt5": 1,
-          "precisionAt5": 0.2,
+          "precisionAt5": 0.6,
           "contextPrecisionAt5": 1,
-          "ndcgAt5": 0.6735
+          "ndcgAt5": 1
         }
       ],
       "answerRequirements": [
@@ -781,7 +782,7 @@
       "profileChecks": [],
       "missingRequiredFields": [
         "年级",
-        "最有基础的课程或项目",
+        "最有基础或最感兴趣的课程、项目",
         "每周可投入时间"
       ],
       "unnecessaryClarification": false,
@@ -855,7 +856,7 @@
       "missingRequiredFields": [
         "年级",
         "目标",
-        "最有基础的课程或项目",
+        "最有基础或最感兴趣的课程、项目",
         "每周可投入时间"
       ],
       "unnecessaryClarification": false,
@@ -875,7 +876,7 @@
               "rank": 1,
               "id": "policy-md-006",
               "title": "6. 学年综测竞赛加分的历史公开口径",
-              "score": 166.1
+              "score": 300.35
             },
             {
               "rank": 2,
@@ -885,29 +886,29 @@
             },
             {
               "rank": 3,
-              "id": "policy-csv-00_表格索引-004",
-              "title": "4",
-              "score": 41.85
+              "id": "policy-csv-05_旧版学年综测B类通用分值-001",
+              "title": "国家级",
+              "score": 122.55
             },
             {
               "rank": 4,
-              "id": "policy-csv-04_学年综测竞赛加分历史口径-001",
-              "title": "“挑战杯”课外学术科技作品",
-              "score": 28.35
+              "id": "policy-csv-05_旧版学年综测B类通用分值-002",
+              "title": "省级",
+              "score": 122.55
             },
             {
               "rank": 5,
-              "id": "policy-csv-04_学年综测竞赛加分历史口径-004",
-              "title": "全国大学生数学建模竞赛",
-              "score": 28.35
+              "id": "policy-csv-05_旧版学年综测B类通用分值-003",
+              "title": "校级",
+              "score": 122.55
             }
           ],
           "hitAt5": 1,
           "recallAt5": 0.6667,
           "mrrAt5": 1,
           "precisionAt5": 0.4,
-          "contextPrecisionAt5": 0.75,
-          "ndcgAt5": 0.7979
+          "contextPrecisionAt5": 0.8333,
+          "ndcgAt5": 0.8179
         }
       ],
       "answerRequirements": [
@@ -931,7 +932,7 @@
       "profileChecks": [],
       "missingRequiredFields": [
         "年级",
-        "最有基础的课程或项目",
+        "最有基础或最感兴趣的课程、项目",
         "每周可投入时间"
       ],
       "unnecessaryClarification": false,
@@ -1004,7 +1005,7 @@
       "missingRequiredFields": [
         "年级",
         "目标",
-        "最有基础的课程或项目",
+        "最有基础或最感兴趣的课程、项目",
         "每周可投入时间"
       ],
       "unnecessaryClarification": false,
@@ -1072,13 +1073,12 @@
       "conversation": [
         "ISCC和全国大学生信息安全竞赛有什么区别？"
       ],
-      "profile": {
-        "foundation": "信息安全"
-      },
+      "profile": {},
       "profileChecks": [],
       "missingRequiredFields": [
         "年级",
         "目标",
+        "最有基础或最感兴趣的课程、项目",
         "每周可投入时间"
       ],
       "unnecessaryClarification": false,
@@ -1098,31 +1098,31 @@
               "rank": 1,
               "id": "policy-md-026",
               "title": "1. 全国大学生信息安全竞赛（CISC）",
-              "score": 156.05
+              "score": 226.05
             },
             {
               "rank": 2,
+              "id": "policy-md-027",
+              "title": "2. ISCC 大学生信息安全与对抗技术竞赛",
+              "score": 165.4
+            },
+            {
+              "rank": 3,
               "id": "policy-csv-06_竞赛政策对应速查-010",
               "title": "全国大学生信息安全竞赛、ISCC",
               "score": 135.8
             },
             {
-              "rank": 3,
-              "id": "policy-md-027",
-              "title": "2. ISCC 大学生信息安全与对抗技术竞赛",
-              "score": 95.4
-            },
-            {
               "rank": 4,
-              "id": "policy-md-046",
-              "title": "赛事官方或主办方页面",
-              "score": 51.3
+              "id": "policy-md-028",
+              "title": "3. Hgame、南航 CTF 等高校或企业举办的 CTF",
+              "score": 91.85
             },
             {
               "rank": 5,
-              "id": "policy-md-014",
-              "title": "1. 全国大学生数学建模竞赛",
-              "score": 48.25
+              "id": "policy-md-046",
+              "title": "赛事官方或主办方页面",
+              "score": 51.3
             }
           ],
           "hitAt5": 1,
@@ -1130,7 +1130,7 @@
           "mrrAt5": 1,
           "precisionAt5": 0.6,
           "contextPrecisionAt5": 1,
-          "ndcgAt5": 0.9595
+          "ndcgAt5": 1
         }
       ],
       "answerRequirements": [
@@ -1146,12 +1146,12 @@
         "蓝桥杯适合作为算法竞赛入门吗？"
       ],
       "profile": {
-        "goal": "能力提升",
-        "foundation": "算法与程序设计"
+        "goal": "能力提升"
       },
       "profileChecks": [],
       "missingRequiredFields": [
         "年级",
+        "最有基础或最感兴趣的课程、项目",
         "每周可投入时间"
       ],
       "unnecessaryClarification": false,
@@ -1220,12 +1220,12 @@
         "全国大学生数学建模竞赛一般需要哪些能力？"
       ],
       "profile": {
-        "goal": "能力提升",
-        "foundation": "数学建模"
+        "goal": "能力提升"
       },
       "profileChecks": [],
       "missingRequiredFields": [
         "年级",
+        "最有基础或最感兴趣的课程、项目",
         "每周可投入时间"
       ],
       "unnecessaryClarification": false,
@@ -1297,7 +1297,7 @@
       "profileChecks": [],
       "missingRequiredFields": [
         "年级",
-        "最有基础的课程或项目",
+        "最有基础或最感兴趣的课程、项目",
         "每周可投入时间"
       ],
       "unnecessaryClarification": false,
@@ -1371,7 +1371,7 @@
       "missingRequiredFields": [
         "年级",
         "目标",
-        "最有基础的课程或项目",
+        "最有基础或最感兴趣的课程、项目",
         "每周可投入时间"
       ],
       "unnecessaryClarification": false,
@@ -1656,35 +1656,35 @@
             },
             {
               "rank": 2,
-              "id": "NJFU-RES-CEA5C79F31",
-              "title": "数字图像处理知识点总结",
-              "score": 118
-            },
-            {
-              "rank": 3,
               "id": "NJFU-RES-CC97792005",
               "title": "03数据挖掘-数据预处理",
               "score": 93.2
             },
             {
+              "rank": 3,
+              "id": "NJFU-RES-CEA5C79F31",
+              "title": "数字图像处理知识点总结",
+              "score": 118
+            },
+            {
               "rank": 4,
-              "id": "NJFU-RES-B448A010DF",
-              "title": "05数据挖掘-分类-贝叶斯分类",
-              "score": 91.85
+              "id": "NJFU-RES-68DDD8686D",
+              "title": "第1章 绪论",
+              "score": 63.35
             },
             {
               "rank": 5,
-              "id": "NJFU-RES-F064439644",
-              "title": "05数据挖掘-分类-决策树",
-              "score": 91.85
+              "id": "NJFU-RES-8137123B06",
+              "title": "机器学习_周志华",
+              "score": 55
             }
           ],
           "hitAt5": 1,
-          "recallAt5": 1,
+          "recallAt5": 0.5,
           "mrrAt5": 1,
-          "precisionAt5": 0.8,
-          "contextPrecisionAt5": 0.8875,
-          "ndcgAt5": 0.8446
+          "precisionAt5": 0.4,
+          "contextPrecisionAt5": 0.8333,
+          "ndcgAt5": 0.5563
         }
       ],
       "answerRequirements": [
@@ -1704,7 +1704,7 @@
       ],
       "profile": {
         "grade": "大一",
-        "foundation": "算法与程序设计",
+        "interest": "算法与程序设计",
         "weeklyHours": 6,
         "weeklyHoursRange": [
           6,
@@ -1857,41 +1857,41 @@
           "hits": [
             {
               "rank": 1,
-              "id": "policy-md-003",
-              "title": "3. 信息学院 2026 届推免综合成绩构成",
-              "score": 85.2
+              "id": "policy-md-026",
+              "title": "1. 全国大学生信息安全竞赛（CISC）",
+              "score": 165.15
             },
             {
               "rank": 2,
-              "id": "policy-md-004",
-              "title": "4. 推免竞赛标准分",
-              "score": 76.85
+              "id": "policy-md-027",
+              "title": "2. ISCC 大学生信息安全与对抗技术竞赛",
+              "score": 139
             },
             {
               "rank": 3,
-              "id": "policy-md-026",
-              "title": "1. 全国大学生信息安全竞赛（CISC）",
-              "score": 73.05
+              "id": "policy-md-028",
+              "title": "3. Hgame、南航 CTF 等高校或企业举办的 CTF",
+              "score": 113.95
             },
             {
               "rank": 4,
-              "id": "policy-md-001",
-              "title": "1. 学年综合素质测评和推免综合成绩不是同一个分数",
-              "score": 70.1
+              "id": "policy-csv-06_竞赛政策对应速查-014",
+              "title": "Hgame、南航 CTF 等高校/企业单场赛",
+              "score": 88.15
             },
             {
               "rank": 5,
-              "id": "policy-md-027",
-              "title": "2. ISCC 大学生信息安全与对抗技术竞赛",
-              "score": 69
+              "id": "policy-md-003",
+              "title": "3. 信息学院 2026 届推免综合成绩构成",
+              "score": 85.2
             }
           ],
           "hitAt5": 1,
-          "recallAt5": 0.6667,
-          "mrrAt5": 0.3333,
-          "precisionAt5": 0.4,
-          "contextPrecisionAt5": 0.3667,
-          "ndcgAt5": 0.4806
+          "recallAt5": 1,
+          "mrrAt5": 1,
+          "precisionAt5": 0.6,
+          "contextPrecisionAt5": 1,
+          "ndcgAt5": 1
         },
         {
           "caseId": "DUAL-004",
@@ -1906,41 +1906,41 @@
           "hits": [
             {
               "rank": 1,
+              "id": "NJFU-RES-FE79F61A11",
+              "title": "计算机网络（第7版）-谢希仁",
+              "score": 144.4
+            },
+            {
+              "rank": 2,
+              "id": "NJFU-RES-E6D869DAB2",
+              "title": "操作系统专业复习题",
+              "score": 99.45
+            },
+            {
+              "rank": 3,
+              "id": "NJFU-RES-570EE94C5F",
+              "title": "计算机网络考点整理",
+              "score": 133.7
+            },
+            {
+              "rank": 4,
               "id": "NJFU-RES-B0D88FCEBF",
               "title": "《网络工程与组网实习》课程设计-报告-模板",
               "score": 122.65
             },
             {
-              "rank": 2,
-              "id": "NJFU-RES-0E88787E7E",
-              "title": "2022网络工程与组网实习报告-格式要求（模版）",
-              "score": 122.65
-            },
-            {
-              "rank": 3,
+              "rank": 5,
               "id": "NJFU-RES-D6356643DC",
               "title": "《网络工程与组网实习》课程设计考核评分标准",
               "score": 122.65
-            },
-            {
-              "rank": 4,
-              "id": "NJFU-RES-D47F5A0669",
-              "title": "《网络工程与组网实习》评分",
-              "score": 122.65
-            },
-            {
-              "rank": 5,
-              "id": "NJFU-RES-BE257C0A3B",
-              "title": "《网络工程与组网实习》-题目和要求",
-              "score": 122.65
             }
           ],
-          "hitAt5": 0,
-          "recallAt5": 0,
-          "mrrAt5": 0,
-          "precisionAt5": 0,
-          "contextPrecisionAt5": 0,
-          "ndcgAt5": 0
+          "hitAt5": 1,
+          "recallAt5": 1,
+          "mrrAt5": 1,
+          "precisionAt5": 0.6,
+          "contextPrecisionAt5": 1,
+          "ndcgAt5": 1
         }
       ],
       "answerRequirements": [
@@ -1960,13 +1960,14 @@
       "profile": {
         "grade": "大二",
         "goal": "提高综测",
-        "foundation": "数学建模",
+        "foundation": "数学与统计",
         "weeklyHours": 12,
         "weeklyHoursRange": [
           12,
           12
         ],
-        "weeklyHoursLabel": "每周约 12 小时"
+        "weeklyHoursLabel": "每周约 12 小时",
+        "team": "3名可协作同学"
       },
       "profileChecks": [],
       "missingRequiredFields": [],
@@ -2214,7 +2215,8 @@
           10,
           10
         ],
-        "weeklyHoursLabel": "每周约 10 小时"
+        "weeklyHoursLabel": "每周约 10 小时",
+        "team": "3名可协作同学"
       },
       "profileChecks": [],
       "missingRequiredFields": [
@@ -2237,41 +2239,41 @@
           "hits": [
             {
               "rank": 1,
-              "id": "policy-md-032",
-              "title": "4. 睿抗机器人开发者大赛（RAICOM）",
-              "score": 60.4
+              "id": "policy-md-031",
+              "title": "3. 中国机器人及人工智能大赛",
+              "score": 222.55
             },
             {
               "rank": 2,
-              "id": "policy-md-030",
-              "title": "2. 全国大学生物联网设计竞赛",
-              "score": 58.8
+              "id": "policy-md-032",
+              "title": "4. 睿抗机器人开发者大赛（RAICOM）",
+              "score": 149.25
             },
             {
               "rank": 3,
-              "id": "policy-csv-06_竞赛政策对应速查-012",
-              "title": "系统能力、物联网、机器人与 AI、RAICOM、RoboCup、华为 ICT、中国软件杯、服务外包",
-              "score": 58.2
+              "id": "policy-md-030",
+              "title": "2. 全国大学生物联网设计竞赛",
+              "score": 136.5
             },
             {
               "rank": 4,
-              "id": "policy-md-031",
-              "title": "3. 中国机器人及人工智能大赛",
-              "score": 52.05
+              "id": "policy-md-033",
+              "title": "5. RoboCup 机器人世界杯中国赛",
+              "score": 134.15
             },
             {
               "rank": 5,
-              "id": "policy-md-033",
-              "title": "5. RoboCup 机器人世界杯中国赛",
-              "score": 49.35
+              "id": "policy-csv-06_竞赛政策对应速查-012",
+              "title": "系统能力、物联网、机器人与 AI、RAICOM、RoboCup、华为 ICT、中国软件杯、服务外包",
+              "score": 87.3
             }
           ],
           "hitAt5": 1,
           "recallAt5": 1,
           "mrrAt5": 1,
           "precisionAt5": 0.8,
-          "contextPrecisionAt5": 0.8875,
-          "ndcgAt5": 0.8446
+          "contextPrecisionAt5": 1,
+          "ndcgAt5": 0.8288
         },
         {
           "caseId": "DUAL-007",
@@ -2287,33 +2289,33 @@
           "hits": [
             {
               "rank": 1,
+              "id": "NJFU-RES-F0D9676364",
+              "title": "项目软件文档",
+              "score": 162.1
+            },
+            {
+              "rank": 2,
+              "id": "NJFU-RES-A59EB6FF6C",
+              "title": "项目软件文档示例",
+              "score": 162.1
+            },
+            {
+              "rank": 3,
+              "id": "NJFU-RES-154950B342",
+              "title": "项目程序代码",
+              "score": 149.7
+            },
+            {
+              "rank": 4,
               "id": "NJFU-RES-5673A98EAB",
               "title": "项目规划书模板",
               "score": 139.45
             },
             {
-              "rank": 2,
-              "id": "NJFU-RES-F0D9676364",
-              "title": "项目软件文档",
-              "score": 138.1
-            },
-            {
-              "rank": 3,
-              "id": "NJFU-RES-A59EB6FF6C",
-              "title": "项目软件文档示例",
-              "score": 138.1
-            },
-            {
-              "rank": 4,
-              "id": "NJFU-RES-154950B342",
-              "title": "项目程序代码",
-              "score": 125.7
-            },
-            {
               "rank": 5,
-              "id": "NJFU-RES-B42B64204C",
-              "title": "项目报告及封面",
-              "score": 56.95
+              "id": "NJFU-RES-3BCD6858F1",
+              "title": "项目说明",
+              "score": 80.95
             }
           ],
           "hitAt5": 1,
@@ -2321,7 +2323,7 @@
           "mrrAt5": 1,
           "precisionAt5": 0.8,
           "contextPrecisionAt5": 1,
-          "ndcgAt5": 1
+          "ndcgAt5": 0.9436
         }
       ],
       "answerRequirements": [
@@ -2340,7 +2342,7 @@
       ],
       "profile": {
         "goal": "能力提升",
-        "foundation": "系统与底层开发"
+        "interest": "系统与底层开发"
       },
       "profileChecks": [],
       "missingRequiredFields": [
@@ -2412,7 +2414,7 @@
               "rank": 1,
               "id": "NJFU-RES-8FE4C06D13",
               "title": "操作系统课程设计：页面管理模拟程序与任务书",
-              "score": 140.1
+              "score": 164.1
             },
             {
               "rank": 2,
@@ -2422,21 +2424,21 @@
             },
             {
               "rank": 3,
+              "id": "NJFU-RES-7494F52F98",
+              "title": "编译原理及编译程序构造 (薛联凤 秦振松)",
+              "score": 79.45
+            },
+            {
+              "rank": 4,
               "id": "NJFU-RES-52CB331BE3",
               "title": "组成原理",
               "score": 96.75
             },
             {
-              "rank": 4,
+              "rank": 5,
               "id": "NJFU-RES-E6D869DAB2",
               "title": "操作系统专业复习题",
               "score": 84.85
-            },
-            {
-              "rank": 5,
-              "id": "NJFU-RES-7494F52F98",
-              "title": "编译原理及编译程序构造 (薛联凤 秦振松)",
-              "score": 79.45
             }
           ],
           "hitAt5": 1,
@@ -2546,25 +2548,25 @@
               "rank": 2,
               "id": "NJFU-RES-DE389DB9DC",
               "title": "2022数据库课程设计任务书",
-              "score": 193.6
+              "score": 217.6
             },
             {
               "rank": 3,
-              "id": "NJFU-RES-D6356643DC",
-              "title": "《网络工程与组网实习》课程设计考核评分标准",
-              "score": 137.5
+              "id": "NJFU-RES-A940504843",
+              "title": "《数据库原理MySQL》第二次上机作业",
+              "score": 155.35
             },
             {
               "rank": 4,
-              "id": "NJFU-RES-A940504843",
-              "title": "《数据库原理MySQL》第二次上机作业",
-              "score": 131.35
+              "id": "NJFU-RES-5CBB125FC3",
+              "title": "《数据库原理MySQL》第三次上机作业",
+              "score": 155.35
             },
             {
               "rank": 5,
-              "id": "NJFU-RES-5CBB125FC3",
-              "title": "《数据库原理MySQL》第三次上机作业",
-              "score": 131.35
+              "id": "NJFU-RES-4F847B59C2",
+              "title": "《数据库原理MySQL》第四次上机作业(二)",
+              "score": 155.35
             }
           ],
           "hitAt5": 1,
@@ -2613,41 +2615,41 @@
           "hits": [
             {
               "rank": 1,
-              "id": "policy-md-019",
-              "title": "3. ICPC 国际大学生程序设计竞赛",
-              "score": 86.3
+              "id": "policy-md-009",
+              "title": "3. 大三学生：结果时间和现有基础比理论分值更重要",
+              "score": 195.1
             },
             {
               "rank": 2,
-              "id": "policy-md-004",
-              "title": "4. 推免竞赛标准分",
-              "score": 78.2
+              "id": "policy-md-019",
+              "title": "3. ICPC 国际大学生程序设计竞赛",
+              "score": 91.7
             },
             {
               "rank": 3,
-              "id": "policy-md-018",
-              "title": "2. JSCPC 江苏省大学生程序设计大赛",
-              "score": 78.2
+              "id": "policy-md-023",
+              "title": "2. 中国高校计算机大赛（C4）",
+              "score": 81.5
             },
             {
               "rank": 4,
-              "id": "policy-md-003",
-              "title": "3. 信息学院 2026 届推免综合成绩构成",
-              "score": 72.8
+              "id": "policy-md-010",
+              "title": "4. 只想增加推免竞争力，不代表应该选择分值最高的比赛",
+              "score": 80.9
             },
             {
               "rank": 5,
-              "id": "policy-md-017",
-              "title": "1. 蓝桥杯全国软件和信息技术专业人才大赛",
-              "score": 72.3
+              "id": "policy-md-018",
+              "title": "2. JSCPC 江苏省大学生程序设计大赛",
+              "score": 79.55
             }
           ],
-          "hitAt5": 0,
-          "recallAt5": 0,
-          "mrrAt5": 0,
-          "precisionAt5": 0,
-          "contextPrecisionAt5": 0,
-          "ndcgAt5": 0
+          "hitAt5": 1,
+          "recallAt5": 0.75,
+          "mrrAt5": 1,
+          "precisionAt5": 0.6,
+          "contextPrecisionAt5": 0.8056,
+          "ndcgAt5": 0.8104
         },
         {
           "caseId": "DUAL-010",
@@ -2675,21 +2677,21 @@
             },
             {
               "rank": 3,
-              "id": "NJFU-RES-B0D88FCEBF",
-              "title": "《网络工程与组网实习》课程设计-报告-模板",
-              "score": 135.05
+              "id": "NJFU-RES-BE257C0A3B",
+              "title": "《网络工程与组网实习》-题目和要求",
+              "score": 143.95
             },
             {
               "rank": 4,
-              "id": "NJFU-RES-0E88787E7E",
-              "title": "2022网络工程与组网实习报告-格式要求（模版）",
-              "score": 135.05
+              "id": "NJFU-RES-DB4AC4B571",
+              "title": "2022-《网络工程与组网实习》-课程设计任务书",
+              "score": 143.95
             },
             {
               "rank": 5,
-              "id": "NJFU-RES-BE257C0A3B",
-              "title": "《网络工程与组网实习》-题目和要求",
-              "score": 119.95
+              "id": "NJFU-RES-B0D88FCEBF",
+              "title": "《网络工程与组网实习》课程设计-报告-模板",
+              "score": 135.05
             }
           ],
           "hitAt5": 1,
@@ -2725,39 +2727,39 @@
           "rank": 1,
           "id": "policy-md-003",
           "title": "3. 信息学院 2026 届推免综合成绩构成",
-          "score": 291.25
+          "score": 371.25
         },
         {
           "rank": 2,
-          "id": "policy-md-002",
-          "title": "2. 信息学院 2026 届推免的基本门槛",
-          "score": 108.9
+          "id": "policy-csv-01_信息学院2026届推免综合成绩构成-001",
+          "title": "学业成绩",
+          "score": 146.05
         },
         {
           "rank": 3,
-          "id": "policy-md-001",
-          "title": "1. 学年综合素质测评和推免综合成绩不是同一个分数",
-          "score": 103.25
+          "id": "policy-csv-01_信息学院2026届推免综合成绩构成-003",
+          "title": "学科竞赛",
+          "score": 139.05
         },
         {
           "rank": 4,
-          "id": "policy-csv-00_表格索引-001",
-          "title": "1",
-          "score": 102.9
+          "id": "policy-csv-01_信息学院2026届推免综合成绩构成-002",
+          "title": "科研成果",
+          "score": 136.35
         },
         {
           "rank": 5,
-          "id": "policy-md-004",
-          "title": "4. 推免竞赛标准分",
-          "score": 78.2
+          "id": "policy-csv-01_信息学院2026届推免综合成绩构成-004",
+          "title": "参军入伍服兵役",
+          "score": 133.65
         }
       ],
       "hitAt5": 1,
-      "recallAt5": 0.3333,
+      "recallAt5": 1,
       "mrrAt5": 1,
-      "precisionAt5": 0.2,
+      "precisionAt5": 0.6,
       "contextPrecisionAt5": 1,
-      "ndcgAt5": 0.6735
+      "ndcgAt5": 1
     },
     {
       "caseId": "POLICY-002",
@@ -2823,7 +2825,7 @@
           "rank": 1,
           "id": "policy-md-006",
           "title": "6. 学年综测竞赛加分的历史公开口径",
-          "score": 166.1
+          "score": 300.35
         },
         {
           "rank": 2,
@@ -2833,29 +2835,29 @@
         },
         {
           "rank": 3,
-          "id": "policy-csv-00_表格索引-004",
-          "title": "4",
-          "score": 41.85
+          "id": "policy-csv-05_旧版学年综测B类通用分值-001",
+          "title": "国家级",
+          "score": 122.55
         },
         {
           "rank": 4,
-          "id": "policy-csv-04_学年综测竞赛加分历史口径-001",
-          "title": "“挑战杯”课外学术科技作品",
-          "score": 28.35
+          "id": "policy-csv-05_旧版学年综测B类通用分值-002",
+          "title": "省级",
+          "score": 122.55
         },
         {
           "rank": 5,
-          "id": "policy-csv-04_学年综测竞赛加分历史口径-004",
-          "title": "全国大学生数学建模竞赛",
-          "score": 28.35
+          "id": "policy-csv-05_旧版学年综测B类通用分值-003",
+          "title": "校级",
+          "score": 122.55
         }
       ],
       "hitAt5": 1,
       "recallAt5": 0.6667,
       "mrrAt5": 1,
       "precisionAt5": 0.4,
-      "contextPrecisionAt5": 0.75,
-      "ndcgAt5": 0.7979
+      "contextPrecisionAt5": 0.8333,
+      "ndcgAt5": 0.8179
     },
     {
       "caseId": "POLICY-004",
@@ -2968,31 +2970,31 @@
           "rank": 1,
           "id": "policy-md-026",
           "title": "1. 全国大学生信息安全竞赛（CISC）",
-          "score": 156.05
+          "score": 226.05
         },
         {
           "rank": 2,
+          "id": "policy-md-027",
+          "title": "2. ISCC 大学生信息安全与对抗技术竞赛",
+          "score": 165.4
+        },
+        {
+          "rank": 3,
           "id": "policy-csv-06_竞赛政策对应速查-010",
           "title": "全国大学生信息安全竞赛、ISCC",
           "score": 135.8
         },
         {
-          "rank": 3,
-          "id": "policy-md-027",
-          "title": "2. ISCC 大学生信息安全与对抗技术竞赛",
-          "score": 95.4
-        },
-        {
           "rank": 4,
-          "id": "policy-md-046",
-          "title": "赛事官方或主办方页面",
-          "score": 51.3
+          "id": "policy-md-028",
+          "title": "3. Hgame、南航 CTF 等高校或企业举办的 CTF",
+          "score": 91.85
         },
         {
           "rank": 5,
-          "id": "policy-md-014",
-          "title": "1. 全国大学生数学建模竞赛",
-          "score": 48.25
+          "id": "policy-md-046",
+          "title": "赛事官方或主办方页面",
+          "score": 51.3
         }
       ],
       "hitAt5": 1,
@@ -3000,7 +3002,7 @@
       "mrrAt5": 1,
       "precisionAt5": 0.6,
       "contextPrecisionAt5": 1,
-      "ndcgAt5": 0.9595
+      "ndcgAt5": 1
     },
     {
       "caseId": "POLICY-007",
@@ -3364,35 +3366,35 @@
         },
         {
           "rank": 2,
-          "id": "NJFU-RES-CEA5C79F31",
-          "title": "数字图像处理知识点总结",
-          "score": 118
-        },
-        {
-          "rank": 3,
           "id": "NJFU-RES-CC97792005",
           "title": "03数据挖掘-数据预处理",
           "score": 93.2
         },
         {
+          "rank": 3,
+          "id": "NJFU-RES-CEA5C79F31",
+          "title": "数字图像处理知识点总结",
+          "score": 118
+        },
+        {
           "rank": 4,
-          "id": "NJFU-RES-B448A010DF",
-          "title": "05数据挖掘-分类-贝叶斯分类",
-          "score": 91.85
+          "id": "NJFU-RES-68DDD8686D",
+          "title": "第1章 绪论",
+          "score": 63.35
         },
         {
           "rank": 5,
-          "id": "NJFU-RES-F064439644",
-          "title": "05数据挖掘-分类-决策树",
-          "score": 91.85
+          "id": "NJFU-RES-8137123B06",
+          "title": "机器学习_周志华",
+          "score": 55
         }
       ],
       "hitAt5": 1,
-      "recallAt5": 1,
+      "recallAt5": 0.5,
       "mrrAt5": 1,
-      "precisionAt5": 0.8,
-      "contextPrecisionAt5": 0.8875,
-      "ndcgAt5": 0.8446
+      "precisionAt5": 0.4,
+      "contextPrecisionAt5": 0.8333,
+      "ndcgAt5": 0.5563
     },
     {
       "caseId": "DUAL-003",
@@ -3504,41 +3506,41 @@
       "hits": [
         {
           "rank": 1,
-          "id": "policy-md-003",
-          "title": "3. 信息学院 2026 届推免综合成绩构成",
-          "score": 85.2
+          "id": "policy-md-026",
+          "title": "1. 全国大学生信息安全竞赛（CISC）",
+          "score": 165.15
         },
         {
           "rank": 2,
-          "id": "policy-md-004",
-          "title": "4. 推免竞赛标准分",
-          "score": 76.85
+          "id": "policy-md-027",
+          "title": "2. ISCC 大学生信息安全与对抗技术竞赛",
+          "score": 139
         },
         {
           "rank": 3,
-          "id": "policy-md-026",
-          "title": "1. 全国大学生信息安全竞赛（CISC）",
-          "score": 73.05
+          "id": "policy-md-028",
+          "title": "3. Hgame、南航 CTF 等高校或企业举办的 CTF",
+          "score": 113.95
         },
         {
           "rank": 4,
-          "id": "policy-md-001",
-          "title": "1. 学年综合素质测评和推免综合成绩不是同一个分数",
-          "score": 70.1
+          "id": "policy-csv-06_竞赛政策对应速查-014",
+          "title": "Hgame、南航 CTF 等高校/企业单场赛",
+          "score": 88.15
         },
         {
           "rank": 5,
-          "id": "policy-md-027",
-          "title": "2. ISCC 大学生信息安全与对抗技术竞赛",
-          "score": 69
+          "id": "policy-md-003",
+          "title": "3. 信息学院 2026 届推免综合成绩构成",
+          "score": 85.2
         }
       ],
       "hitAt5": 1,
-      "recallAt5": 0.6667,
-      "mrrAt5": 0.3333,
-      "precisionAt5": 0.4,
-      "contextPrecisionAt5": 0.3667,
-      "ndcgAt5": 0.4806
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "precisionAt5": 0.6,
+      "contextPrecisionAt5": 1,
+      "ndcgAt5": 1
     },
     {
       "caseId": "DUAL-004",
@@ -3553,41 +3555,41 @@
       "hits": [
         {
           "rank": 1,
+          "id": "NJFU-RES-FE79F61A11",
+          "title": "计算机网络（第7版）-谢希仁",
+          "score": 144.4
+        },
+        {
+          "rank": 2,
+          "id": "NJFU-RES-E6D869DAB2",
+          "title": "操作系统专业复习题",
+          "score": 99.45
+        },
+        {
+          "rank": 3,
+          "id": "NJFU-RES-570EE94C5F",
+          "title": "计算机网络考点整理",
+          "score": 133.7
+        },
+        {
+          "rank": 4,
           "id": "NJFU-RES-B0D88FCEBF",
           "title": "《网络工程与组网实习》课程设计-报告-模板",
           "score": 122.65
         },
         {
-          "rank": 2,
-          "id": "NJFU-RES-0E88787E7E",
-          "title": "2022网络工程与组网实习报告-格式要求（模版）",
-          "score": 122.65
-        },
-        {
-          "rank": 3,
+          "rank": 5,
           "id": "NJFU-RES-D6356643DC",
           "title": "《网络工程与组网实习》课程设计考核评分标准",
           "score": 122.65
-        },
-        {
-          "rank": 4,
-          "id": "NJFU-RES-D47F5A0669",
-          "title": "《网络工程与组网实习》评分",
-          "score": 122.65
-        },
-        {
-          "rank": 5,
-          "id": "NJFU-RES-BE257C0A3B",
-          "title": "《网络工程与组网实习》-题目和要求",
-          "score": 122.65
         }
       ],
-      "hitAt5": 0,
-      "recallAt5": 0,
-      "mrrAt5": 0,
-      "precisionAt5": 0,
-      "contextPrecisionAt5": 0,
-      "ndcgAt5": 0
+      "hitAt5": 1,
+      "recallAt5": 1,
+      "mrrAt5": 1,
+      "precisionAt5": 0.6,
+      "contextPrecisionAt5": 1,
+      "ndcgAt5": 1
     },
     {
       "caseId": "DUAL-005",
@@ -3800,41 +3802,41 @@
       "hits": [
         {
           "rank": 1,
-          "id": "policy-md-032",
-          "title": "4. 睿抗机器人开发者大赛（RAICOM）",
-          "score": 60.4
+          "id": "policy-md-031",
+          "title": "3. 中国机器人及人工智能大赛",
+          "score": 222.55
         },
         {
           "rank": 2,
-          "id": "policy-md-030",
-          "title": "2. 全国大学生物联网设计竞赛",
-          "score": 58.8
+          "id": "policy-md-032",
+          "title": "4. 睿抗机器人开发者大赛（RAICOM）",
+          "score": 149.25
         },
         {
           "rank": 3,
-          "id": "policy-csv-06_竞赛政策对应速查-012",
-          "title": "系统能力、物联网、机器人与 AI、RAICOM、RoboCup、华为 ICT、中国软件杯、服务外包",
-          "score": 58.2
+          "id": "policy-md-030",
+          "title": "2. 全国大学生物联网设计竞赛",
+          "score": 136.5
         },
         {
           "rank": 4,
-          "id": "policy-md-031",
-          "title": "3. 中国机器人及人工智能大赛",
-          "score": 52.05
+          "id": "policy-md-033",
+          "title": "5. RoboCup 机器人世界杯中国赛",
+          "score": 134.15
         },
         {
           "rank": 5,
-          "id": "policy-md-033",
-          "title": "5. RoboCup 机器人世界杯中国赛",
-          "score": 49.35
+          "id": "policy-csv-06_竞赛政策对应速查-012",
+          "title": "系统能力、物联网、机器人与 AI、RAICOM、RoboCup、华为 ICT、中国软件杯、服务外包",
+          "score": 87.3
         }
       ],
       "hitAt5": 1,
       "recallAt5": 1,
       "mrrAt5": 1,
       "precisionAt5": 0.8,
-      "contextPrecisionAt5": 0.8875,
-      "ndcgAt5": 0.8446
+      "contextPrecisionAt5": 1,
+      "ndcgAt5": 0.8288
     },
     {
       "caseId": "DUAL-007",
@@ -3850,33 +3852,33 @@
       "hits": [
         {
           "rank": 1,
+          "id": "NJFU-RES-F0D9676364",
+          "title": "项目软件文档",
+          "score": 162.1
+        },
+        {
+          "rank": 2,
+          "id": "NJFU-RES-A59EB6FF6C",
+          "title": "项目软件文档示例",
+          "score": 162.1
+        },
+        {
+          "rank": 3,
+          "id": "NJFU-RES-154950B342",
+          "title": "项目程序代码",
+          "score": 149.7
+        },
+        {
+          "rank": 4,
           "id": "NJFU-RES-5673A98EAB",
           "title": "项目规划书模板",
           "score": 139.45
         },
         {
-          "rank": 2,
-          "id": "NJFU-RES-F0D9676364",
-          "title": "项目软件文档",
-          "score": 138.1
-        },
-        {
-          "rank": 3,
-          "id": "NJFU-RES-A59EB6FF6C",
-          "title": "项目软件文档示例",
-          "score": 138.1
-        },
-        {
-          "rank": 4,
-          "id": "NJFU-RES-154950B342",
-          "title": "项目程序代码",
-          "score": 125.7
-        },
-        {
           "rank": 5,
-          "id": "NJFU-RES-B42B64204C",
-          "title": "项目报告及封面",
-          "score": 56.95
+          "id": "NJFU-RES-3BCD6858F1",
+          "title": "项目说明",
+          "score": 80.95
         }
       ],
       "hitAt5": 1,
@@ -3884,7 +3886,7 @@
       "mrrAt5": 1,
       "precisionAt5": 0.8,
       "contextPrecisionAt5": 1,
-      "ndcgAt5": 1
+      "ndcgAt5": 0.9436
     },
     {
       "caseId": "DUAL-008",
@@ -3949,7 +3951,7 @@
           "rank": 1,
           "id": "NJFU-RES-8FE4C06D13",
           "title": "操作系统课程设计：页面管理模拟程序与任务书",
-          "score": 140.1
+          "score": 164.1
         },
         {
           "rank": 2,
@@ -3959,21 +3961,21 @@
         },
         {
           "rank": 3,
+          "id": "NJFU-RES-7494F52F98",
+          "title": "编译原理及编译程序构造 (薛联凤 秦振松)",
+          "score": 79.45
+        },
+        {
+          "rank": 4,
           "id": "NJFU-RES-52CB331BE3",
           "title": "组成原理",
           "score": 96.75
         },
         {
-          "rank": 4,
+          "rank": 5,
           "id": "NJFU-RES-E6D869DAB2",
           "title": "操作系统专业复习题",
           "score": 84.85
-        },
-        {
-          "rank": 5,
-          "id": "NJFU-RES-7494F52F98",
-          "title": "编译原理及编译程序构造 (薛联凤 秦振松)",
-          "score": 79.45
         }
       ],
       "hitAt5": 1,
@@ -4054,25 +4056,25 @@
           "rank": 2,
           "id": "NJFU-RES-DE389DB9DC",
           "title": "2022数据库课程设计任务书",
-          "score": 193.6
+          "score": 217.6
         },
         {
           "rank": 3,
-          "id": "NJFU-RES-D6356643DC",
-          "title": "《网络工程与组网实习》课程设计考核评分标准",
-          "score": 137.5
+          "id": "NJFU-RES-A940504843",
+          "title": "《数据库原理MySQL》第二次上机作业",
+          "score": 155.35
         },
         {
           "rank": 4,
-          "id": "NJFU-RES-A940504843",
-          "title": "《数据库原理MySQL》第二次上机作业",
-          "score": 131.35
+          "id": "NJFU-RES-5CBB125FC3",
+          "title": "《数据库原理MySQL》第三次上机作业",
+          "score": 155.35
         },
         {
           "rank": 5,
-          "id": "NJFU-RES-5CBB125FC3",
-          "title": "《数据库原理MySQL》第三次上机作业",
-          "score": 131.35
+          "id": "NJFU-RES-4F847B59C2",
+          "title": "《数据库原理MySQL》第四次上机作业(二)",
+          "score": 155.35
         }
       ],
       "hitAt5": 1,
@@ -4096,41 +4098,41 @@
       "hits": [
         {
           "rank": 1,
-          "id": "policy-md-019",
-          "title": "3. ICPC 国际大学生程序设计竞赛",
-          "score": 86.3
+          "id": "policy-md-009",
+          "title": "3. 大三学生：结果时间和现有基础比理论分值更重要",
+          "score": 195.1
         },
         {
           "rank": 2,
-          "id": "policy-md-004",
-          "title": "4. 推免竞赛标准分",
-          "score": 78.2
+          "id": "policy-md-019",
+          "title": "3. ICPC 国际大学生程序设计竞赛",
+          "score": 91.7
         },
         {
           "rank": 3,
-          "id": "policy-md-018",
-          "title": "2. JSCPC 江苏省大学生程序设计大赛",
-          "score": 78.2
+          "id": "policy-md-023",
+          "title": "2. 中国高校计算机大赛（C4）",
+          "score": 81.5
         },
         {
           "rank": 4,
-          "id": "policy-md-003",
-          "title": "3. 信息学院 2026 届推免综合成绩构成",
-          "score": 72.8
+          "id": "policy-md-010",
+          "title": "4. 只想增加推免竞争力，不代表应该选择分值最高的比赛",
+          "score": 80.9
         },
         {
           "rank": 5,
-          "id": "policy-md-017",
-          "title": "1. 蓝桥杯全国软件和信息技术专业人才大赛",
-          "score": 72.3
+          "id": "policy-md-018",
+          "title": "2. JSCPC 江苏省大学生程序设计大赛",
+          "score": 79.55
         }
       ],
-      "hitAt5": 0,
-      "recallAt5": 0,
-      "mrrAt5": 0,
-      "precisionAt5": 0,
-      "contextPrecisionAt5": 0,
-      "ndcgAt5": 0
+      "hitAt5": 1,
+      "recallAt5": 0.75,
+      "mrrAt5": 1,
+      "precisionAt5": 0.6,
+      "contextPrecisionAt5": 0.8056,
+      "ndcgAt5": 0.8104
     },
     {
       "caseId": "DUAL-010",
@@ -4158,21 +4160,21 @@
         },
         {
           "rank": 3,
-          "id": "NJFU-RES-B0D88FCEBF",
-          "title": "《网络工程与组网实习》课程设计-报告-模板",
-          "score": 135.05
+          "id": "NJFU-RES-BE257C0A3B",
+          "title": "《网络工程与组网实习》-题目和要求",
+          "score": 143.95
         },
         {
           "rank": 4,
-          "id": "NJFU-RES-0E88787E7E",
-          "title": "2022网络工程与组网实习报告-格式要求（模版）",
-          "score": 135.05
+          "id": "NJFU-RES-DB4AC4B571",
+          "title": "2022-《网络工程与组网实习》-课程设计任务书",
+          "score": 143.95
         },
         {
           "rank": 5,
-          "id": "NJFU-RES-BE257C0A3B",
-          "title": "《网络工程与组网实习》-题目和要求",
-          "score": 119.95
+          "id": "NJFU-RES-B0D88FCEBF",
+          "title": "《网络工程与组网实习》课程设计-报告-模板",
+          "score": 135.05
         }
       ],
       "hitAt5": 1,

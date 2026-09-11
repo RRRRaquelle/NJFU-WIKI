@@ -17,6 +17,8 @@ function sameValue(actual, expected) {
 const failures = [];
 
 const regressionCases = cases.filter((testCase) => testCase.status === 'fixed' && testCase.expected_profile);
+const unresolvedCases = cases.filter((testCase) => testCase.status !== 'fixed');
+const documentedFixedCases = cases.filter((testCase) => testCase.status === 'fixed' && !testCase.expected_profile);
 
 for (const testCase of regressionCases) {
   let profile = {};
@@ -39,5 +41,5 @@ if (failures.length) {
   failures.forEach((failure) => console.error(`- ${failure}`));
   process.exitCode = 1;
 } else {
-  console.log(`Bad-case evaluation passed: ${regressionCases.length} fixed cases; ${cases.length - regressionCases.length} open cases tracked.`);
+  console.log(`Bad-case evaluation passed: ${regressionCases.length} automated fixed cases; ${documentedFixedCases.length} documented fixed cases; ${unresolvedCases.length} unresolved cases tracked.`);
 }

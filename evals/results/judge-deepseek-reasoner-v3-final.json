@@ -1,0 +1,673 @@
+{
+  "summary": {
+    "generatedAt": "2026-09-11T04:50:21.370Z",
+    "sourceResult": "deepseek-v4-flash-v11-final.json",
+    "judgeModel": "deepseek-reasoner",
+    "judgeIndependence": "same-model exploratory judge; human spot-check required",
+    "judgedCaseCount": 19,
+    "passedCaseCount": 19,
+    "passRate": 1,
+    "normalizedMetrics": {
+      "faithfulness": 0.8947,
+      "answerRelevance": 1,
+      "contextRelevance": 0.9342,
+      "recommendationFit": 0.9,
+      "actionability": 0.9474,
+      "uncertainty": 1
+    }
+  },
+  "cases": [
+    {
+      "caseId": "POLICY-001",
+      "group": "policy_retrieval",
+      "scores": {
+        "faithfulness": {
+          "score": 4,
+          "reason": "答案中的权重、计分说明、学业成绩主体地位、学年综测与推免综合成绩区分等均能由检索证据P1-P8支持；未把用户未提供的年级、时间、队伍、基础或目标写成既定事实。"
+        },
+        "answerRelevance": {
+          "score": 4,
+          "reason": "直接回答信息学院推免综合成绩由哪些项目及权重组成，并明确区分学业成绩、科研成果和学科竞赛，满足answerRequirements。"
+        },
+        "contextRelevance": {
+          "score": 4,
+          "reason": "检索证据覆盖综合成绩构成、学业成绩、科研成果、学科竞赛、其他加分项及学年综测区别；goldRelevantEvidence均已召回，无明显无关结果。"
+        },
+        "recommendationFit": null,
+        "actionability": {
+          "score": 3,
+          "reason": "答案给出最终应以学生所在学院当学年发布通知为准的核验方向，但未给出具体核验对象或查询路径，行动性略弱。"
+        },
+        "uncertainty": {
+          "score": 4,
+          "reason": "明确说明以上为2026届历史口径，不能替代当届正式细则，最终应以学生所在学院当学年发布通知为准，准确表达政策时效和知识边界。"
+        }
+      },
+      "averageScore": 3.8,
+      "passed": true,
+      "criticalErrors": [],
+      "overallReason": "答案忠实、完整地回答了推免综合成绩构成，并正确区分学年综测与推免综合成绩；检索证据充分，不确定性表达清楚。行动可执行性略弱，但整体质量高。",
+      "badCaseCategories": []
+    },
+    {
+      "caseId": "POLICY-002",
+      "group": "policy_retrieval",
+      "scores": {
+        "faithfulness": {
+          "score": 4,
+          "reason": "答案中的事实均可由证据P1、P2、P4、P5支持，且正确区分了历史口径与当届细则，未将未提供的个人信息写成既定事实。"
+        },
+        "answerRelevance": {
+          "score": 4,
+          "reason": "直接回答团队竞赛成果在推免中的折算方式，并明确说明成员排序可能影响收益，满足全部必答项。"
+        },
+        "contextRelevance": {
+          "score": 3,
+          "reason": "关键gold证据policy-md-005已召回，但两条CSV示例证据未召回；不过答案未依赖示例数值，核心折算规则仍正确，属于轻微检索遗漏。"
+        },
+        "recommendationFit": null,
+        "actionability": {
+          "score": 4,
+          "reason": "给出了明确的折算公式、系数规则和核验对象（学院审核、当届细则），可据此核验。"
+        },
+        "uncertainty": {
+          "score": 4,
+          "reason": "准确说明历史口径不能替代当届正式细则，最终认定以学院审核为准，并区分学年综测与推免综合成绩。"
+        }
+      },
+      "averageScore": 3.8,
+      "passed": true,
+      "criticalErrors": [],
+      "overallReason": "答案忠实、完整地回答了团队竞赛成果折算问题，正确区分历史口径与当届政策，并明确成员排序影响收益；检索遗漏两条示例CSV证据但未影响核心结论。",
+      "badCaseCategories": []
+    },
+    {
+      "caseId": "POLICY-003",
+      "group": "policy_retrieval",
+      "scores": {
+        "faithfulness": {
+          "score": 4,
+          "reason": "答案中的事实均能由证据支持，且明确区分历史口径与当届政策，未将未提供信息写成既定事实。"
+        },
+        "answerRelevance": {
+          "score": 4,
+          "reason": "直接回答历史口径中加5分以上的竞赛奖项，并满足明确历史口径和提醒核验当年细则两项必答要求。"
+        },
+        "contextRelevance": {
+          "score": 4,
+          "reason": "检索证据覆盖核心历史口径和具体竞赛分值，无明显无关结果，关键gold证据已召回。"
+        },
+        "recommendationFit": null,
+        "actionability": {
+          "score": 3,
+          "reason": "给出申报前用本年学院细则复核的核验方向，但未提供具体可执行的近期步骤或完成标准。"
+        },
+        "uncertainty": {
+          "score": 4,
+          "reason": "准确说明历史公开口径的时效限制、不能替代当届细则，并提示核验对象为学院当年细则。"
+        }
+      },
+      "averageScore": 3.8,
+      "passed": true,
+      "criticalErrors": [],
+      "overallReason": "答案忠实、相关，检索证据充分，不确定性表达准确；行动可执行性略弱，仅给出核验方向。",
+      "badCaseCategories": []
+    },
+    {
+      "caseId": "POLICY-004",
+      "group": "policy_retrieval",
+      "scores": {
+        "faithfulness": {
+          "score": 4,
+          "reason": "答案中的事实均能由证据P1、P2、P3、P4支持：GPA前40%为申请门槛、竞赛不能绕过、优先提高课程成绩/避免挂科/满足英语要求、学业成绩为排序主体、2026届为历史口径且以当届文件为准。未把用户未提供的年级、时间、队伍、基础或目标写成既定事实。"
+        },
+        "answerRelevance": {
+          "score": 4,
+          "reason": "直接回答“不能”，并先说明基本门槛（GPA前40%）再讨论竞赛贡献，满足answerRequirements；未承诺竞赛可绕过所有门槛。"
+        },
+        "contextRelevance": {
+          "score": 4,
+          "reason": "检索到的P1、P2为goldRelevantEvidence且已召回，P3、P4也相关；无明显无关结果，关键证据未缺失。"
+        },
+        "recommendationFit": null,
+        "actionability": {
+          "score": 4,
+          "reason": "给出近期可开始且含完成标准的行动：优先提高课程成绩、避免新增挂科、满足英语要求，并说明竞赛选择原则。"
+        },
+        "uncertainty": {
+          "score": 4,
+          "reason": "准确说明2026届为历史口径、不能替代当届正式细则，最终以当届学院正式文件为准。"
+        }
+      },
+      "averageScore": 4,
+      "passed": true,
+      "criticalErrors": [],
+      "overallReason": "答案忠实、直接、完整，检索证据充分，行动建议明确，不确定性表达准确，未发现核心错误。",
+      "badCaseCategories": []
+    },
+    {
+      "caseId": "POLICY-005",
+      "group": "policy_retrieval",
+      "scores": {
+        "faithfulness": {
+          "score": 4,
+          "reason": "答案所有事实均来自P1/P2证据：C4为赛事族、赛道可能调整、各方向适合基础、国家级一类管理、本届分类需核验、历史口径提醒等均有支持，未虚构用户未提供的年级、时间、队伍、基础或目标。"
+        },
+        "answerRelevance": {
+          "score": 4,
+          "reason": "直接回答C4适合什么基础的学生，并说明需分赛道看，完整覆盖answerRequirements中“说明C4存在不同赛道”，且未把各赛道视为同一能力要求。"
+        },
+        "contextRelevance": {
+          "score": 4,
+          "reason": "检索证据P1、P2均为goldRelevantEvidence且已召回，无关键gold证据缺失，也无明显无关结果。"
+        },
+        "recommendationFit": null,
+        "actionability": {
+          "score": 3,
+          "reason": "问题为政策/事实查询，答案给出了核验本届赛项及目录的明确方法，但未进一步说明具体核验对象或渠道，行动指引略简。"
+        },
+        "uncertainty": {
+          "score": 4,
+          "reason": "准确说明历史口径与当届政策的区别，指出赛道会调整、本届分类需核验，并提醒不能替代当届正式细则。"
+        }
+      },
+      "averageScore": 3.8,
+      "passed": true,
+      "criticalErrors": [],
+      "overallReason": "答案忠实、相关，检索证据完整，不确定性表达充分；行动可执行性因核验方法较简略扣为3分，整体质量高。",
+      "badCaseCategories": []
+    },
+    {
+      "caseId": "POLICY-006",
+      "group": "policy_retrieval",
+      "scores": {
+        "faithfulness": {
+          "score": 4,
+          "reason": "答案中的事实均能由证据P1、P2、P3支持，且正确区分了历史口径（2023版目录、2024年报道）与当届政策（需核对当届公告和本届目录），未将未提供信息写成既定事实。"
+        },
+        "answerRelevance": {
+          "score": 4,
+          "reason": "答案分别说明了CISC和ISCC的定位、适合学生、准备周期、政策口径和第一步，完整满足“分别说明两个赛事”的核心要求。"
+        },
+        "contextRelevance": {
+          "score": 4,
+          "reason": "检索到的P1、P2、P3均为与问题直接相关的证据，且关键gold证据均已召回，无明显无关结果。"
+        },
+        "recommendationFit": null,
+        "actionability": {
+          "score": 4,
+          "reason": "答案给出了两个赛事各自近期可开始的第一步行动（CISC尝试各方向基础题并建立笔记，ISCC完成基础测评后集中训练），并包含明确核验方法（以当届官方公告和学校当届目录为准）。"
+        },
+        "uncertainty": {
+          "score": 4,
+          "reason": "答案准确说明了政策时效（历史口径不能替代当届细则）、知识边界（当前知识库没有足够依据给出报名方式、赛程日期、奖项分值逐项对比）和核验对象（当届官方公告和学校当届目录）。"
+        }
+      },
+      "averageScore": 4,
+      "passed": true,
+      "criticalErrors": [],
+      "overallReason": "答案忠实、完整、相关，正确区分历史口径与当届政策，并给出可执行的行动和明确的核验方法，未发现明显问题。",
+      "badCaseCategories": []
+    },
+    {
+      "caseId": "POLICY-007",
+      "group": "policy_retrieval",
+      "scores": {
+        "faithfulness": {
+          "score": 4,
+          "reason": "答案中的事实均能由证据P1、P2、P4支持，且正确区分了2023版历史口径与当届政策，未将未提供的个人信息写成既定事实。"
+        },
+        "answerRelevance": {
+          "score": 4,
+          "reason": "直接回答蓝桥杯是否适合作为算法竞赛入门，并结合入门门槛（个人赛、无需固定队伍、与ICPC/CCPC对比）说明，满足全部必答项。"
+        },
+        "contextRelevance": {
+          "score": 4,
+          "reason": "检索证据包含核心的蓝桥杯指南P2及ICPC、CCPC对比证据，足以支撑答案；未发现明显无关结果。"
+        },
+        "recommendationFit": null,
+        "actionability": {
+          "score": 4,
+          "reason": "给出近期可开始的第一步：选择语言和组别、限时完成往届省赛真题、分类错题并安排8—12周训练，包含明确完成标准。"
+        },
+        "uncertainty": {
+          "score": 4,
+          "reason": "准确说明2023版目录为历史口径、须以当届正式文件为准，并说明知识库缺少报名方式、官方链接和指导教师联系方式。"
+        }
+      },
+      "averageScore": 4,
+      "passed": true,
+      "criticalErrors": [],
+      "overallReason": "答案忠实、相关、可执行，正确区分历史与当届政策，不确定性表达充分，未发现明显问题。",
+      "badCaseCategories": []
+    },
+    {
+      "caseId": "POLICY-008",
+      "group": "policy_retrieval",
+      "scores": {
+        "faithfulness": {
+          "score": 4,
+          "reason": "答案中的事实均能由证据P1-P4支持，且正确区分了历史口径与当届政策，未将用户未提供的信息写成既定事实。"
+        },
+        "answerRelevance": {
+          "score": 4,
+          "reason": "直接、完整回答了全国大学生数学建模竞赛一般需要哪些能力，覆盖了建模、编程、论文协作等必答项。"
+        },
+        "contextRelevance": {
+          "score": 4,
+          "reason": "检索到的证据P1-P4均与问题相关，关键gold证据已召回，无明显无关结果。"
+        },
+        "recommendationFit": null,
+        "actionability": {
+          "score": 4,
+          "reason": "给出了明确的能力清单和核验方法（以当年正式文件为准），符合纯事实查询的行动可执行性要求。"
+        },
+        "uncertainty": {
+          "score": 4,
+          "reason": "准确说明了政策时效（历史口径不能替代当届细则）和知识边界（无法提供报名方式或指导教师联系方式）。"
+        }
+      },
+      "averageScore": 4,
+      "passed": true,
+      "criticalErrors": [],
+      "overallReason": "答案忠实、相关、证据充分，不确定性表达准确，无核心错误。",
+      "badCaseCategories": []
+    },
+    {
+      "caseId": "POLICY-009",
+      "group": "policy_retrieval",
+      "scores": {
+        "faithfulness": {
+          "score": 4,
+          "reason": "答案中的事实均可由证据支持：竞赛标准分高不等于对保研最有利、推免排序主体是学业成绩、高分值赛事需要成熟项目/多轮选拔/强团队/较长周期、实际获奖概率可能更低、学年综测与推免综合成绩不同、2025年推免办法附件中的竞赛标准分只是标准分、历史口径不能替代当届细则等，均对应P1-P5。未把用户未提供的年级、时间、队伍、基础或目标写成既定事实。"
+        },
+        "answerRelevance": {
+          "score": 4,
+          "reason": "直接回答“不一定”，并完整覆盖answerRequirements：讨论成功概率（高分值赛事获奖概率可能更低）、时间（准备周期、截止时间）、现有基础（已具备能力、团队资源等），且未违反forbiddenClaims，没有只按最高分值推荐。"
+        },
+        "contextRelevance": {
+          "score": 3,
+          "reason": "检索到的P1-P5均与问题相关，且P1、P2、P3、P4、P5覆盖了核心判断。但goldRelevantEvidence中policy-md-038“哪个竞赛性价比最高”和policy-md-040“国家级一类竞赛是否一定比省赛更值得”未被召回，这两条对“是否选理论分值最高比赛”有直接补充价值；不过答案未因此产生错误或声称知识库没有相关信息，故仅属检索覆盖不完整。"
+        },
+        "recommendationFit": null,
+        "actionability": {
+          "score": 3,
+          "reason": "答案给出了可执行的判断维度和核验方向，如考虑结果产生时间、自身基础、团队资源、是否影响GPA，并指出应以所在学院当学年通知和当届推免办法为准；但未给出更具体的近期行动步骤或完成标准，例如如何盘点已有成果、如何确认赛事目录和截止日期等，行动性略弱。"
+        },
+        "uncertainty": {
+          "score": 4,
+          "reason": "准确说明政策时效和知识边界：竞赛标准分来自2025年推免办法附件、属于历史口径、不能替代当届正式细则，实际认定应以所在学院当学年通知和当届推免办法为准，并说明当前知识库没有足够依据给出具体赛事当届分值或认定结论。"
+        }
+      },
+      "averageScore": 3.6,
+      "passed": true,
+      "criticalErrors": [],
+      "overallReason": "答案忠实、切题，正确区分历史口径与当届政策，并覆盖成功概率、时间和现有基础等必答项；主要不足是检索未召回两条高相关gold证据，且行动建议偏原则性、缺少具体近期步骤。",
+      "badCaseCategories": [
+        "RETRIEVAL_MISS"
+      ]
+    },
+    {
+      "caseId": "DUAL-001",
+      "group": "dual_corpus_recommendation",
+      "scores": {
+        "faithfulness": {
+          "score": 3,
+          "reason": "答案主体事实可由证据支持，且正确区分了2023历史目录与当届需核验。但存在轻微无依据表述：将用户“做过Packet Tracer”扩展为“计算机网络基础”并称“已确认”，证据中用户只确认做过Packet Tracer；另称“每周8小时处于该方向建议准备周期约3—6个月的时间投入区间内”，但P1网络技术挑战方向只给准备周期，未给每周小时数，该对应关系无直接证据。"
+        },
+        "answerRelevance": {
+          "score": 4,
+          "reason": "直接回答了适合参加的比赛方向（C4网络技术挑战方向），给出了GitHub资料（R1-R5及链接），并给出第一周行动（前2周先完成基础网络实验并记录故障定位修复，可视为第一周可开始行动），覆盖全部answerRequirements。"
+        },
+        "contextRelevance": {
+          "score": 4,
+          "reason": "检索到的policy与resources证据均与用户问题相关，关键gold证据已召回，无明显无关结果。"
+        },
+        "recommendationFit": {
+          "score": 3,
+          "reason": "结合了大二、保研目标、Packet Tracer经历、2名同学和每周8小时，并解释取舍；但对“计算机网络基础”的推断略超出用户确认信息，且未充分说明2名同学与网络技术挑战方向团队分工的具体匹配。"
+        },
+        "actionability": {
+          "score": 4,
+          "reason": "给出近期可开始行动：前2周完成基础网络实验、记录完整故障定位和修复过程，并列出核对当届赛道、阅读资料、形成初版技术报告等步骤，含一定完成标准。"
+        },
+        "uncertainty": {
+          "score": 4,
+          "reason": "准确说明C4赛道会调整、历史分类不能替代当届细则、社区资料非官方且需结合任课教师最新通知核实，知识边界和核验对象清楚。"
+        }
+      },
+      "averageScore": 3.667,
+      "passed": true,
+      "criticalErrors": [],
+      "overallReason": "答案整体质量较高，方向推荐、资料和第一周行动均覆盖，且不确定性表达充分。主要问题是把用户仅做过Packet Tracer推断为已确认计算机网络基础，以及每周8小时与3—6个月准备周期的对应缺少直接证据，属于轻微忠实度与推荐适配问题。",
+      "badCaseCategories": [
+        "PROFILE_OVER_INFERENCE"
+      ]
+    },
+    {
+      "caseId": "DUAL-002",
+      "group": "dual_corpus_recommendation",
+      "scores": {
+        "faithfulness": {
+          "score": 3,
+          "reason": "答案主体事实基本可由证据支持，且正确区分了历史综测口径与当届政策。但存在轻微问题：答案末尾出现未闭合的“可运行、可演示、”残句，且部分表述如“C4人工智能创意方向要求先定义效果如何衡量”与证据中“第一步是先定义效果如何衡量”基本一致，但“要求”措辞略强；未发现把用户未提供的年级、时间、队伍、基础或目标写成既定事实的严重问题。"
+        },
+        "answerRelevance": {
+          "score": 4,
+          "reason": "答案没有只列比赛名称，而是给出了C4人工智能/大数据方向和计算机设计大赛两个验证方向，并将数字图像处理、数据挖掘等资料对应到补齐课程表述和证据链的准备行动，满足全部answerRequirements。"
+        },
+        "contextRelevance": {
+          "score": 4,
+          "reason": "检索到的政策证据和资源证据均与问题相关，关键gold证据已召回，没有明显无关结果，也未出现因关键证据缺失而导致的错误结论。"
+        },
+        "recommendationFit": {
+          "score": 4,
+          "reason": "答案结合了大二、图像分类和PyTorch基础、提高综测目标、每周15小时、两名同学等条件，解释了C4与计算机设计大赛的取舍，并给出两周低成本验证方案，个性化推荐适配性较好。"
+        },
+        "actionability": {
+          "score": 4,
+          "reason": "答案给出了近期可开始的两周验证行动，包含第1周确认赛项、交付物和学院认定口径并整理项目指标，第2周完成可演示最小成果，并给出完成标准，可执行性明确。"
+        },
+        "uncertainty": {
+          "score": 4,
+          "reason": "答案准确说明了政策时效、历史口径不能替代当届细则、C4赛事族赛道可能调整、计算机设计大赛组别以当届通知为准，以及资源为社区资料需结合任课教师通知核实。"
+        }
+      },
+      "averageScore": 3.833,
+      "passed": true,
+      "criticalErrors": [],
+      "overallReason": "整体质量较高，忠实度、相关性、检索相关性、推荐适配性、行动可执行性和不确定性表达均表现良好。主要轻微问题是答案末尾存在未闭合残句，影响文本完整性，但不改变核心结论。",
+      "badCaseCategories": []
+    },
+    {
+      "caseId": "DUAL-003",
+      "group": "dual_corpus_recommendation",
+      "scores": {
+        "faithfulness": {
+          "score": 3,
+          "reason": "答案中的事实基本都能由证据支持，且正确区分了蓝桥杯政策的历史口径与当届细则。但答案在开头和结尾多次将“基础、目标、组队情况未知”作为既定事实陈述，而用户仅提供了年级、兴趣、每周时间和目标赛事，未明确提及组队情况；这属于对用户未提供信息的推断，虽未造成核心事实错误，但存在轻微无依据内容。"
+        },
+        "answerRelevance": {
+          "score": 4,
+          "reason": "答案直接回应了“大一想练算法、以后参加蓝桥杯、每周6小时、应该先用什么资料”的核心问题，给出了基础训练顺序（先诊断、再用数据结构资料补基础、配合代码练习、复盘），并推荐了具体资料，满足answerRequirements中的“给出基础训练顺序”。"
+        },
+        "contextRelevance": {
+          "score": 3,
+          "reason": "检索到的政策证据P4和资源证据R1-R5均与蓝桥杯及数据结构资料相关，但缺少goldRelevantEvidence中关于“大一学生先确认兴趣、不要过早追求高等级奖项”的阶段性建议（policy-md-007未召回）。该缺失未导致答案核心错误，但使建议缺少大一阶段定位的完整依据，属于明显但非致命的检索遗漏。"
+        },
+        "recommendationFit": {
+          "score": 3,
+          "reason": "答案结合了年级（大一）、目标（蓝桥杯）、时间（每周6小时）进行推荐，并解释了取舍（先诊断再决定投入、每周6小时处于准备区间下沿）。但未结合基础（用户未提供，答案已说明未知）和组队条件（蓝桥杯为个人赛，答案未明确说明组队不适用），个性化解释不够完整。"
+        },
+        "actionability": {
+          "score": 4,
+          "reason": "答案给出了近期可开始的具体行动：1—2周限时完成一套往届省赛真题诊断，按8—12周安排训练，每周6小时拆成知识点梳理、上机练习、限时模拟三块，并明确了使用《数据结构各章知识点202206》梳理框架、用代码合集和实习指导书做上机、用样卷检验题型等完成标准。"
+        },
+        "uncertainty": {
+          "score": 4,
+          "reason": "答案准确说明了政策时效（2023版目录为历史口径，需以当届官方通知和学院/辅导员口径为准）、知识边界（社区资料非学校官方说明、内容未逐页核验、旧考点需结合任课教师最新通知）和核验对象（当届官方通知、学院口径、任课教师）。"
+        }
+      },
+      "averageScore": 3.5,
+      "passed": true,
+      "criticalErrors": [],
+      "overallReason": "答案整体质量较好，忠实度、相关性和可执行性均较高，不确定性表达充分。主要问题在于：将用户未提供的“组队情况未知”作为既定事实陈述，检索遗漏了大一阶段定位的gold证据，个性化推荐未充分结合组队条件。综合评分3分左右。",
+      "badCaseCategories": [
+        "RETRIEVAL_MISS",
+        "PROFILE_FABRICATION"
+      ]
+    },
+    {
+      "caseId": "DUAL-004",
+      "group": "dual_corpus_recommendation",
+      "scores": {
+        "faithfulness": {
+          "score": 3,
+          "reason": "答案主体事实均可由证据支持，且正确区分了历史口径与当届政策。但开头将用户未提供的“基础为信息安全”写成既定事实（用户仅说大二学过CTF），属于对用户画像的轻微外推，未达到最高分。"
+        },
+        "answerRelevance": {
+          "score": 4,
+          "reason": "直接回答了该参加什么（CISC、ISCC及训练赛）、补什么基础（Web/逆向/Pwn/密码及计网、操作系统底层），并明确说明仓库缺少专门CTF材料这一必答项，满足全部answerRequirements。"
+        },
+        "contextRelevance": {
+          "score": 4,
+          "reason": "检索到的政策与资源证据均与问题相关，关键gold证据（CISC、ISCC、Hgame/南航CTF、计网、操作系统资源）均已召回，无明显无关结果。"
+        },
+        "recommendationFit": {
+          "score": 4,
+          "reason": "结合了大二、保研目标、CTF基础、每周10小时、单人组队条件，并解释了CISC/ISCC与时间投入的匹配及单人参赛的取舍。"
+        },
+        "actionability": {
+          "score": 4,
+          "reason": "给出2—4周低成本验证、方向测评、用计网/操作系统资料补底层、完成可复现Write-up等近期可开始且含完成标准的行动。"
+        },
+        "uncertainty": {
+          "score": 4,
+          "reason": "准确说明历史分类不能替代当届细则、单人组队可行性知识库依据不足、需核对当届公告与学院通知。"
+        }
+      },
+      "averageScore": 3.833,
+      "passed": true,
+      "criticalErrors": [],
+      "overallReason": "答案整体忠实、相关、可执行，检索证据充分，不确定性表达到位；唯一轻微问题是把用户未明说的“信息安全基础”当作既定事实，属画像外推。",
+      "badCaseCategories": [
+        "PROFILE_FABRICATION"
+      ]
+    },
+    {
+      "caseId": "DUAL-005",
+      "group": "dual_corpus_recommendation",
+      "scores": {
+        "faithfulness": {
+          "score": 3,
+          "reason": "答案事实基本可由证据支持，且正确区分了历史综测口径与当届政策。但存在轻微问题：答案称“你已确认的是……有 3 名可协作同学”，用户原话是“三人组”，并未明确已有可协作同学；答案还称“没有数学建模基础或兴趣”，用户未提供该信息，属于对未提供信息的推断，虽未作为既定事实展开，但表述不够严谨。"
+        },
+        "answerRelevance": {
+          "score": 4,
+          "reason": "答案直接回应“需要先看什么”，并完整覆盖两项必答项：给出建模、编程、论文写作的三人分工建议，且明确区分历史综测口径与当届学院认定口径。"
+        },
+        "contextRelevance": {
+          "score": 3,
+          "reason": "关键政策证据 P2、P3、P5、P6 和资源证据 R1、R2 已召回，支撑主要结论；但 gold 中“大二学生应选择一条主线并形成可复用成果”的证据未召回，导致答案未结合大二阶段给出更针对性的主线建议。此外检索资源中混入多份概率统计试卷，与“先看什么”的建模准备问题相关性较弱。"
+        },
+        "recommendationFit": {
+          "score": 3,
+          "reason": "答案结合了大二、概率统计基础、提高综测目标、每周 12 小时和三人组条件，并解释每周 12 小时略高于常规准备区间、适合基础学习加一次模拟。但未充分利用大二阶段应选择主线并形成可复用成果的 gold 证据，也未说明数学建模与综测/推免目标之间的取舍边界，个性化适配不够完整。"
+        },
+        "actionability": {
+          "score": 4,
+          "reason": "给出了近期可开始的行动：先用 2 周、每周约 12 小时推进，第 1 周补常用模型与工具，第 2 周完成 24 小时缩短版模拟并复盘；同时给出向学院或辅导员核验当届认定口径的明确方法，完成标准较清楚。"
+        },
+        "uncertainty": {
+          "score": 4,
+          "reason": "准确说明历史公开口径只能作参考、不能替代当届正式细则，社区资料并非学校当前官方说明，并指出应向学院或辅导员核验当届认定与分值，知识边界和核验对象表达充分。"
+        }
+      },
+      "averageScore": 3.5,
+      "passed": true,
+      "criticalErrors": [],
+      "overallReason": "答案整体质量较高，核心必答项均覆盖，政策时效和核验边界表达清楚，行动方案具体。主要扣分点在于对用户未明确提供的“有 3 名可协作同学”“没有数学建模基础或兴趣”作了推断式表述，且未召回大二阶段主线规划证据，导致个性化建议略欠完整。",
+      "badCaseCategories": [
+        "PROFILE_FABRICATION",
+        "RETRIEVAL_MISS"
+      ]
+    },
+    {
+      "caseId": "DUAL-006",
+      "group": "dual_corpus_recommendation",
+      "scores": {
+        "faithfulness": {
+          "score": 3,
+          "reason": "答案中的事实基本都能由证据支持，且正确区分了2023版历史口径与当届需核验。但答案将用户未提供的“关注产品体验”写成既定事实（“与你‘能开发 Web/小程序、关注产品体验’最贴合”），属于对用户画像的轻微外推，未达到最高分。"
+        },
+        "answerRelevance": {
+          "score": 4,
+          "reason": "答案直接回应了“有哪些资料能复用”，列出了软件工程课程资料（需求分析、设计、测试、教材），并说明如何转化为作品交付物，满足answerRequirements。"
+        },
+        "contextRelevance": {
+          "score": 4,
+          "reason": "检索到的政策证据（P1-P4）和资源证据（R1-R5）均与问题相关，无明显无关结果，关键gold证据均已召回。"
+        },
+        "recommendationFit": {
+          "score": 3,
+          "reason": "答案结合了用户已有的网站/小程序开发基础，推荐了C4移动应用创新方向并解释了取舍，但未提供年级、目标、时间、组队等条件，无法做更精细的个性化匹配，且未明确说明因缺少这些信息而无法进一步细化。"
+        },
+        "actionability": {
+          "score": 4,
+          "reason": "给出了近期可开始的具体行动：用需求分析课件补需求说明、用软件设计课件梳理架构并跑通核心闭环、补测试证据并核对当届赛事规则，每步都有明确的完成标准。"
+        },
+        "uncertainty": {
+          "score": 4,
+          "reason": "准确说明了政策时效（2023版目录为历史口径，当届需核验）、知识边界（未提供时间和组队信息，不设默认时长）和核验对象（官方或辅导员）。"
+        }
+      },
+      "averageScore": 3.667,
+      "passed": true,
+      "criticalErrors": [],
+      "overallReason": "答案整体质量较高，忠实度、相关性、上下文相关性、行动可执行性和不确定性表达均表现良好。主要问题在于推荐适配性方面，因缺少用户年级、目标、时间、组队等条件，无法做更精细的个性化匹配；同时答案将用户未明确提供的“关注产品体验”作为既定事实，属于轻微画像外推。",
+      "badCaseCategories": [
+        "PROFILE_FABRICATION"
+      ]
+    },
+    {
+      "caseId": "DUAL-007",
+      "group": "dual_corpus_recommendation",
+      "scores": {
+        "faithfulness": {
+          "score": 4,
+          "reason": "答案中的事实均能由证据支持：竞赛适合方向、赛季、准备周期、认定口径、第一步建议均对应 P1-P5；资源信息对应 R1-R4。答案明确区分了 2023 版目录/学院报道的历史口径与当届需复核，未把未知年级和目标写成既定事实，也未假设学校一定提供硬件。"
+        },
+        "answerRelevance": {
+          "score": 4,
+          "reason": "直接回答了“第一步学什么”：先核验开发板、传感器、机器人平台、实验室和指导资源，再跑通物联网最小链路或机器人最小任务；覆盖了必答项“先核验设备和实验室资源”，并给出物联网与机器人方向的比较和取舍。"
+        },
+        "contextRelevance": {
+          "score": 4,
+          "reason": "检索到的 P1-P5 和 R1-R4 均与问题相关，关键 gold 证据均已召回；R5 计算机组成原理教材虽与问题关联较弱，但未被答案使用，未造成明显无关结果干扰。"
+        },
+        "recommendationFit": {
+          "score": 4,
+          "reason": "结合了用户已提供的基础（单片机与传感器项目）、时间（每周10小时）、队伍（3人），并说明年级和目标未知；对物联网与机器人方向分别解释衔接程度、准备周期和资源要求，给出先低成本验证方向的取舍。"
+        },
+        "actionability": {
+          "score": 4,
+          "reason": "给出近期可开始的具体行动：先用2周做资源核验与最小链路验证，列出开发板、传感器、机器人平台、实验室和指导资源核验清单，建立项目文档骨架，跑通物联网“数据采集—传输—处理—展示”最小链路或机器人最小可运行任务，并包含完成标准。"
+        },
+        "uncertainty": {
+          "score": 4,
+          "reason": "准确说明竞赛奖项等级、认定规则和分值以当届正式细则为准，2023版目录和学院近期报道不能替代当届细则；说明年级和目标未知，知识库不足以确定；社区资料需结合任课教师最新通知核实。"
+        }
+      },
+      "averageScore": 4,
+      "passed": true,
+      "criticalErrors": [],
+      "overallReason": "答案忠实、相关、可执行，结合了用户基础、时间、队伍条件并明确未知信息；检索证据充分，不确定性表达准确，未发现明显问题。",
+      "badCaseCategories": []
+    },
+    {
+      "caseId": "DUAL-008",
+      "group": "dual_corpus_recommendation",
+      "scores": {
+        "faithfulness": {
+          "score": 4,
+          "reason": "答案中的事实均能由证据支持：系统能力大赛适合对象、准备周期、第一步、南京林业大学2023版目录分类及8/6/3规则、资源内容与核验提示均与P1、P5、R1-R5一致。答案明确区分了2023版历史口径与当届需复核，未将用户未提供的年级、基础、时间、队伍等写成既定事实，而是明确说明未确认。"
+        },
+        "answerRelevance": {
+          "score": 4,
+          "reason": "答案直接回应“如何开始准备”，并完整满足answerRequirements：把操作系统课程项目作为低成本验证，给出两周验证方案、具体资源、复盘标准及后续核验方向。"
+        },
+        "contextRelevance": {
+          "score": 4,
+          "reason": "检索到的政策与资源证据均与操作系统、系统能力大赛、底层开发相关，goldRelevantEvidence均已召回，无明显无关结果。"
+        },
+        "recommendationFit": {
+          "score": 4,
+          "reason": "结合用户对操作系统和底层开发的兴趣，在年级、基础、时间、组队未确认时明确不预设，并解释先用低成本验证而非直接长期备赛的取舍，推荐适配合理。"
+        },
+        "actionability": {
+          "score": 4,
+          "reason": "给出近期可开始的两周低成本验证：阅读任务书、运行或改写页面置换/进程同步实验、记录调试过程与耗时感受，并设定是否继续的复盘标准，完成标准明确。"
+        },
+        "uncertainty": {
+          "score": 4,
+          "reason": "准确说明基础、年级、时间、组队未确认，赛事准备周期只是参考，2023版分类和8/6/3规则为历史口径需复核，社区资料需结合任课教师最新通知核实。"
+        }
+      },
+      "averageScore": 4,
+      "passed": true,
+      "criticalErrors": [],
+      "overallReason": "答案忠实、相关、可执行，检索证据充分且与问题匹配；在用户信息不足时合理避免编造，并明确政策时效与知识边界，整体质量高。",
+      "badCaseCategories": []
+    },
+    {
+      "caseId": "DUAL-009",
+      "group": "dual_corpus_recommendation",
+      "scores": {
+        "faithfulness": {
+          "score": 3,
+          "reason": "答案主体事实可由证据支持，且正确区分了历史口径与当届政策。但存在轻微无依据表述：称中国软件杯“适合团队”而用户未提供组队情况，虽随后声明不预设队伍人数，仍略有张力；另外“用两周把现有数据库课程设计整理成可演示的最小作品”等具体周期是建议而非证据事实，属合理建议但非证据支持。"
+        },
+        "answerRelevance": {
+          "score": 4,
+          "reason": "直接回答了“先补哪些材料”，明确列出任务书、评分标准、数据库设计课件、SQL课件和上机作业，并给出竞赛方向与验证顺序，满足 answerRequirements 中“明确可复用的任务书和评分标准”。"
+        },
+        "contextRelevance": {
+          "score": 3,
+          "reason": "关键 gold 证据（计算机设计大赛、软件杯、任务书、评分标准、数据库设计、SQL课件）均已召回，无明显无关结果；但未召回服务外包大赛等可能相关赛事，不过未导致答案错误或声称知识库无信息，属轻微遗漏。"
+        },
+        "recommendationFit": {
+          "score": 4,
+          "reason": "结合了用户已有数据库课程设计基础、每周8小时时间，并说明未提供年级、目标和组队情况，按单人可推进设计，对赛事投入时间与匹配度做了取舍解释。"
+        },
+        "actionability": {
+          "score": 4,
+          "reason": "给出近期可开始的两周验证计划，包含第1周梳理交付物与补文档、第2周完成可运行核心功能闭环并记录证据，有明确完成标准和时间安排。"
+        },
+        "uncertainty": {
+          "score": 4,
+          "reason": "准确说明资料为社区整理、非学校当前官方说明，旧年份要求需结合任课教师最新通知核实；政策分类和推免标准为历史口径，需向官方或辅导员核验当届细则。"
+        }
+      },
+      "averageScore": 3.667,
+      "passed": true,
+      "criticalErrors": [],
+      "overallReason": "答案整体忠实、相关且可执行，正确区分历史口径与当届政策，并针对用户基础和时间给出个性化建议。主要轻微问题是部分具体周期为建议性表述而非证据事实，以及未召回个别可能相关赛事，但不影响核心结论。",
+      "badCaseCategories": []
+    },
+    {
+      "caseId": "DUAL-010",
+      "group": "dual_corpus_recommendation",
+      "scores": {
+        "faithfulness": {
+          "score": 3,
+          "reason": "答案核心事实基本可由证据支持：大三、保研目标、算法基础一般、计网项目完整均来自用户原话；网络方向复用已有成果、转轨成本更低、天梯赛适合基础算法且周期3—9个月、网络技术挑战周期3—6个月、2026届截止时间、历史口径不能替代当届细则等均有P1/P2/P3/P4支持。但答案将“2026届信息学院推免申报截止时间是2025年9月8日”直接用于用户，而用户未说明自己就是2026届或信息学院，存在把特定届别/学院口径当作既定事实的风险；不过答案同时强调以后每届变化、需核验当届文件，故不判为严重错误。"
+        },
+        "answerRelevance": {
+          "score": 4,
+          "reason": "直接回答“转算法还是继续网络方向”，并完整覆盖两个必答项：比较转轨成本与现有成果复用，提醒核验结果截止时间。还结合用户年级、目标、基础、项目情况给出首选建议。"
+        },
+        "contextRelevance": {
+          "score": 4,
+          "reason": "检索到的P1/P2/P3/P4及R1—R5均与问题相关，能支撑方向选择、时间核验、认定口径和课程资料建议；未发现明显无关结果。gold中未召回的policy-md-044和测试用例表并非导致答案错误的关键证据。"
+        },
+        "recommendationFit": {
+          "score": 4,
+          "reason": "个性化推荐较充分：结合大三、保研目标、算法基础一般、计网项目完整、只剩几个月等条件，解释为何继续网络方向更稳妥，并指出未提供每周投入时间和组队情况，取舍说明清楚。"
+        },
+        "actionability": {
+          "score": 4,
+          "reason": "给出近期可开始且含完成标准的行动：先核验目标赛事正式结果是否早于推免材料截止；盘点已有计网项目可复用成果；按需求—方案—实现—测试—复盘整理初版报告；按当届赛题迭代并确认投入规模。"
+        },
+        "uncertainty": {
+          "score": 4,
+          "reason": "准确说明政策时效和知识边界：历史口径不能替代当届正式细则，2026届截止时间以后每届变化，C4赛道会调整，需核对本届赛项及目录；课程资料为社区资料，需结合任课教师最新通知核实。"
+        }
+      },
+      "averageScore": 3.833,
+      "passed": true,
+      "criticalErrors": [],
+      "overallReason": "答案整体质量较高，核心建议有证据支撑，直接回应转算法还是继续网络方向，并覆盖转轨成本、成果复用和结果截止时间核验。主要轻微问题是把2026届信息学院推免截止时间作为用户适用事实表述，用户未确认届别和学院，但答案已多次提示需按当届核验，因此不构成严重失实。",
+      "badCaseCategories": []
+    }
+  ]
+}

@@ -2,6 +2,7 @@ export type StudentProfile = {
   grade?: string;
   goal?: string;
   foundation?: string;
+  interest?: string;
   weeklyHours?: number;
   weeklyHoursRange?: [number, number];
   weeklyHoursLabel?: string;
@@ -83,7 +84,7 @@ function parseTimeBudget(text: string): ParsedTime | undefined {
   };
 }
 
-function inferFoundation(text: string, current?: string) {
+function inferDirection(text: string) {
   const routes: Array<[RegExp, string]> = [
     [/网络|计网|packet\s*tracer|组网|思科/i, '计算机网络'],
     [/安全|ctf|iscc|渗透|密码/i, '信息安全'],
@@ -95,12 +96,33 @@ function inferFoundation(text: string, current?: string) {
     [/嵌入式|物联网|单片机|传感器/i, '嵌入式与物联网'],
     [/网站|app|前端|后端|软件|小程序/i, '软件与产品开发'],
   ];
-  return routes.find(([pattern]) => pattern.test(text))?.[1] ?? current;
+  return routes.find(([pattern]) => pattern.test(text))?.[1];
+}
+
+function inferFoundation(text: string, current?: string) {
+  const direction = inferDirection(text);
+  if (!direction) return current;
+  const hasEvidence = /(?:学过|会(?:一点|一些)?|做过|完成过|参加过|练过|有.{0,8}基础|项目.{0,8}(?:完整|经验)|(?:课|课程).{0,8}(?:还可以|不错)|(?:数学|建模|概率|统计).{0,8}(?:还可以|不错|尚可)|做过.{0,12}题)/.test(text);
+  if (!hasEvidence) return current;
+  if (/概率统计.{0,8}(?:还可以|不错|尚可)/.test(text)
+    && !/(?:数学建模课|做过.{0,8}建模|参加过.{0,8}建模)/.test(text)) {
+    return '数学与统计';
+  }
+  return direction;
+}
+
+function inferInterest(text: string, current?: string) {
+  const direction = inferDirection(text);
+  if (!direction) return current;
+  return /(?:喜欢|感兴趣|想学|想练)/.test(text) ? direction : current;
 }
 
 function parseTeam(text: string, current?: string) {
   if (/没有队友|一个人|单人|独自/.test(text)) return '暂时单人';
-  const teamMatch = text.match(/([零〇一二两三四五六七八九十\d]+)\s*(?:个|名|位)?(?:[\u3400-\u9fff]{0,8})?(?:同学|队友|伙伴|人组队|人团队)/);
+  const numberPattern = '([零〇一二两三四五六七八九十\\d]+)';
+  const teammateMatch = text.match(new RegExp(`${numberPattern}\\s*(?:个|名|位)?(?:[\\u3400-\\u9fff]{0,8})?(?:同学|队友|伙伴)`));
+  const groupMatch = text.match(new RegExp(`${numberPattern}\\s*(?:个|名|位)?\\s*人(?:组队|团队|队伍|小组|组)?`));
+  const teamMatch = teammateMatch ?? groupMatch;
   if (!teamMatch) return current;
   const count = parseNaturalNumber(teamMatch[1]);
   return count ? `${count}名可协作同学` : current;
@@ -122,6 +144,7 @@ export function updateProfile(current: StudentProfile, text: string): StudentPro
     grade: gradeToken ? gradeMap[gradeToken] : current.grade,
     goal,
     foundation: inferFoundation(text, current.foundation),
+    interest: inferInterest(text, current.interest),
     weeklyHours: timeBudget?.weeklyHours ?? current.weeklyHours,
     weeklyHoursRange: timeBudget?.weeklyHoursRange ?? current.weeklyHoursRange,
     weeklyHoursLabel: timeBudget?.weeklyHoursLabel ?? current.weeklyHoursLabel,
@@ -136,7 +159,7 @@ export function missingRequiredFields(profile: StudentProfile) {
   const missing: string[] = [];
   if (!profile.grade) missing.push('年级');
   if (!profile.goal) missing.push('目标');
-  if (!profile.foundation) missing.push('最有基础的课程或项目');
+  if (!profile.foundation && !profile.interest) missing.push('最有基础或最感兴趣的课程、项目');
   if (!profile.weeklyHours) missing.push('每周可投入时间');
   return missing;
 }

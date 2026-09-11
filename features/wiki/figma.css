@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif+SC:wght@400;700&family=Inter:wght@400;500;600&family=Noto+Sans+SC:wght@400;500&family=Instrument+Serif&display=swap');
+@import 'tailwindcss';
+
+@font-face {
+  font-family: "Inter:Medium";
+  font-style: normal;
+  font-weight: 500;
+  src: url("https://static.figma.com/font/Inter_1") format("woff2");
+}
+
+@font-face {
+  font-family: "Cormorant Garamond:Bold Italic";
+  font-style: italic;
+  font-weight: 700;
+  src: url("https://static.figma.com/font/CormorantGaramond-Italic_wght__1") format("woff2");
+}
+
+@font-face {
+  font-family: "Instrument Serif:Regular";
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://static.figma.com/font/InstrumentSerif-Regular_1") format("woff2");
+}
+
+@theme {
+  --color-paper: #F2F0EA;
+  --color-ink: #171719;
+  --color-crimson: #B5262C;
+  --color-sky: #73BCE8;
+  --color-sky-bg: #B8D8EE;
+  --color-mint: #D8EAE3;
+  --color-indigo: #292844;
+  --color-amber: #F29A05;
+  --color-border: rgba(23, 23, 25, 0.16);
+  --color-border-strong: rgba(23, 23, 25, 0.32);
+  --radius-card: 24px;
+  --radius-ctrl: 12px;
+  --font-display: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  --font-serif: 'Noto Serif SC', 'Cormorant Garamond', serif;
+  --font-body: 'Inter', 'Noto Sans SC', sans-serif;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+/* Paper grain overlay */
+.paper-grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  mix-blend-mode: multiply;
+  z-index: 1;
+}
+
+/* Focus visible styles */
+:focus-visible {
+  outline: 2px solid var(--color-crimson);
+  outline-offset: 2px;
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: 3px;
+}
