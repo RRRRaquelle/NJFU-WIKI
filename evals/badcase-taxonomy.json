@@ -1,32 +1,173 @@
 {
   "schemaVersion": "1.0",
   "categories": [
-    { "code": "PROFILE_EXTRACTION", "stage": "understanding", "name": "用户画像抽取失败", "description": "用户已经提供信息，但系统没有正确写入画像字段。" },
-    { "code": "SEMANTIC_ALIAS", "stage": "understanding", "name": "同义表达未覆盖", "description": "课程、技术或目标的常见表达没有映射到标准字段。" },
-    { "code": "TEMPORAL_NORMALIZATION", "stage": "understanding", "name": "时间归一化失败", "description": "中文数字、区间、小数或每天到每周的换算错误。" },
-    { "code": "RELATION_EXTRACTION", "stage": "understanding", "name": "队伍关系抽取失败", "description": "人数、同学、队友或团队表达没有被识别。" },
-    { "code": "STATE_MEMORY", "stage": "dialogue", "name": "多轮状态丢失", "description": "前序轮次已经获得的信息没有在后续对话中保留。" },
-    { "code": "DIALOGUE_LOOP", "stage": "dialogue", "name": "重复追问", "description": "系统重复询问用户已经回答的问题。" },
-    { "code": "QUERY_REWRITE", "stage": "retrieval", "name": "检索词生成错误", "description": "用户问题没有被改写成适合知识库召回的查询。" },
-    { "code": "RETRIEVAL_MISS", "stage": "retrieval", "name": "关键资料未召回", "description": "前五条结果中没有出现人工标注的相关条目。" },
-    { "code": "RANKING_ERROR", "stage": "retrieval", "name": "相关资料排名过低", "description": "相关条目存在但被噪声条目挤出有效上下文。" },
-    { "code": "CONTEXT_NOISE", "stage": "retrieval", "name": "上下文噪声过多", "description": "交给生成模型的检索结果重复或无关。" },
-    { "code": "CROSS_KB_JOIN", "stage": "reasoning", "name": "双库组合失败", "description": "政策依据与学习资料没有被组合成同一个建议。" },
-    { "code": "HALLUCINATION", "stage": "generation", "name": "无依据生成", "description": "回答出现检索上下文无法支持的事实。" },
-    { "code": "PROFILE_FABRICATION", "stage": "generation", "name": "用户画像编造", "description": "回答把用户未提供的年级、目标、基础、时间或组队条件写成确定事实。" },
-    { "code": "ANSWER_INCOMPLETE", "stage": "generation", "name": "核心问题回答不完整", "description": "回答看似相关，但遗漏测试案例声明的核心必答项。" },
-    { "code": "CITATION_ERROR", "stage": "generation", "name": "引用错误", "description": "引用编号、资料名称或链接与实际证据不一致。" },
-    { "code": "DECISION_MISMATCH", "stage": "generation", "name": "推荐不适配", "description": "推荐没有考虑用户年级、基础、目标或时间。" },
-    { "code": "ACTIONABILITY", "stage": "generation", "name": "缺少可执行行动", "description": "回答没有给出明确且可开始的下一步。" },
-    { "code": "UNCERTAINTY_ERROR", "stage": "generation", "name": "不确定性表达错误", "description": "把历史规则、未知信息或待核验政策说成确定事实。" },
-    { "code": "MODEL_PROVIDER_UNAVAILABLE", "stage": "generation", "name": "模型服务暂时不可用", "description": "外部模型服务返回 500、502、503 或 504，导致生成阶段失败。" },
-    { "code": "GENERATION_RESILIENCE", "stage": "generation", "name": "生成容错不足", "description": "模型发生可重试错误时，系统没有重试、备用模型或清晰的降级说明。" },
-    { "code": "PREMATURE_EVIDENCE", "stage": "dialogue", "name": "过早展示检索依据", "description": "用户信息尚未补全、结论尚未形成时，界面展示了暂时召回且可能无关的依据卡片。" },
-    { "code": "UNFRIENDLY_RESOURCE_TITLE", "stage": "presentation", "name": "资料标题不可理解", "description": "直接向用户展示仓库原始文件名、章节序号或内部命名，无法说明资料用途。" },
-    { "code": "EVIDENCE_AFFORDANCE", "stage": "presentation", "name": "依据卡片交互含义不清", "description": "政策依据外观像可打开资料，但既无链接也无法查看摘要，用户无法核查其作用。" },
-    { "code": "NAVIGATION_DEAD_END", "stage": "interaction", "name": "页面缺少返回路径", "description": "用户进入搜索或详情状态后，无法直观返回上一级页面。" },
-    { "code": "SESSION_HISTORY_LOSS", "stage": "interaction", "name": "会话历史意外丢失", "description": "用户暂时离开 AI 页面后再次进入，历史消息与已抽取画像消失。" }
-    ,{ "code": "EVAL_JUDGE_FORMAT", "stage": "evaluation", "name": "裁判输出格式异常", "description": "裁判模型漏填指标或返回无法解析的结构，导致评测假失败或中断。" }
-    ,{ "code": "EVAL_JUDGE_REASONING", "stage": "evaluation", "name": "裁判推理错误", "description": "裁判模型出现明显算术、证据理解或自评偏差，导致错误归因。" }
+    {
+      "code": "PROFILE_EXTRACTION",
+      "stage": "understanding",
+      "name": "用户画像抽取失败",
+      "description": "用户已经提供信息，但系统没有正确写入画像字段。"
+    },
+    {
+      "code": "SEMANTIC_ALIAS",
+      "stage": "understanding",
+      "name": "同义表达未覆盖",
+      "description": "课程、技术或目标的常见表达没有映射到标准字段。"
+    },
+    {
+      "code": "TEMPORAL_NORMALIZATION",
+      "stage": "understanding",
+      "name": "时间归一化失败",
+      "description": "中文数字、区间、小数或每天到每周的换算错误。"
+    },
+    {
+      "code": "RELATION_EXTRACTION",
+      "stage": "understanding",
+      "name": "队伍关系抽取失败",
+      "description": "人数、同学、队友或团队表达没有被识别。"
+    },
+    {
+      "code": "STATE_MEMORY",
+      "stage": "dialogue",
+      "name": "多轮状态丢失",
+      "description": "前序轮次已经获得的信息没有在后续对话中保留。"
+    },
+    {
+      "code": "DIALOGUE_LOOP",
+      "stage": "dialogue",
+      "name": "重复追问",
+      "description": "系统重复询问用户已经回答的问题。"
+    },
+    {
+      "code": "CLARIFICATION_FRICTION",
+      "stage": "interaction",
+      "name": "信息补充交互成本过高",
+      "description": "系统要求用户用多轮自然语言重复补充固定字段，缺少低成本、可确认的结构化输入方式。"
+    },
+    {
+      "code": "QUERY_REWRITE",
+      "stage": "retrieval",
+      "name": "检索词生成错误",
+      "description": "用户问题没有被改写成适合知识库召回的查询。"
+    },
+    {
+      "code": "RETRIEVAL_MISS",
+      "stage": "retrieval",
+      "name": "关键资料未召回",
+      "description": "前五条结果中没有出现人工标注的相关条目。"
+    },
+    {
+      "code": "RANKING_ERROR",
+      "stage": "retrieval",
+      "name": "相关资料排名过低",
+      "description": "相关条目存在但被噪声条目挤出有效上下文。"
+    },
+    {
+      "code": "CONTEXT_NOISE",
+      "stage": "retrieval",
+      "name": "上下文噪声过多",
+      "description": "交给生成模型的检索结果重复或无关。"
+    },
+    {
+      "code": "CROSS_KB_JOIN",
+      "stage": "reasoning",
+      "name": "双库组合失败",
+      "description": "政策依据与学习资料没有被组合成同一个建议。"
+    },
+    {
+      "code": "HALLUCINATION",
+      "stage": "generation",
+      "name": "无依据生成",
+      "description": "回答出现检索上下文无法支持的事实。"
+    },
+    {
+      "code": "PROFILE_FABRICATION",
+      "stage": "generation",
+      "name": "用户画像编造",
+      "description": "回答把用户未提供的年级、目标、基础、时间或组队条件写成确定事实。"
+    },
+    {
+      "code": "ANSWER_INCOMPLETE",
+      "stage": "generation",
+      "name": "核心问题回答不完整",
+      "description": "回答看似相关，但遗漏测试案例声明的核心必答项。"
+    },
+    {
+      "code": "CITATION_ERROR",
+      "stage": "generation",
+      "name": "引用错误",
+      "description": "引用编号、资料名称或链接与实际证据不一致。"
+    },
+    {
+      "code": "DECISION_MISMATCH",
+      "stage": "generation",
+      "name": "推荐不适配",
+      "description": "推荐没有考虑用户年级、基础、目标或时间。"
+    },
+    {
+      "code": "ACTIONABILITY",
+      "stage": "generation",
+      "name": "缺少可执行行动",
+      "description": "回答没有给出明确且可开始的下一步。"
+    },
+    {
+      "code": "UNCERTAINTY_ERROR",
+      "stage": "generation",
+      "name": "不确定性表达错误",
+      "description": "把历史规则、未知信息或待核验政策说成确定事实。"
+    },
+    {
+      "code": "MODEL_PROVIDER_UNAVAILABLE",
+      "stage": "generation",
+      "name": "模型服务暂时不可用",
+      "description": "外部模型服务返回 500、502、503 或 504，导致生成阶段失败。"
+    },
+    {
+      "code": "GENERATION_RESILIENCE",
+      "stage": "generation",
+      "name": "生成容错不足",
+      "description": "模型发生可重试错误时，系统没有重试、备用模型或清晰的降级说明。"
+    },
+    {
+      "code": "PREMATURE_EVIDENCE",
+      "stage": "dialogue",
+      "name": "过早展示检索依据",
+      "description": "用户信息尚未补全、结论尚未形成时，界面展示了暂时召回且可能无关的依据卡片。"
+    },
+    {
+      "code": "UNFRIENDLY_RESOURCE_TITLE",
+      "stage": "presentation",
+      "name": "资料标题不可理解",
+      "description": "直接向用户展示仓库原始文件名、章节序号或内部命名，无法说明资料用途。"
+    },
+    {
+      "code": "EVIDENCE_AFFORDANCE",
+      "stage": "presentation",
+      "name": "依据卡片交互含义不清",
+      "description": "政策依据外观像可打开资料，但既无链接也无法查看摘要，用户无法核查其作用。"
+    },
+    {
+      "code": "NAVIGATION_DEAD_END",
+      "stage": "interaction",
+      "name": "页面缺少返回路径",
+      "description": "用户进入搜索或详情状态后，无法直观返回上一级页面。"
+    },
+    {
+      "code": "SESSION_HISTORY_LOSS",
+      "stage": "interaction",
+      "name": "会话历史意外丢失",
+      "description": "用户暂时离开 AI 页面后再次进入，历史消息与已抽取画像消失。"
+    },
+    {
+      "code": "EVAL_JUDGE_FORMAT",
+      "stage": "evaluation",
+      "name": "裁判输出格式异常",
+      "description": "裁判模型漏填指标或返回无法解析的结构，导致评测假失败或中断。"
+    },
+    {
+      "code": "EVAL_JUDGE_REASONING",
+      "stage": "evaluation",
+      "name": "裁判推理错误",
+      "description": "裁判模型出现明显算术、证据理解或自评偏差，导致错误归因。"
+    }
   ]
 }
